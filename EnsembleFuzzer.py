@@ -33,7 +33,7 @@ def initRadamsa(ensemble_fuzzer_obj):
         fuzz_val = subprocess.run("echo {} | radamsa -s {}".format(
             packet, fuzz_obj.seed), shell=True, stdout=subprocess.PIPE).stdout
         fuzz_me.process(fuzz_val)
-        return fuzz_me.verify_state()
+        return (fuzz_val, fuzz_me.verify_state())
 
     ensemble_fuzzer_obj.fuzzers.append(
         Fuzzer.fuzzer("radamsa", ensemble_fuzzer_obj.seed, fuzz))
@@ -142,7 +142,7 @@ def initBlab(ensemble_fuzzer_obj):
                                                           packet_grammar), shell=True, stdout=subprocess.PIPE).stdout
         packet = packet + action
         fuzz_me.process(packet)
-        return fuzz_me.verify_state()
+        return (packet, fuzz_me.verify_state())
 
     ensemble_fuzzer_obj.fuzzers.append(Fuzzer.fuzzer("blab", ensemble_fuzzer_obj.seed, fuzz))
 
@@ -184,14 +184,12 @@ class Fuzzer:
 
     def Fuzz(self):
         states = {}
+        states["seed"] = self.seed
         for f in self.fuzzers:
             states[f.name] = f.fuzz_method(f)
         self.UpdateSeed()
         # report fuzzer success (to a log file preferably)
-        for key, val in states:
-            if val is False:
-                return (self.seed, states)
-        return None
+        return states
         
 
     def FuzzTimed(self, fuzz_time):  # fuzz_time is in seconds

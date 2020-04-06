@@ -114,12 +114,13 @@ def fuzz_thread_func(dom, target, seed, fuzztime, fuzzers):
         if keep_fuzzing == False:
             break
         try:
-            seed_out, states = fuzzer.Fuzz()
-            print(str(seed_out) + ": " + str(states))
-            if seed_out != None:
-                successful_seeds = successful_seeds + "\n" + str(seed_out)
-                fuzzingStatus = "Fuzzing target: {}".format(target + successful_seeds)
-                dom.setContent("fuzzStatus", fuzzingStatus)
+            states = fuzzer.Fuzz()
+            for fuzz_name in fuzzers:
+                packet, state = states[fuzz_name]
+                if state == True:
+                    successful_seeds = successful_seeds + "\n{}:{}".format(fuzz_name, str(states["seed"]))
+                    fuzzingStatus = "Fuzzing target: {}".format(target + successful_seeds)
+                    dom.setContent("fuzzStatus", fuzzingStatus)
         except:
             continue
     fuzzingStatus = "Finished fuzzing {}".format(target + successful_seeds)
