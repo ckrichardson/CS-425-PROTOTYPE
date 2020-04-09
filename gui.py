@@ -3,12 +3,13 @@
 #modules should also expose a dictionary mapping buttons from their html to code within their module
 import atlastk as Atlas
 from fuzzerGUI import generateFuzzerBody, fuzzerCallbacks
+from BMNetGenGUI import generateNetworkBody, networkCallbacks
 
+# Justin commented below two lines out because he is adding his GUI
+#def generateNetworkBody():
+#    return ""
 
-def generateNetworkBody():
-    return ""
-
-networkCallbacks = {}
+# networkCallbacks = {}
 
 def generateIDAttrBody():
     return ""
@@ -17,6 +18,7 @@ idattrCallbacks = {}
 
 main_page = """
 <div align="center">
+    Main Tools
     <button data-xdh-onevent="loadNetwork">Network Analysis</button><button data-xdh-onevent="loadFuzzer">Fuzzer</button><button data-xdh-onevent="loadIDAttr">IDAttr</button><br><br>
     {}
 </div>"""
@@ -37,6 +39,9 @@ callbacks = {
   "loadIDAttr": acIDAttr,
 }
 
+# Justin commented the callback lines out
+# because he gets a syntax error and didn't bother checking why
+# what an idiot
 callbacks = {**callbacks, **fuzzerCallbacks}
 callbacks = {**callbacks, **networkCallbacks}
 callbacks = {**callbacks, **idattrCallbacks}
