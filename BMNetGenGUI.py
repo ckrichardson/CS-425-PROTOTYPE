@@ -28,7 +28,7 @@ def generateNetworkBody():
     return body
 
 def acNetworkStart(dom):
-    BMNetGen.generateTopo()
+    generateTopo()
 
 def acNetworkBench(dom):
     pass
