@@ -39,11 +39,13 @@ callbacks = {
   "loadIDAttr": acIDAttr,
 }
 
-# Justin commented the callback lines out
-# because he gets a syntax error and didn't bother checking why
-# what an idiot
-callbacks = {**callbacks, **fuzzerCallbacks}
-callbacks = {**callbacks, **networkCallbacks}
-callbacks = {**callbacks, **idattrCallbacks}
+for key, val in fuzzerCallbacks.items():
+    callbacks[key] = val
+
+for key, val in networkCallbacks.items():
+    callbacks[key] = val
+
+for key, val in idattrCallbacks.items():
+    callbacks[key] = val
 
 Atlas.launch(callbacks)

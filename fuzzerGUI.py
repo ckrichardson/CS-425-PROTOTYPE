@@ -95,7 +95,7 @@ def acCancelFuzzer(dom):
     if fuzz_thread is not None:
         fuzz_thread.join()
     fuzz_thread = None
-    
+
 def fuzz_thread_func(dom, target, seed, fuzztime, fuzzers):
     successful_seeds = ""
     dom.enableElement("fuzzCancelButton")
@@ -117,7 +117,7 @@ def fuzz_thread_func(dom, target, seed, fuzztime, fuzzers):
             states = fuzzer.Fuzz()
             for fuzz_name in fuzzers:
                 packet, state = states[fuzz_name]
-                if state == True:
+                if state == False:
                     successful_seeds = successful_seeds + "\n{}:{}".format(fuzz_name, str(states["seed"]))
                     fuzzingStatus = "Fuzzing target: {}".format(target + successful_seeds)
                     dom.setContent("fuzzStatus", fuzzingStatus)
@@ -135,7 +135,7 @@ def acStartFuzzer(dom):
     global targetSelection
     targetSelection = dom.getContent("ip")
     print("Fuzzing target: {}".format(targetSelection))
-    global fuzzSeedText 
+    global fuzzSeedText
     fuzzSeedText = dom.getContent("seed")
     if fuzzSeedText == "":
         fuzzSeedText = "0"
@@ -157,8 +157,8 @@ def acStartFuzzer(dom):
     global fuzz_thread
     fuzz_thread = threading.Thread(target=fuzz_thread_func, args=(dom, targetSelection, seed, fuzztime, selectedFuzzers))
     fuzz_thread.start()
-    
-    
+
+
 
 fuzzerCallbacks = {
   "startFuzzer": acStartFuzzer,
