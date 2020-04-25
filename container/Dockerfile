@@ -14,7 +14,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     iputils-ping \
     net-tools \
     openvswitch-switch \
-    openvswitch-controller \
     openvswitch-common \
     tcpdump \
     vim \
