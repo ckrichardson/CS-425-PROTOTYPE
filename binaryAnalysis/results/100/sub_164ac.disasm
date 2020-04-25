@@ -1,0 +1,154 @@
+                        0x000164ac      0dc0a0e1       mov ip, sp
+            0x000164b0      00582de9       push {fp, ip, lr}
+            0x000164b4      0cb0a0e1       mov fp, ip
+            0x000164b8      0000a0e1       mov r0, r0
+            0x000164bc      44829fe5       ldr r8, [0x00016708]        ; [0x16708:4]=0x6ae4
+            0x000164c0      f000d8e1       ldrsh r0, [r8]
+            0x000164c4      38129fe5       ldr r1, [0x00016704]        ; [0x16704:4]=0xfffffcee
+            0x000164c8      f11098e1       ldrsh r1, [r8, r1]
+            0x000164cc      010050e1       cmp r0, r1
+            0x000164d0      0100a003       moveq r0, 1
+            0x000164d4      0000a013       movne r0, 0
+            0x000164d8      0000a0e1       mov r0, r0
+            0x000164dc      0000a0e1       mov r0, r0
+            0x000164e0      000050e3       cmp r0, 0
+        ,=< 0x000164e4      7900001a       bne 0x166d0
+        |   0x000164e8      0000a0e1       mov r0, r0
+        |   0x000164ec      0000a0e1       mov r0, r0
+        |   0x000164f0      10829fe5       ldr r8, [0x00016708]        ; [0x16708:4]=0x6ae4
+        |   0x000164f4      f000d8e1       ldrsh r0, [r8]
+        |   0x000164f8      0000a0e1       mov r0, r0
+        |   0x000164fc      00129fe5       ldr r1, [0x00016704]        ; [0x16704:4]=0xfffffcee
+        |   0x00016500      b10088e1       strh r0, [r8, r1]
+        |   0x00016504      0000a0e1       mov r0, r0
+        |   0x00016508      f4019fe5       ldr r0, [0x00016704]        ; [0x16704:4]=0xfffffcee
+        |   0x0001650c      f00098e1       ldrsh r0, [r8, r0]
+        |   0x00016510      e8819fe5       ldr r8, [0x00016700]        ; [0x16700:4]=0x3044
+        |   0x00016514      f010d8e1       ldrsh r1, [r8]
+        |   0x00016518      010050e1       cmp r0, r1
+        |   0x0001651c      0100a013       movne r0, 1
+        |   0x00016520      0000a003       moveq r0, 0
+        |   0x00016524      0000a0e1       mov r0, r0
+        |   0x00016528      000050e3       cmp r0, 0
+       ,==< 0x0001652c      4300001a       bne 0x16640
+       ||   0x00016530      0000a0e1       mov r0, r0
+       ||   0x00016534      0000a0e1       mov r0, r0
+       ||   0x00016538      bc819fe5       ldr r8, [0x000166fc]        ; [0x166fc:4]=0x67e4
+       ||   0x0001653c      0800a0e1       mov r0, r8
+       ||   0x00016540      0000a0e1       mov r0, r0
+       ||   0x00016544      2c0188e5       str r0, [r8, 0x12c]
+       ||   0x00016548      0000a0e1       mov r0, r0
+       ||   0x0001654c      a4319fe5       ldr r3, [0x000166f8]        ; [0x166f8:4]=300
+       ||   0x00016550      032088e0       add r2, r8, r3
+       ||   0x00016554      0210a0e1       mov r1, r2
+       ||   0x00016558      0120a0e3       mov r2, 1
+       ||   0x0001655c      0200a0e1       mov r0, r2
+       ||   0x00016560      04902de5       str sb, [sp, -4]!
+       ||   0x00016564      04802de5       str r8, [sp, -4]!
+       ||   0x00016568      04e02de5       str lr, [sp, -4]!
+       ||   0x0001656c      80819fe5       ldr r8, [0x000166f4]        ; [0x166f4:4]=364
+       ||   0x00016570      008098e5       ldr r8, [r8]
+       ||   0x00016574      0fe0a0e1       mov lr, pc
+       ||   0x00016578      08f0a0e1       mov pc, r8                  ; call to SET_FLASHING_SEQUENCE
+       ||   0x0001657c      0000a0e1       mov r0, r0
+       ||   0x00016580      04e09de4       pop {lr}
+       ||   0x00016584      04809de4       pop {r8}
+       ||   0x00016588      04909de4       pop {sb}
+       ||   0x0001658c      00d08de2       add sp, sp, 0
+       ||   0x00016590      0000a0e1       mov r0, r0
+       ||   0x00016594      04002de5       str r0, [sp, -4]!
+       ||   0x00016598      0000a0e1       mov r0, r0
+       ||   0x0001659c      0130a0e3       mov r3, 1
+       ||   0x000165a0      0320a0e1       mov r2, r3
+       ||   0x000165a4      0030a0e3       mov r3, 0
+       ||   0x000165a8      0310a0e1       mov r1, r3
+       ||   0x000165ac      0130a0e3       mov r3, 1
+       ||   0x000165b0      0300a0e1       mov r0, r3
+       ||   0x000165b4      04902de5       str sb, [sp, -4]!
+       ||   0x000165b8      04802de5       str r8, [sp, -4]!
+       ||   0x000165bc      04e02de5       str lr, [sp, -4]!
+       ||   0x000165c0      28819fe5       ldr r8, [0x000166f0]        ; [0x166f0:4]=368
+       ||   0x000165c4      008098e5       ldr r8, [r8]
+       ||   0x000165c8      0fe0a0e1       mov lr, pc
+       ||   0x000165cc      08f0a0e1       mov pc, r8                  ; call to SET_FLASHING_SEQUENCE_INDEX
+       ||   0x000165d0      0000a0e1       mov r0, r0
+       ||   0x000165d4      04e09de4       pop {lr}
+       ||   0x000165d8      04809de4       pop {r8}
+       ||   0x000165dc      04909de4       pop {sb}
+       ||   0x000165e0      00d08de2       add sp, sp, 0
+       ||   0x000165e4      0010a0e1       mov r1, r0
+       ||   0x000165e8      04009de4       pop {r0}
+       ||   0x000165ec      0000a0e1       mov r0, r0
+       ||   0x000165f0      04002de5       str r0, [sp, -4]!
+       ||   0x000165f4      0000a0e1       mov r0, r0
+       ||   0x000165f8      0120a0e3       mov r2, 1
+       ||   0x000165fc      0200a0e1       mov r0, r2
+       ||   0x00016600      04902de5       str sb, [sp, -4]!
+       ||   0x00016604      04802de5       str r8, [sp, -4]!
+       ||   0x00016608      04e02de5       str lr, [sp, -4]!
+       ||   0x0001660c      d8809fe5       ldr r8, [0x000166ec]        ; [0x166ec:4]=372
+       ||   0x00016610      008098e5       ldr r8, [r8]
+       ||   0x00016614      0fe0a0e1       mov lr, pc
+       ||   0x00016618      08f0a0e1       mov pc, r8                  ; call to START_FLASHING_SEQUENCE
+       ||   0x0001661c      0000a0e1       mov r0, r0
+       ||   0x00016620      04e09de4       pop {lr}
+       ||   0x00016624      04809de4       pop {r8}
+       ||   0x00016628      04909de4       pop {sb}
+       ||   0x0001662c      00d08de2       add sp, sp, 0
+       ||   0x00016630      0010a0e1       mov r1, r0
+       ||   0x00016634      04009de4       pop {r0}
+      ,===< 0x00016638      230000ea       b 0x166cc
+      |||   0x0001663c      0000a0e1       mov r0, r0
+      |`--> 0x00016640      0000a0e1       mov r0, r0
+      | |   0x00016644      0000a0e1       mov r0, r0
+      | |   0x00016648      98809fe5       ldr r8, [0x000166e8]        ; [0x166e8:4]=0x67d2
+      | |   0x0001664c      f000d8e1       ldrsh r0, [r8]
+      | |   0x00016650      8c809fe5       ldr r8, [0x000166e4]        ; [0x166e4:4]=0x304c
+      | |   0x00016654      f010d8e1       ldrsh r1, [r8]
+      | |   0x00016658      010050e1       cmp r0, r1
+      | |   0x0001665c      0100a013       movne r0, 1
+      | |   0x00016660      0000a003       moveq r0, 0
+      | |   0x00016664      0000a0e1       mov r0, r0
+      | |   0x00016668      000050e3       cmp r0, 0
+      |,==< 0x0001666c      1500001a       bne 0x166c8
+      |||   0x00016670      0000a0e1       mov r0, r0
+      |||   0x00016674      0000a0e1       mov r0, r0
+      |||   0x00016678      0030a0e3       mov r3, 0
+      |||   0x0001667c      0320a0e1       mov r2, r3
+      |||   0x00016680      0130a0e3       mov r3, 1
+      |||   0x00016684      0310a0e1       mov r1, r3
+      |||   0x00016688      0130a0e3       mov r3, 1
+      |||   0x0001668c      0300a0e1       mov r0, r3
+      |||   0x00016690      04902de5       str sb, [sp, -4]!
+      |||   0x00016694      04802de5       str r8, [sp, -4]!
+      |||   0x00016698      04e02de5       str lr, [sp, -4]!
+      |||   0x0001669c      4c809fe5       ldr r8, [0x000166f0]        ; [0x166f0:4]=368
+      |||   0x000166a0      008098e5       ldr r8, [r8]
+      |||   0x000166a4      0fe0a0e1       mov lr, pc
+      |||   0x000166a8      08f0a0e1       mov pc, r8                  ; call to SET_FLASHING_SEQUENCE_INDEX
+      |||   0x000166ac      0000a0e1       mov r0, r0
+      |||   0x000166b0      04e09de4       pop {lr}
+      |||   0x000166b4      04809de4       pop {r8}
+      |||   0x000166b8      04909de4       pop {sb}
+      |||   0x000166bc      00d08de2       add sp, sp, 0
+     ,====< 0x000166c0      010000ea       b 0x166cc
+     ||||   0x000166c4      0000a0e1       mov r0, r0
+     ||`--> 0x000166c8      0000a0e1       mov r0, r0
+     ``---> 0x000166cc      0000a0e1       mov r0, r0
+        `-> 0x000166d0      0000a0e1       mov r0, r0
+            0x000166d4      0000a0e1       mov r0, r0
+            0x000166d8      0000a0e1       mov r0, r0
+            0x000166dc      0000a0e1       mov r0, r0
+            0x000166e0      00a81be9       ldmdb fp, {fp, sp, pc}
+
+            0x000166e4      0000304c       0000304c  L0.. ascii
+            0x000166e8      000067d2       000067d2  .g..
+            0x000166ec      00000174       00000174  t...
+            0x000166f0      00000170       00000170  p...
+            0x000166f4      0000016c       0000016c  l...
+            0x000166f8      0000012c       0000012c  ,...
+            0x000166fc      000067e4       000067e4  .g..
+            0x00016700      00003044       00003044  D0.. ascii (ai)
+            0x00016704      fffffcee       fffffcee  ....
+            0x00016708      00006ae4       00006ae4  .j..
+                       

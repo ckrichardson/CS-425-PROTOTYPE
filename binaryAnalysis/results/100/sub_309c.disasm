@@ -1,0 +1,12 @@
+                        0x0000309c      0dc0a0e1       mov ip, sp
+            0x000030a0      00582de9       push {fp, ip, lr}
+            0x000030a4      0cb0a0e1       mov fp, ip
+            0x000030a8      04102de5       str r1, [sp, -4]!
+            0x000030ac      0c109fe5       ldr r1, [0x000030c0]        ; [0x30c0:4]=0x2000
+            0x000030b0      0021a0e1       lsl r2, r0, 2
+            0x000030b4      020091e7       ldr r0, [r1, r2]
+            0x000030b8      04109de4       pop {r1}
+            0x000030bc      00a81be9       ldmdb fp, {fp, sp, pc}
+
+            0x000030c0      00002000       00002000  . .. ascii
+                       

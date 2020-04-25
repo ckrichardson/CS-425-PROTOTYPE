@@ -1,0 +1,166 @@
+                        0x00011db0      0dc0a0e1       mov ip, sp
+            0x00011db4      00582de9       push {fp, ip, lr}
+            0x00011db8      0cb0a0e1       mov fp, ip
+            0x00011dbc      78029fe5       ldr r0, [0x0001203c]        ; [0x1203c:4]=0x2334
+            0x00011dc0      001090e5       ldr r1, [r0]
+            0x00011dc4      04102de5       str r1, [sp, -4]!
+            0x00011dc8      009080e5       str sb, [r0]
+            0x00011dcc      0000a0e3       mov r0, 0
+            0x00011dd0      b000c9e1       strh r0, [sb]
+            0x00011dd4      0000a0e3       mov r0, 0
+            0x00011dd8      b001c9e1       strh r0, [sb, 0x10]
+            0x00011ddc      0000a0e1       mov r0, r0
+            0x00011de0      0000a0e3       mov r0, 0
+            0x00011de4      0000a0e1       mov r0, r0
+            0x00011de8      b000c9e1       strh r0, [sb]
+        .-> 0x00011dec      0000a0e1       mov r0, r0
+        :   0x00011df0      0000a0e1       mov r0, r0
+        :   0x00011df4      b800d9e1       ldrh r0, [sb, 8]
+        :   0x00011df8      000050e3       cmp r0, 0
+        :   0x00011dfc      0100a093       movls r0, 1
+        :   0x00011e00      0000a083       movhi r0, 0
+        :   0x00011e04      0000a0e1       mov r0, r0
+        :   0x00011e08      0000a0e1       mov r0, r0
+        :   0x00011e0c      000050e3       cmp r0, 0
+       ,==< 0x00011e10      7d00001a       bne 0x1200c
+       |:   0x00011e14      0000a0e1       mov r0, r0
+       |:   0x00011e18      0000a0e1       mov r0, r0
+       |:   0x00011e1c      040099e5       ldr r0, [sb, 4]
+       |:   0x00011e20      0000d0e5       ldrb r0, [r0]
+       |:   0x00011e24      1010a0e3       mov r1, 0x10
+       |:   0x00011e28      04102de5       str r1, [sp, -4]!
+       |:   0x00011e2c      04902de5       str sb, [sp, -4]!
+       |:   0x00011e30      04802de5       str r8, [sp, -4]!
+       |:   0x00011e34      04e02de5       str lr, [sp, -4]!
+       |:   0x00011e38      f8819fe5       ldr r8, [0x00012038]        ; [0x12038:4]=0x534
+       |:   0x00011e3c      008098e5       ldr r8, [r8]
+       |:   0x00011e40      0fe0a0e1       mov lr, pc
+       |:   0x00011e44      08f0a0e1       mov pc, r8                  ; call to unsigned_div
+       |:   0x00011e48      0000a0e1       mov r0, r0
+       |:   0x00011e4c      04e09de4       pop {lr}
+       |:   0x00011e50      04809de4       pop {r8}
+       |:   0x00011e54      04909de4       pop {sb}
+       |:   0x00011e58      04109de4       pop {r1}
+       |:   0x00011e5c      300080e2       add r0, r0, 0x30
+       |:   0x00011e60      041099e5       ldr r1, [sb, 4]
+       |:   0x00011e64      0010d1e5       ldrb r1, [r1]
+       |:   0x00011e68      1020a0e3       mov r2, 0x10
+       |:   0x00011e6c      04002de5       str r0, [sp, -4]!
+       |:   0x00011e70      0100a0e1       mov r0, r1
+       |:   0x00011e74      0210a0e1       mov r1, r2
+       |:   0x00011e78      04202de5       str r2, [sp, -4]!
+       |:   0x00011e7c      04902de5       str sb, [sp, -4]!
+       |:   0x00011e80      04802de5       str r8, [sp, -4]!
+       |:   0x00011e84      04e02de5       str lr, [sp, -4]!
+       |:   0x00011e88      a8819fe5       ldr r8, [0x00012038]        ; [0x12038:4]=0x534
+       |:   0x00011e8c      008098e5       ldr r8, [r8]
+       |:   0x00011e90      0fe0a0e1       mov lr, pc
+       |:   0x00011e94      08f0a0e1       mov pc, r8                  ; call to unsigned_div
+       |:   0x00011e98      0000a0e1       mov r0, r0
+       |:   0x00011e9c      04e09de4       pop {lr}
+       |:   0x00011ea0      04809de4       pop {r8}
+       |:   0x00011ea4      04909de4       pop {sb}
+       |:   0x00011ea8      0010a0e1       mov r1, r0
+       |:   0x00011eac      04209de4       pop {r2}
+       |:   0x00011eb0      04009de4       pop {r0}
+       |:   0x00011eb4      0a20a0e3       mov r2, 0xa
+       |:   0x00011eb8      04002de5       str r0, [sp, -4]!
+       |:   0x00011ebc      0100a0e1       mov r0, r1
+       |:   0x00011ec0      0210a0e1       mov r1, r2
+       |:   0x00011ec4      04202de5       str r2, [sp, -4]!
+       |:   0x00011ec8      04902de5       str sb, [sp, -4]!
+       |:   0x00011ecc      04802de5       str r8, [sp, -4]!
+       |:   0x00011ed0      04e02de5       str lr, [sp, -4]!
+       |:   0x00011ed4      5c819fe5       ldr r8, [0x00012038]        ; [0x12038:4]=0x534
+       |:   0x00011ed8      008098e5       ldr r8, [r8]
+       |:   0x00011edc      0fe0a0e1       mov lr, pc
+       |:   0x00011ee0      08f0a0e1       mov pc, r8                  ; call to unsigned_div
+       |:   0x00011ee4      0000a0e1       mov r0, r0
+       |:   0x00011ee8      04e09de4       pop {lr}
+       |:   0x00011eec      04809de4       pop {r8}
+       |:   0x00011ef0      04909de4       pop {sb}
+       |:   0x00011ef4      0010a0e1       mov r1, r0
+       |:   0x00011ef8      04209de4       pop {r2}
+       |:   0x00011efc      04009de4       pop {r0}
+       |:   0x00011f00      0720a0e3       mov r2, 7
+       |:   0x00011f04      910201e0       mul r1, r1, r2
+       |:   0x00011f08      010080e0       add r0, r0, r1
+       |:   0x00011f0c      0000a0e1       mov r0, r0
+       |:   0x00011f10      0c1099e5       ldr r1, [sb, 0xc]
+       |:   0x00011f14      0000c1e5       strb r0, [r1]
+       |:   0x00011f18      0000a0e1       mov r0, r0
+       |:   0x00011f1c      0c0099e5       ldr r0, [sb, 0xc]
+       |:   0x00011f20      010080e2       add r0, r0, 1
+       |:   0x00011f24      0000a0e1       mov r0, r0
+       |:   0x00011f28      0c0089e5       str r0, [sb, 0xc]
+       |:   0x00011f2c      0000a0e1       mov r0, r0
+       |:   0x00011f30      040099e5       ldr r0, [sb, 4]
+       |:   0x00011f34      0000d0e5       ldrb r0, [r0]
+       |:   0x00011f38      0f0000e2       and r0, r0, 0xf
+       |:   0x00011f3c      300080e2       add r0, r0, 0x30
+       |:   0x00011f40      041099e5       ldr r1, [sb, 4]
+       |:   0x00011f44      0010d1e5       ldrb r1, [r1]
+       |:   0x00011f48      0f1001e2       and r1, r1, 0xf
+       |:   0x00011f4c      0a20a0e3       mov r2, 0xa
+       |:   0x00011f50      04002de5       str r0, [sp, -4]!
+       |:   0x00011f54      0100a0e1       mov r0, r1
+       |:   0x00011f58      0210a0e1       mov r1, r2
+       |:   0x00011f5c      04202de5       str r2, [sp, -4]!
+       |:   0x00011f60      04902de5       str sb, [sp, -4]!
+       |:   0x00011f64      04802de5       str r8, [sp, -4]!
+       |:   0x00011f68      04e02de5       str lr, [sp, -4]!
+       |:   0x00011f6c      c4809fe5       ldr r8, [0x00012038]        ; [0x12038:4]=0x534
+       |:   0x00011f70      008098e5       ldr r8, [r8]
+       |:   0x00011f74      0fe0a0e1       mov lr, pc
+       |:   0x00011f78      08f0a0e1       mov pc, r8                  ; call to unsigned_div
+       |:   0x00011f7c      0000a0e1       mov r0, r0
+       |:   0x00011f80      04e09de4       pop {lr}
+       |:   0x00011f84      04809de4       pop {r8}
+       |:   0x00011f88      04909de4       pop {sb}
+       |:   0x00011f8c      0010a0e1       mov r1, r0
+       |:   0x00011f90      04209de4       pop {r2}
+       |:   0x00011f94      04009de4       pop {r0}
+       |:   0x00011f98      0720a0e3       mov r2, 7
+       |:   0x00011f9c      910201e0       mul r1, r1, r2
+       |:   0x00011fa0      010080e0       add r0, r0, r1
+       |:   0x00011fa4      0000a0e1       mov r0, r0
+       |:   0x00011fa8      0c1099e5       ldr r1, [sb, 0xc]
+       |:   0x00011fac      0000c1e5       strb r0, [r1]
+       |:   0x00011fb0      0000a0e1       mov r0, r0
+       |:   0x00011fb4      0c0099e5       ldr r0, [sb, 0xc]
+       |:   0x00011fb8      010080e2       add r0, r0, 1
+       |:   0x00011fbc      0000a0e1       mov r0, r0
+       |:   0x00011fc0      0c0089e5       str r0, [sb, 0xc]
+       |:   0x00011fc4      0000a0e1       mov r0, r0
+       |:   0x00011fc8      040099e5       ldr r0, [sb, 4]
+       |:   0x00011fcc      010080e2       add r0, r0, 1
+       |:   0x00011fd0      0000a0e1       mov r0, r0
+       |:   0x00011fd4      040089e5       str r0, [sb, 4]
+       |:   0x00011fd8      0000a0e1       mov r0, r0
+       |:   0x00011fdc      b800d9e1       ldrh r0, [sb, 8]
+       |:   0x00011fe0      010040e2       sub r0, r0, 1
+       |:   0x00011fe4      0000a0e1       mov r0, r0
+       |:   0x00011fe8      b800c9e1       strh r0, [sb, 8]
+       |:   0x00011fec      0000a0e1       mov r0, r0
+       |:   0x00011ff0      b000d9e1       ldrh r0, [sb]
+       |:   0x00011ff4      020080e2       add r0, r0, 2
+       |:   0x00011ff8      0000a0e1       mov r0, r0
+       |:   0x00011ffc      b000c9e1       strh r0, [sb]
+       |:   0x00012000      0000a0e1       mov r0, r0
+       |`=< 0x00012004      78ffffea       b 0x11dec
+       |    0x00012008      0000a0e1       mov r0, r0
+       `--> 0x0001200c      0000a0e1       mov r0, r0
+            0x00012010      0000a0e1       mov r0, r0
+            0x00012014      b000d9e1       ldrh r0, [sb]
+            0x00012018      0000a0e1       mov r0, r0
+            0x0001201c      b001c9e1       strh r0, [sb, 0x10]
+            0x00012020      0000a0e1       mov r0, r0
+            0x00012024      0000a0e1       mov r0, r0
+            0x00012028      0c109fe5       ldr r1, [0x0001203c]        ; [0x1203c:4]=0x2334
+            0x0001202c      04009de4       pop {r0}
+            0x00012030      000081e5       str r0, [r1]
+            0x00012034      00a81be9       ldmdb fp, {fp, sp, pc}
+
+            0x00012038      00000534       00000534  4...
+            0x0001203c      00002334       00002334  4#.. ascii
+                       

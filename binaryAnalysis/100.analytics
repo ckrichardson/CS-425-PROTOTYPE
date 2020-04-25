@@ -1,0 +1,316 @@
+sub_50 --|12|--> sub_108b0 <=> a855dd75fa924fc403aa8f4c9f9dae23f2bd293af56b06fe82269e301e0a6b97 --|12|--> 9972c27e84b19ba32a68acd6dc937fcfe3a719b76ab9b6106304d04a6fa619a5
+sub_50 --|1|--> sub_16268 <=> a855dd75fa924fc403aa8f4c9f9dae23f2bd293af56b06fe82269e301e0a6b97 --|1|--> 5cf76772722fe18fa2da430f87a3260b8f126d1705a6d234f46821268781263a
+sub_50 --|1|--> sub_16a7c <=> a855dd75fa924fc403aa8f4c9f9dae23f2bd293af56b06fe82269e301e0a6b97 --|1|--> 0481c004da58a327dabd68388f03aeab9eed5a86fe02ce27e3499ee9e32ebf73
+sub_50 --|1|--> sub_30dc <=> a855dd75fa924fc403aa8f4c9f9dae23f2bd293af56b06fe82269e301e0a6b97 --|1|--> 583d7529a5b4b451a80c1a0c19619bad59f532ac61f26f44b687d13907828c57
+sub_50 --|2|--> sub_9114 <=> a855dd75fa924fc403aa8f4c9f9dae23f2bd293af56b06fe82269e301e0a6b97 --|2|--> 00e4661aaf4d67b6f05171766811ce004b140aea9d0d2c2715f4539e1792cdbb
+sub_50 --|1|--> sub_14d28 <=> a855dd75fa924fc403aa8f4c9f9dae23f2bd293af56b06fe82269e301e0a6b97 --|1|--> 8ca9a81fe9f4942654569b062c59b4367dff0ba0f4247c6249ecd0b3f1f6d21e
+sub_50 --|25|--> FLASHING_SEQUENCEinit
+sub_50 --|3|--> TONinit
+sub_50 --|1|--> sub_1670c <=> a855dd75fa924fc403aa8f4c9f9dae23f2bd293af56b06fe82269e301e0a6b97 --|1|--> 284eb48dc4aeb7aa4d769aab5bf0377833b50b1cee1f0b3e3cbc1ea52f6b4c4c
+sub_50 --|2|--> sub_d3e4 <=> a855dd75fa924fc403aa8f4c9f9dae23f2bd293af56b06fe82269e301e0a6b97 --|2|--> 92cdb672aaeb205b8ec169a5218bfed2889a2d534c1369fc1ab3752cb30be22d
+
+sub_30dc --|1|--> SysCallbackRegister
+
+sub_3170 --|1|--> SysDebugHandler
+
+sub_31b0 --|1|--> sub_3a6c <=> 760a8366e1acc8d935bbba12eb768f7de1516ea89f4d41c2ed1d55dacb4f7726 --|1|--> 6fa91c9552253672a20a3557eceedda2b5d742ca6afbecc18ed38ee8f801bc4f
+sub_31b0 --|2|--> SERCOMM
+sub_31b0 --|1|--> sub_3cd0 <=> 760a8366e1acc8d935bbba12eb768f7de1516ea89f4d41c2ed1d55dacb4f7726 --|1|--> 8e7ae9d660882e369a43edd8fff1ff36d97acc3d2420f0ef627a5fb29002bb30
+sub_31b0 --|1|--> sub_37a4 <=> 760a8366e1acc8d935bbba12eb768f7de1516ea89f4d41c2ed1d55dacb4f7726 --|1|--> dd0711d365da568f813d5d2e0c37de9f42bff1cc1983c3ec333feb794d53c583
+sub_31b0 --|1|--> sub_36e0 <=> 760a8366e1acc8d935bbba12eb768f7de1516ea89f4d41c2ed1d55dacb4f7726 --|1|--> 4ff09662c56436db74bd33621bd7f7f729daaa11799ad7c567d47a745f9e8115
+
+sub_3510 --|1|--> SERCOMMinit
+
+sub_36e0 --|1|--> SERCOMM
+
+sub_37a4 --|1|--> SERCOMM
+
+sub_3a6c --|2|--> SERCOMM
+sub_3a6c --|1|--> signed_mod
+
+sub_3cd0 --|2|--> SERCOMM
+
+sub_3f44 --|2|--> sub_4a84 <=> 8aaeb59966819d74beeae46c62c415001f5f5f006dd9742569e2b720a3f3fc22 --|2|--> 7546bb0471f7915a297ec74864e51146080214fc288b826627e86d6b46c278c4
+sub_3f44 --|1|--> CRC16init
+sub_3f44 --|1|--> unsigned_div
+sub_3f44 --|2|--> CRC16
+
+sub_4924 --|1|--> CRC16init
+sub_4924 --|2|--> CRC16
+
+sub_4c9c --|1|--> unsigned_mod
+sub_4c9c --|8|--> unsigned_div
+sub_4c9c --|4|--> CRC16
+sub_4c9c --|1|--> sub_4924 <=> 26d3b4863dab0697ce8adb8d19275b683e619f417e6e34ed5f4471d9179bc370 --|1|--> 2197f894ecfef003db25f35bb77f771bfb0b483ed18c325076a0a8312542e52a
+sub_4c9c --|1|--> sub_4a84 <=> 26d3b4863dab0697ce8adb8d19275b683e619f417e6e34ed5f4471d9179bc370 --|1|--> 7546bb0471f7915a297ec74864e51146080214fc288b826627e86d6b46c278c4
+sub_4c9c --|2|--> sub_3f44 <=> 26d3b4863dab0697ce8adb8d19275b683e619f417e6e34ed5f4471d9179bc370 --|2|--> 8aaeb59966819d74beeae46c62c415001f5f5f006dd9742569e2b720a3f3fc22
+sub_4c9c --|1|--> sub_8380 <=> 26d3b4863dab0697ce8adb8d19275b683e619f417e6e34ed5f4471d9179bc370 --|1|--> 0750d655c43eabd8ccae37b5d26d09e2bef6872a9456d3b63c4448ca5632ae16
+sub_4c9c --|18|--> signed_div
+sub_4c9c --|1|--> TON
+sub_4c9c --|1|--> sub_31b0 <=> 26d3b4863dab0697ce8adb8d19275b683e619f417e6e34ed5f4471d9179bc370 --|1|--> 760a8366e1acc8d935bbba12eb768f7de1516ea89f4d41c2ed1d55dacb4f7726
+sub_4c9c --|10|--> signed_mod
+
+sub_8004 --|1|--> CRC16init
+sub_8004 --|1|--> sub_3e94 <=> 43cba53a0e7e30fe99410bdaff154e38473887bfde1c93267174d0eed05460df --|1|--> 5d5eca5f1afc694468ac9ffa10111dc0849542a785f49d1dde1d27f0ee8a3a54
+sub_8004 --|2|--> sub_87cc <=> 43cba53a0e7e30fe99410bdaff154e38473887bfde1c93267174d0eed05460df --|2|--> 0dd8b510ee7bdd9c57cbb40ec260e3bba246fe6fbbf5c9895f62eb5675b9e439
+sub_8004 --|1|--> TONinit
+sub_8004 --|1|--> sub_3510 <=> 43cba53a0e7e30fe99410bdaff154e38473887bfde1c93267174d0eed05460df --|1|--> 61c3bb7bbd0c7cdaf75c86d5f3e6fa223e67f46427f698568305f4b1a9e112d7
+
+sub_8380 --|2|--> unsigned_div
+
+sub_949c --|1|--> INSERT
+sub_949c --|5|--> sub_8a28 <=> bd9c7dfd6a17729c1bbb1b8eb52e9e5141b4ac72eba0c80417e5ef468a8b1ec4 --|5|--> fe362f570b0c3ea0ac0ea52360085518b2d50ac1fe24081294e2fe2ae8e8e026
+sub_949c --|10|--> any_to_string
+sub_949c --|1|--> sub_bdc4 <=> bd9c7dfd6a17729c1bbb1b8eb52e9e5141b4ac72eba0c80417e5ef468a8b1ec4 --|1|--> 63b083725456b336d0c7a6d23effa408ef0b1ecc976d573df1e0e6d3ecca412a
+sub_949c --|1|--> sub_135bc <=> bd9c7dfd6a17729c1bbb1b8eb52e9e5141b4ac72eba0c80417e5ef468a8b1ec4 --|1|--> 3ccb8f12776e652515d806b85b0bec3eacace685f5cdb4777d5ad773272e15a3
+sub_949c --|19|--> CONCAT
+
+sub_ab38 --|1|--> sub_8ca0 <=> 000fcfa84345055e6e9ad9bdd9debc9ad08b9bf1d14cd6c54b28fc5ddc844490 --|1|--> 3e12b5d892764dd48b722bf34d4cae8f76b9f7600c28c32f3c53fd12fc6178d8
+sub_ab38 --|1|--> SysSockInetAddr
+sub_ab38 --|1|--> LEN
+sub_ab38 --|1|--> sub_13ba0 <=> 000fcfa84345055e6e9ad9bdd9debc9ad08b9bf1d14cd6c54b28fc5ddc844490 --|1|--> c848691792def4c0afc4dd3088b1d934b90b4f8c812bd2815be8eb933430280c
+sub_ab38 --|1|--> sub_bc28 <=> 000fcfa84345055e6e9ad9bdd9debc9ad08b9bf1d14cd6c54b28fc5ddc844490 --|1|--> 5375de7da9c7e6840914a9ab357e8e2696a101a0ee5f02c493f3be2414a16bef
+sub_ab38 --|1|--> sub_8b20 <=> 000fcfa84345055e6e9ad9bdd9debc9ad08b9bf1d14cd6c54b28fc5ddc844490 --|1|--> 42e913eb41f2754a76d9ac4a500cf99f0822bae36b200e0b65a3f58955ecacdc
+sub_ab38 --|1|--> SysSockGetHostByName
+sub_ab38 --|1|--> sub_b4cc <=> 000fcfa84345055e6e9ad9bdd9debc9ad08b9bf1d14cd6c54b28fc5ddc844490 --|1|--> e52ad54227c4a2e1bf0a15b9b195d9bbeb8fb4267d2e77e15b53996e844a0b92
+
+sub_b4cc --|2|--> SysFileGetPos
+sub_b4cc --|1|--> SysFileDelete
+sub_b4cc --|3|--> SysFileOpen
+sub_b4cc --|3|--> SysFileSetPos
+sub_b4cc --|1|--> SysFileEOF
+sub_b4cc --|3|--> SysFileRead
+sub_b4cc --|3|--> SysFileClose
+sub_b4cc --|1|--> SysFileWrite
+
+sub_bc28 --|1|--> SysFileOpen
+sub_bc28 --|1|--> SysFileClose
+sub_bc28 --|2|--> SysFileWrite
+
+sub_bdc4 --|1|--> sub_ce5c <=> 63b083725456b336d0c7a6d23effa408ef0b1ecc976d573df1e0e6d3ecca412a --|1|--> 78b696d571295340983a79cdf4d16c83843bc54d5f1db276996aa4b8656c866f
+sub_bdc4 --|1|--> SysFileDelete
+sub_bdc4 --|3|--> SysFileOpen
+sub_bdc4 --|1|--> SysFileGetSize
+sub_bdc4 --|1|--> SysFileRename
+sub_bdc4 --|3|--> SysFileClose
+sub_bdc4 --|3|--> SysFileWrite
+
+sub_c3f8 --|1|--> INSERT
+sub_c3f8 --|3|--> sub_8a28 <=> 5c30b8443815ca5edf87124319f114a711dd12e6dfd4a70c65169f0e22a360bd --|3|--> fe362f570b0c3ea0ac0ea52360085518b2d50ac1fe24081294e2fe2ae8e8e026
+sub_c3f8 --|12|--> sub_109d4 <=> 5c30b8443815ca5edf87124319f114a711dd12e6dfd4a70c65169f0e22a360bd --|12|--> 7be3372e59eaf63f6ebcc24295cdcac188e2eed47a4e88f5d574b933f543f8bb
+sub_c3f8 --|2|--> any_to_string
+sub_c3f8 --|1|--> sub_bdc4 <=> 5c30b8443815ca5edf87124319f114a711dd12e6dfd4a70c65169f0e22a360bd --|1|--> 63b083725456b336d0c7a6d23effa408ef0b1ecc976d573df1e0e6d3ecca412a
+sub_c3f8 --|3|--> CONCAT
+
+sub_cf2c --|1|--> sub_d73c <=> f0e8870987979a127dab76b7a3d5988ef5b03097c7ca8bd1fc8e47deefd46589 --|1|--> e817b0ea5e89a5dc7ac53e086637b0fc3ca82e42faf62722c09bcaf54d39b286
+sub_cf2c --|2|--> sub_949c <=> f0e8870987979a127dab76b7a3d5988ef5b03097c7ca8bd1fc8e47deefd46589 --|2|--> bd9c7dfd6a17729c1bbb1b8eb52e9e5141b4ac72eba0c80417e5ef468a8b1ec4
+sub_cf2c --|1|--> any_to_string
+sub_cf2c --|1|--> sub_8d40 <=> f0e8870987979a127dab76b7a3d5988ef5b03097c7ca8bd1fc8e47deefd46589 --|1|--> 88f229a80500af60a8ff39d1b6e3158dbdd932e578d506fbab722d7dd1991816
+sub_cf2c --|1|--> sub_4c9c <=> f0e8870987979a127dab76b7a3d5988ef5b03097c7ca8bd1fc8e47deefd46589 --|1|--> 26d3b4863dab0697ce8adb8d19275b683e619f417e6e34ed5f4471d9179bc370
+
+sub_d3e4 --|1|--> sub_16a14 <=> 92cdb672aaeb205b8ec169a5218bfed2889a2d534c1369fc1ab3752cb30be22d --|1|--> 8c8221fc818bc219d9d83fd1b976ff264f0df1905a9bb0222fc2afe48cd6abf9
+sub_d3e4 --|1|--> sub_8ebc <=> 92cdb672aaeb205b8ec169a5218bfed2889a2d534c1369fc1ab3752cb30be22d --|1|--> 46707be7036dbae8528eca1d4def6f6c3736b0e165849a5f905cb153bfbf256a
+sub_d3e4 --|1|--> TONinit
+sub_d3e4 --|1|--> sub_8004 <=> 92cdb672aaeb205b8ec169a5218bfed2889a2d534c1369fc1ab3752cb30be22d --|1|--> 43cba53a0e7e30fe99410bdaff154e38473887bfde1c93267174d0eed05460df
+sub_d3e4 --|1|--> sub_8958 <=> 92cdb672aaeb205b8ec169a5218bfed2889a2d534c1369fc1ab3752cb30be22d --|1|--> a562a5cb8a60444747fe2d5a22d53f7116df8a9437dee016956bc1b79e2e5747
+sub_d3e4 --|1|--> sub_8880 <=> 92cdb672aaeb205b8ec169a5218bfed2889a2d534c1369fc1ab3752cb30be22d --|1|--> 0f7891fbaef9b855aaf6b033c53aefe12b8eee325a80a3114c08e9201f2acddb
+
+sub_d73c --|1|--> sub_ce5c <=> e817b0ea5e89a5dc7ac53e086637b0fc3ca82e42faf62722c09bcaf54d39b286 --|1|--> 78b696d571295340983a79cdf4d16c83843bc54d5f1db276996aa4b8656c866f
+sub_d73c --|1|--> sub_949c <=> e817b0ea5e89a5dc7ac53e086637b0fc3ca82e42faf62722c09bcaf54d39b286 --|1|--> bd9c7dfd6a17729c1bbb1b8eb52e9e5141b4ac72eba0c80417e5ef468a8b1ec4
+sub_d73c --|1|--> any_to_string
+sub_d73c --|1|--> TON
+
+sub_e5b0 --|48|--> sub_8c30 <=> b15e9a5bdf891f705baa683bc171a4bf17f94f5424aa71feb633672873160808 --|48|--> d1053035e80feafc24d7678773ef37b8fc1759e1560f61ea22ae10d8544afccd
+sub_e5b0 --|1|--> TON
+
+sub_108b0 --|1|--> sub_168ac <=> 9972c27e84b19ba32a68acd6dc937fcfe3a719b76ab9b6106304d04a6fa619a5 --|1|--> 99599e46af5dd35f0c55c11ee04c7b1ba7ac3485d0f6fc1b392738161d567463
+sub_108b0 --|1|--> TONinit
+
+sub_109d4 --|1|--> INSERT
+sub_109d4 --|1|--> sub_8a28 <=> 7be3372e59eaf63f6ebcc24295cdcac188e2eed47a4e88f5d574b933f543f8bb --|1|--> fe362f570b0c3ea0ac0ea52360085518b2d50ac1fe24081294e2fe2ae8e8e026
+sub_109d4 --|4|--> any_to_string
+sub_109d4 --|5|--> CONCAT
+
+sub_10f64 --|1|--> sub_164ac <=> d6d48353f22a2cd0429308a91d9087840facfebeb2593b39bccdf1bf7dc3a59f --|1|--> afec48ca6c02bfea27309beb4d31311de92cf5d2cc37f8a299ac83fe6327210d
+sub_10f64 --|1|--> sub_12040 <=> d6d48353f22a2cd0429308a91d9087840facfebeb2593b39bccdf1bf7dc3a59f --|1|--> 14d454eac5dff850dd355b32ec84b42c6275db2147b05d3ac96f1b3fa731c5bc
+sub_10f64 --|1|--> sub_114fc <=> d6d48353f22a2cd0429308a91d9087840facfebeb2593b39bccdf1bf7dc3a59f --|1|--> 12edd30aea7d0fc85fe64ee295cbb522bc283733e3693ca6a91ef7f5a38e24f4
+sub_10f64 --|2|--> sub_cf2c <=> d6d48353f22a2cd0429308a91d9087840facfebeb2593b39bccdf1bf7dc3a59f --|2|--> f0e8870987979a127dab76b7a3d5988ef5b03097c7ca8bd1fc8e47deefd46589
+sub_10f64 --|12|--> sub_e5b0 <=> d6d48353f22a2cd0429308a91d9087840facfebeb2593b39bccdf1bf7dc3a59f --|12|--> b15e9a5bdf891f705baa683bc171a4bf17f94f5424aa71feb633672873160808
+sub_10f64 --|1|--> sub_ab38 <=> d6d48353f22a2cd0429308a91d9087840facfebeb2593b39bccdf1bf7dc3a59f --|1|--> 000fcfa84345055e6e9ad9bdd9debc9ad08b9bf1d14cd6c54b28fc5ddc844490
+
+sub_114fc --|1|--> sub_c3f8 <=> 12edd30aea7d0fc85fe64ee295cbb522bc283733e3693ca6a91ef7f5a38e24f4 --|1|--> 5c30b8443815ca5edf87124319f114a711dd12e6dfd4a70c65169f0e22a360bd
+sub_114fc --|1|--> sub_13698 <=> 12edd30aea7d0fc85fe64ee295cbb522bc283733e3693ca6a91ef7f5a38e24f4 --|1|--> ff7e497cdb0ce538d3110306459f76220def1565302a51f3826db7a02a30c68b
+sub_114fc --|1|--> sub_949c <=> 12edd30aea7d0fc85fe64ee295cbb522bc283733e3693ca6a91ef7f5a38e24f4 --|1|--> bd9c7dfd6a17729c1bbb1b8eb52e9e5141b4ac72eba0c80417e5ef468a8b1ec4
+sub_114fc --|1|--> any_to_string
+sub_114fc --|3|--> TON
+sub_114fc --|2|--> sub_12e08 <=> 12edd30aea7d0fc85fe64ee295cbb522bc283733e3693ca6a91ef7f5a38e24f4 --|2|--> 1c9b7104207ecb48df005f0005e1521984ab79dfe02e94058a59ebcbaf248e39
+sub_114fc --|1|--> CONCAT
+
+sub_11c88 --|1|--> sub_949c <=> 07f2a464f5d3baaf3ca6e0be9d68cd84f43e308000247d9ecc4ba74ff3e929fb --|1|--> bd9c7dfd6a17729c1bbb1b8eb52e9e5141b4ac72eba0c80417e5ef468a8b1ec4
+
+sub_11db0 --|4|--> unsigned_div
+
+sub_12040 --|1|--> sub_917c <=> 14d454eac5dff850dd355b32ec84b42c6275db2147b05d3ac96f1b3fa731c5bc --|1|--> 89763673e81ec3e0f9c27fc74fbdfb38df93c67f4b8f8bf301354543313bd646
+sub_12040 --|1|--> sub_8a28 <=> 14d454eac5dff850dd355b32ec84b42c6275db2147b05d3ac96f1b3fa731c5bc --|1|--> fe362f570b0c3ea0ac0ea52360085518b2d50ac1fe24081294e2fe2ae8e8e026
+sub_12040 --|1|--> sub_12ad0 <=> 14d454eac5dff850dd355b32ec84b42c6275db2147b05d3ac96f1b3fa731c5bc --|1|--> 9bde9d8a205741c08c42d5b3021224cc931ea34a03da6ee909952220ff33bf93
+sub_12040 --|1|--> signed_div
+sub_12040 --|1|--> sub_14f60 <=> 14d454eac5dff850dd355b32ec84b42c6275db2147b05d3ac96f1b3fa731c5bc --|1|--> 4c12c5e8523d6cdf841ce8c2823436ac9d6610c821905c5ea1a40d4216dbe8bd
+
+sub_12730 --|1|--> sub_c3f8 <=> 1e16fc9cf502e39151b843fec50bed2436f7a8bbfb24bb78bea3b068a9ef46e1 --|1|--> 5c30b8443815ca5edf87124319f114a711dd12e6dfd4a70c65169f0e22a360bd
+sub_12730 --|2|--> sub_11db0 <=> 1e16fc9cf502e39151b843fec50bed2436f7a8bbfb24bb78bea3b068a9ef46e1 --|2|--> 8cac2da2a8022abe3d5b988b596a2a9eb36e2ff0a652c0a98530ac5e4cdca0e8
+
+sub_12ad0 --|1|--> sub_12730 <=> 9bde9d8a205741c08c42d5b3021224cc931ea34a03da6ee909952220ff33bf93 --|1|--> 1e16fc9cf502e39151b843fec50bed2436f7a8bbfb24bb78bea3b068a9ef46e1
+sub_12ad0 --|4|--> sub_11db0 <=> 9bde9d8a205741c08c42d5b3021224cc931ea34a03da6ee909952220ff33bf93 --|4|--> 8cac2da2a8022abe3d5b988b596a2a9eb36e2ff0a652c0a98530ac5e4cdca0e8
+
+sub_12e08 --|1|--> unsigned_div
+sub_12e08 --|5|--> string_to_any
+sub_12e08 --|5|--> MID
+sub_12e08 --|1|--> any_to_string
+sub_12e08 --|1|--> SysRtcGetTime
+sub_12e08 --|1|--> DELETE
+
+sub_13698 --|4|--> sub_949c <=> ff7e497cdb0ce538d3110306459f76220def1565302a51f3826db7a02a30c68b --|4|--> bd9c7dfd6a17729c1bbb1b8eb52e9e5141b4ac72eba0c80417e5ef468a8b1ec4
+sub_13698 --|2|--> sub_8f14 <=> ff7e497cdb0ce538d3110306459f76220def1565302a51f3826db7a02a30c68b --|2|--> cdb8c3a1b078848466c24344d5806f682fa46e540f1a7773d7f0f96c37c066fa
+
+sub_13ba0 --|1|--> SysSockIoctl
+sub_13ba0 --|1|--> SysSockNtohs
+sub_13ba0 --|1|--> SysSockCreate
+sub_13ba0 --|1|--> SysSockRecv
+sub_13ba0 --|1|--> SysSockConnect
+sub_13ba0 --|2|--> SysSockShutdown
+sub_13ba0 --|11|--> TON
+sub_13ba0 --|1|--> SysSockSetOption
+sub_13ba0 --|3|--> SysSockClose
+sub_13ba0 --|1|--> SysSockSend
+sub_13ba0 --|1|--> signed_mod
+
+sub_14d28 --|1|--> SOCKADDRESSinit
+sub_14d28 --|1|--> TONinit
+
+sub_14f60 --|2|--> SysSockIoctl
+sub_14f60 --|1|--> signed_mod
+sub_14f60 --|1|--> SysSockCreate
+sub_14f60 --|1|--> SysSockRecv
+sub_14f60 --|1|--> SysSockAccept
+sub_14f60 --|3|--> SysSockShutdown
+sub_14f60 --|8|--> TON
+sub_14f60 --|1|--> SysSockBind
+sub_14f60 --|2|--> SysSockSetOption
+sub_14f60 --|1|--> SysSockHtons
+sub_14f60 --|3|--> SysSockClose
+sub_14f60 --|1|--> SysSockSend
+sub_14f60 --|1|--> SysSockListen
+
+sub_16268 --|1|--> SOCKADDRESSinit
+sub_16268 --|1|--> TONinit
+
+sub_164ac --|1|--> SET_FLASHING_SEQUENCE
+sub_164ac --|1|--> START_FLASHING_SEQUENCE
+sub_164ac --|2|--> SET_FLASHING_SEQUENCE_INDEX
+
+2 calls to SysSockSend
+1 calls to sub_8ca0 <=> 3e12b5d892764dd48b722bf34d4cae8f76b9f7600c28c32f3c53fd12fc6178d8
+1 calls to sub_16a7c <=> 0481c004da58a327dabd68388f03aeab9eed5a86fe02ce27e3499ee9e32ebf73
+1 calls to SysSockHtons
+5 calls to MID
+1 calls to sub_d73c <=> e817b0ea5e89a5dc7ac53e086637b0fc3ca82e42faf62722c09bcaf54d39b286
+3 calls to SysSockSetOption
+1 calls to SysSockGetHostByName
+2 calls to sub_12e08 <=> 1c9b7104207ecb48df005f0005e1521984ab79dfe02e94058a59ebcbaf248e39
+1 calls to unsigned_mod
+2 calls to SOCKADDRESSinit
+2 calls to SysFileGetPos
+1 calls to sub_917c <=> 89763673e81ec3e0f9c27fc74fbdfb38df93c67f4b8f8bf301354543313bd646
+1 calls to sub_14d28 <=> 8ca9a81fe9f4942654569b062c59b4367dff0ba0f4247c6249ecd0b3f1f6d21e
+1 calls to sub_bc28 <=> 5375de7da9c7e6840914a9ab357e8e2696a101a0ee5f02c493f3be2414a16bef
+1 calls to sub_3cd0 <=> 8e7ae9d660882e369a43edd8fff1ff36d97acc3d2420f0ef627a5fb29002bb30
+1 calls to SET_FLASHING_SEQUENCE
+1 calls to SysSockListen
+1 calls to SysSockAccept
+1 calls to SysRtcGetTime
+10 calls to sub_8a28 <=> fe362f570b0c3ea0ac0ea52360085518b2d50ac1fe24081294e2fe2ae8e8e026
+1 calls to SysDebugHandler
+1 calls to sub_3e94 <=> 5d5eca5f1afc694468ac9ffa10111dc0849542a785f49d1dde1d27f0ee8a3a54
+1 calls to sub_8958 <=> a562a5cb8a60444747fe2d5a22d53f7116df8a9437dee016956bc1b79e2e5747
+1 calls to sub_12040 <=> 14d454eac5dff850dd355b32ec84b42c6275db2147b05d3ac96f1b3fa731c5bc
+12 calls to sub_e5b0 <=> b15e9a5bdf891f705baa683bc171a4bf17f94f5424aa71feb633672873160808
+2 calls to SET_FLASHING_SEQUENCE_INDEX
+1 calls to SysFileGetSize
+1 calls to SysSockConnect
+1 calls to sub_8004 <=> 43cba53a0e7e30fe99410bdaff154e38473887bfde1c93267174d0eed05460df
+1 calls to DELETE
+48 calls to sub_8c30 <=> d1053035e80feafc24d7678773ef37b8fc1759e1560f61ea22ae10d8544afccd
+1 calls to sub_8d40 <=> 88f229a80500af60a8ff39d1b6e3158dbdd932e578d506fbab722d7dd1991816
+2 calls to sub_9114 <=> 00e4661aaf4d67b6f05171766811ce004b140aea9d0d2c2715f4539e1792cdbb
+1 calls to SysCallbackRegister
+1 calls to LEN
+1 calls to sub_1670c <=> 284eb48dc4aeb7aa4d769aab5bf0377833b50b1cee1f0b3e3cbc1ea52f6b4c4c
+7 calls to SysFileClose
+1 calls to sub_37a4 <=> dd0711d365da568f813d5d2e0c37de9f42bff1cc1983c3ec333feb794d53c583
+1 calls to sub_8880 <=> 0f7891fbaef9b855aaf6b033c53aefe12b8eee325a80a3114c08e9201f2acddb
+1 calls to SERCOMMinit
+2 calls to SysSockCreate
+2 calls to SysSockRecv
+1 calls to sub_114fc <=> 12edd30aea7d0fc85fe64ee295cbb522bc283733e3693ca6a91ef7f5a38e24f4
+1 calls to sub_4c9c <=> 26d3b4863dab0697ce8adb8d19275b683e619f417e6e34ed5f4471d9179bc370
+1 calls to sub_135bc <=> 3ccb8f12776e652515d806b85b0bec3eacace685f5cdb4777d5ad773272e15a3
+1 calls to sub_12ad0 <=> 9bde9d8a205741c08c42d5b3021224cc931ea34a03da6ee909952220ff33bf93
+2 calls to sub_ce5c <=> 78b696d571295340983a79cdf4d16c83843bc54d5f1db276996aa4b8656c866f
+1 calls to sub_4924 <=> 2197f894ecfef003db25f35bb77f771bfb0b483ed18c325076a0a8312542e52a
+1 calls to sub_13698 <=> ff7e497cdb0ce538d3110306459f76220def1565302a51f3826db7a02a30c68b
+3 calls to CRC16init
+13 calls to signed_mod
+2 calls to sub_87cc <=> 0dd8b510ee7bdd9c57cbb40ec260e3bba246fe6fbbf5c9895f62eb5675b9e439
+16 calls to unsigned_div
+1 calls to SysSockInetAddr
+2 calls to sub_bdc4 <=> 63b083725456b336d0c7a6d23effa408ef0b1ecc976d573df1e0e6d3ecca412a
+5 calls to SysSockShutdown
+7 calls to SysFileOpen
+25 calls to FLASHING_SEQUENCEinit
+3 calls to SysFileRead
+12 calls to sub_108b0 <=> 9972c27e84b19ba32a68acd6dc937fcfe3a719b76ab9b6106304d04a6fa619a5
+1 calls to SysSockNtohs
+2 calls to SysFileDelete
+19 calls to signed_div
+1 calls to sub_8b20 <=> 42e913eb41f2754a76d9ac4a500cf99f0822bae36b200e0b65a3f58955ecacdc
+2 calls to sub_c3f8 <=> 5c30b8443815ca5edf87124319f114a711dd12e6dfd4a70c65169f0e22a360bd
+3 calls to sub_4a84 <=> 7546bb0471f7915a297ec74864e51146080214fc288b826627e86d6b46c278c4
+1 calls to SysFileEOF
+20 calls to any_to_string
+1 calls to sub_8ebc <=> 46707be7036dbae8528eca1d4def6f6c3736b0e165849a5f905cb153bfbf256a
+1 calls to sub_31b0 <=> 760a8366e1acc8d935bbba12eb768f7de1516ea89f4d41c2ed1d55dacb4f7726
+1 calls to sub_3510 <=> 61c3bb7bbd0c7cdaf75c86d5f3e6fa223e67f46427f698568305f4b1a9e112d7
+6 calls to sub_11db0 <=> 8cac2da2a8022abe3d5b988b596a2a9eb36e2ff0a652c0a98530ac5e4cdca0e8
+1 calls to sub_3a6c <=> 6fa91c9552253672a20a3557eceedda2b5d742ca6afbecc18ed38ee8f801bc4f
+3 calls to SysFileSetPos
+2 calls to sub_3f44 <=> 8aaeb59966819d74beeae46c62c415001f5f5f006dd9742569e2b720a3f3fc22
+8 calls to TONinit
+1 calls to sub_14f60 <=> 4c12c5e8523d6cdf841ce8c2823436ac9d6610c821905c5ea1a40d4216dbe8bd
+6 calls to SysFileWrite
+2 calls to sub_d3e4 <=> 92cdb672aaeb205b8ec169a5218bfed2889a2d534c1369fc1ab3752cb30be22d
+1 calls to SysSockBind
+1 calls to sub_164ac <=> afec48ca6c02bfea27309beb4d31311de92cf5d2cc37f8a299ac83fe6327210d
+5 calls to string_to_any
+1 calls to sub_30dc <=> 583d7529a5b4b451a80c1a0c19619bad59f532ac61f26f44b687d13907828c57
+1 calls to sub_8380 <=> 0750d655c43eabd8ccae37b5d26d09e2bef6872a9456d3b63c4448ca5632ae16
+25 calls to TON
+28 calls to CONCAT
+3 calls to INSERT
+3 calls to SysSockIoctl
+1 calls to sub_16268 <=> 5cf76772722fe18fa2da430f87a3260b8f126d1705a6d234f46821268781263a
+12 calls to sub_109d4 <=> 7be3372e59eaf63f6ebcc24295cdcac188e2eed47a4e88f5d574b933f543f8bb
+1 calls to sub_168ac <=> 99599e46af5dd35f0c55c11ee04c7b1ba7ac3485d0f6fc1b392738161d567463
+1 calls to sub_b4cc <=> e52ad54227c4a2e1bf0a15b9b195d9bbeb8fb4267d2e77e15b53996e844a0b92
+8 calls to SERCOMM
+1 calls to sub_12730 <=> 1e16fc9cf502e39151b843fec50bed2436f7a8bbfb24bb78bea3b068a9ef46e1
+1 calls to START_FLASHING_SEQUENCE
+1 calls to sub_16a14 <=> 8c8221fc818bc219d9d83fd1b976ff264f0df1905a9bb0222fc2afe48cd6abf9
+9 calls to sub_949c <=> bd9c7dfd6a17729c1bbb1b8eb52e9e5141b4ac72eba0c80417e5ef468a8b1ec4
+6 calls to SysSockClose
+1 calls to SysFileRename
+1 calls to sub_13ba0 <=> c848691792def4c0afc4dd3088b1d934b90b4f8c812bd2815be8eb933430280c
+8 calls to CRC16
+1 calls to sub_36e0 <=> 4ff09662c56436db74bd33621bd7f7f729daaa11799ad7c567d47a745f9e8115
+2 calls to sub_cf2c <=> f0e8870987979a127dab76b7a3d5988ef5b03097c7ca8bd1fc8e47deefd46589
+2 calls to sub_8f14 <=> cdb8c3a1b078848466c24344d5806f682fa46e540f1a7773d7f0f96c37c066fa
+1 calls to sub_ab38 <=> 000fcfa84345055e6e9ad9bdd9debc9ad08b9bf1d14cd6c54b28fc5ddc844490

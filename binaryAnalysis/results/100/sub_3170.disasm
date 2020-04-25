@@ -1,0 +1,18 @@
+                        0x00003170      0dc0a0e1       mov ip, sp
+            0x00003174      00582de9       push {fp, ip, lr}
+            0x00003178      0cb0a0e1       mov fp, ip
+            0x0000317c      04902de5       str sb, [sp, -4]!
+            0x00003180      04802de5       str r8, [sp, -4]!
+            0x00003184      04e02de5       str lr, [sp, -4]!
+            0x00003188      1c809fe5       ldr r8, [0x000031ac]        ; [0x31ac:4]=0x544
+            0x0000318c      008098e5       ldr r8, [r8]
+            0x00003190      0fe0a0e1       mov lr, pc
+            0x00003194      08f0a0e1       mov pc, r8                  ; call to SysDebugHandler
+            0x00003198      0000a0e1       mov r0, r0
+            0x0000319c      04e09de4       pop {lr}
+            0x000031a0      04809de4       pop {r8}
+            0x000031a4      04909de4       pop {sb}
+            0x000031a8      00a81be9       ldmdb fp, {fp, sp, pc}
+
+            0x000031ac      00000544       00000544  D...
+                       

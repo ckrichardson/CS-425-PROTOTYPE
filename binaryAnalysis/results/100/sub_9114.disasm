@@ -1,0 +1,28 @@
+                        0x00009114      0dc0a0e1       mov ip, sp
+            0x00009118      00582de9       push {fp, ip, lr}
+            0x0000911c      0cb0a0e1       mov fp, ip
+            0x00009120      04002de5       str r0, [sp, -4]!
+            0x00009124      0010a0e3       mov r1, 0
+            0x00009128      0010c9e5       strb r1, [sb]
+            0x0000912c      0010a0e3       mov r1, 0
+            0x00009130      0110c9e5       strb r1, [sb, 1]
+            0x00009134      0010a0e3       mov r1, 0
+            0x00009138      0210c9e5       strb r1, [sb, 2]
+            0x0000913c      0410a0e3       mov r1, 4
+            0x00009140      0310c9e5       strb r1, [sb, 3]
+            0x00009144      0110a0e3       mov r1, 1
+            0x00009148      0410c9e5       strb r1, [sb, 4]
+            0x0000914c      0010a0e3       mov r1, 0
+            0x00009150      0510c9e5       strb r1, [sb, 5]
+            0x00009154      0010a0e3       mov r1, 0
+            0x00009158      0610c9e5       strb r1, [sb, 6]
+            0x0000915c      0010a0e3       mov r1, 0
+            0x00009160      0710c9e5       strb r1, [sb, 7]
+            0x00009164      04009de4       pop {r0}
+            0x00009168      000050e3       cmp r0, 0
+        ,=< 0x0000916c      0000001a       bne 0x9174
+        |   0x00009170      0000a0e1       mov r0, r0
+        `-> 0x00009174      0000a0e1       mov r0, r0
+            0x00009178      00a81be9       ldmdb fp, {fp, sp, pc}
+
+                       

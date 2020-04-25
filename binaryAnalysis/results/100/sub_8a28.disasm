@@ -1,0 +1,64 @@
+                        0x00008a28      0dc0a0e1       mov ip, sp
+            0x00008a2c      00582de9       push {fp, ip, lr}
+            0x00008a30      0cb0a0e1       mov fp, ip
+            0x00008a34      e0009fe5       ldr r0, [0x00008b1c]        ; [0x8b1c:4]=0x22dc
+            0x00008a38      001090e5       ldr r1, [r0]
+            0x00008a3c      04102de5       str r1, [sp, -4]!
+            0x00008a40      009080e5       str sb, [r0]
+            0x00008a44      0000a0e3       mov r0, 0
+            0x00008a48      0800c9e5       strb r0, [sb, 8]
+            0x00008a4c      0000a0e1       mov r0, r0
+            0x00008a50      000099e5       ldr r0, [sb]
+            0x00008a54      0c1099e5       ldr r1, [sb, 0xc]
+            0x00008a58      001091e5       ldr r1, [r1]
+            0x00008a5c      010080e0       add r0, r0, r1
+            0x00008a60      0000a0e1       mov r0, r0
+            0x00008a64      000089e5       str r0, [sb]
+        .-> 0x00008a68      0000a0e1       mov r0, r0
+        :   0x00008a6c      0000a0e1       mov r0, r0
+        :   0x00008a70      040099e5       ldr r0, [sb, 4]
+        :   0x00008a74      0000d0e5       ldrb r0, [r0]
+        :   0x00008a78      000050e3       cmp r0, 0
+        :   0x00008a7c      0100a003       moveq r0, 1
+        :   0x00008a80      0000a013       movne r0, 0
+        :   0x00008a84      0000a0e1       mov r0, r0
+        :   0x00008a88      0000a0e1       mov r0, r0
+        :   0x00008a8c      000050e3       cmp r0, 0
+       ,==< 0x00008a90      1a00001a       bne 0x8b00
+       |:   0x00008a94      0000a0e1       mov r0, r0
+       |:   0x00008a98      0000a0e1       mov r0, r0
+       |:   0x00008a9c      040099e5       ldr r0, [sb, 4]
+       |:   0x00008aa0      0000d0e5       ldrb r0, [r0]
+       |:   0x00008aa4      0000a0e1       mov r0, r0
+       |:   0x00008aa8      001099e5       ldr r1, [sb]
+       |:   0x00008aac      0000c1e5       strb r0, [r1]
+       |:   0x00008ab0      0000a0e1       mov r0, r0
+       |:   0x00008ab4      040099e5       ldr r0, [sb, 4]
+       |:   0x00008ab8      010080e2       add r0, r0, 1
+       |:   0x00008abc      0000a0e1       mov r0, r0
+       |:   0x00008ac0      040089e5       str r0, [sb, 4]
+       |:   0x00008ac4      0000a0e1       mov r0, r0
+       |:   0x00008ac8      000099e5       ldr r0, [sb]
+       |:   0x00008acc      010080e2       add r0, r0, 1
+       |:   0x00008ad0      0000a0e1       mov r0, r0
+       |:   0x00008ad4      000089e5       str r0, [sb]
+       |:   0x00008ad8      0000a0e1       mov r0, r0
+       |:   0x00008adc      0c0099e5       ldr r0, [sb, 0xc]
+       |:   0x00008ae0      000090e5       ldr r0, [r0]
+       |:   0x00008ae4      010080e2       add r0, r0, 1
+       |:   0x00008ae8      0000a0e1       mov r0, r0
+       |:   0x00008aec      0c1099e5       ldr r1, [sb, 0xc]
+       |:   0x00008af0      000081e5       str r0, [r1]
+       |:   0x00008af4      0000a0e1       mov r0, r0
+       |`=< 0x00008af8      daffffea       b 0x8a68
+       |    0x00008afc      0000a0e1       mov r0, r0
+       `--> 0x00008b00      0000a0e1       mov r0, r0
+            0x00008b04      0000a0e1       mov r0, r0
+            0x00008b08      0000a0e1       mov r0, r0
+            0x00008b0c      08109fe5       ldr r1, [0x00008b1c]        ; [0x8b1c:4]=0x22dc
+            0x00008b10      04009de4       pop {r0}
+            0x00008b14      000081e5       str r0, [r1]
+            0x00008b18      00a81be9       ldmdb fp, {fp, sp, pc}
+
+            0x00008b1c      000022dc       000022dc  ."..
+                       

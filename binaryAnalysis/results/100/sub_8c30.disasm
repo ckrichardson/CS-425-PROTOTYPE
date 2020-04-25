@@ -1,0 +1,30 @@
+                        0x00008c30      0dc0a0e1       mov ip, sp
+            0x00008c34      00582de9       push {fp, ip, lr}
+            0x00008c38      0cb0a0e1       mov fp, ip
+            0x00008c3c      58009fe5       ldr r0, [0x00008c9c]        ; [0x8c9c:4]=0x22e8
+            0x00008c40      001090e5       ldr r1, [r0]
+            0x00008c44      04102de5       str r1, [sp, -4]!
+            0x00008c48      009080e5       str sb, [r0]
+            0x00008c4c      0000a0e3       mov r0, 0
+            0x00008c50      0800c9e5       strb r0, [sb, 8]
+            0x00008c54      0000a0e1       mov r0, r0
+            0x00008c58      000099e5       ldr r0, [sb]
+            0x00008c5c      b200d0e1       ldrh r0, [r0, 2]
+            0x00008c60      0000a0e1       mov r0, r0
+            0x00008c64      041099e5       ldr r1, [sb, 4]
+            0x00008c68      b000c1e1       strh r0, [r1]
+            0x00008c6c      0000a0e1       mov r0, r0
+            0x00008c70      000099e5       ldr r0, [sb]
+            0x00008c74      b000d0e1       ldrh r0, [r0]
+            0x00008c78      0000a0e1       mov r0, r0
+            0x00008c7c      041099e5       ldr r1, [sb, 4]
+            0x00008c80      b200c1e1       strh r0, [r1, 2]
+            0x00008c84      0000a0e1       mov r0, r0
+            0x00008c88      0000a0e1       mov r0, r0
+            0x00008c8c      08109fe5       ldr r1, [0x00008c9c]        ; [0x8c9c:4]=0x22e8
+            0x00008c90      04009de4       pop {r0}
+            0x00008c94      000081e5       str r0, [r1]
+            0x00008c98      00a81be9       ldmdb fp, {fp, sp, pc}
+
+            0x00008c9c      000022e8       000022e8  ."..
+                       
