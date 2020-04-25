@@ -1,0 +1,105 @@
+                        0x0000bc28      0dc0a0e1       mov ip, sp
+            0x0000bc2c      00582de9       push {fp, ip, lr}
+            0x0000bc30      0cb0a0e1       mov fp, ip
+            0x0000bc34      0000a0e1       mov r0, r0
+            0x0000bc38      0e30a0e1       mov r3, lr
+            0x0000bc3c      000000eb       bl 0xbc44
+            0x0000bc40      61000000       andeq r0, r0, r1, rrx
+            0x0000bc44      0e20a0e1       mov r2, lr
+            0x0000bc48      03e0a0e1       mov lr, r3
+            0x0000bc4c      0210a0e1       mov r1, r2
+            0x0000bc50      68819fe5       ldr r8, [0x0000bdc0]        ; [0xbdc0:4]=0x3602
+            0x0000bc54      0820a0e1       mov r2, r8
+            0x0000bc58      0200a0e1       mov r0, r2
+            0x0000bc5c      04902de5       str sb, [sp, -4]!
+            0x0000bc60      04802de5       str r8, [sp, -4]!
+            0x0000bc64      04e02de5       str lr, [sp, -4]!
+            0x0000bc68      4c819fe5       ldr r8, [0x0000bdbc]        ; [0xbdbc:4]=432
+            0x0000bc6c      008098e5       ldr r8, [r8]
+            0x0000bc70      0fe0a0e1       mov lr, pc
+            0x0000bc74      08f0a0e1       mov pc, r8                  ; call to SysFileOpen
+            0x0000bc78      0000a0e1       mov r0, r0
+            0x0000bc7c      04e09de4       pop {lr}
+            0x0000bc80      04809de4       pop {r8}
+            0x0000bc84      04909de4       pop {sb}
+            0x0000bc88      00d08de2       add sp, sp, 0
+            0x0000bc8c      0000a0e1       mov r0, r0
+            0x0000bc90      9e0d88e5       str r0, [r8, 0xd9e]
+            0x0000bc94      0000a0e1       mov r0, r0
+            0x0000bc98      0430a0e3       mov r3, 4
+            0x0000bc9c      0320a0e1       mov r2, r3
+            0x0000bca0      10819fe5       ldr r8, [0x0000bdb8]        ; [0xbdb8:4]=0x8f04
+            0x0000bca4      043088e2       add r3, r8, 4
+            0x0000bca8      0310a0e1       mov r1, r3
+            0x0000bcac      00819fe5       ldr r8, [0x0000bdb4]        ; [0xbdb4:4]=0x43a0
+            0x0000bcb0      003098e5       ldr r3, [r8]
+            0x0000bcb4      0300a0e1       mov r0, r3
+            0x0000bcb8      04902de5       str sb, [sp, -4]!
+            0x0000bcbc      04802de5       str r8, [sp, -4]!
+            0x0000bcc0      04e02de5       str lr, [sp, -4]!
+            0x0000bcc4      e4809fe5       ldr r8, [0x0000bdb0]        ; [0xbdb0:4]=448
+            0x0000bcc8      008098e5       ldr r8, [r8]
+            0x0000bccc      0fe0a0e1       mov lr, pc
+            0x0000bcd0      08f0a0e1       mov pc, r8                  ; call to SysFileWrite
+            0x0000bcd4      0000a0e1       mov r0, r0
+            0x0000bcd8      04e09de4       pop {lr}
+            0x0000bcdc      04809de4       pop {r8}
+            0x0000bce0      04909de4       pop {sb}
+            0x0000bce4      00d08de2       add sp, sp, 0
+            0x0000bce8      0000a0e1       mov r0, r0
+            0x0000bcec      04002de5       str r0, [sp, -4]!
+            0x0000bcf0      0000a0e1       mov r0, r0
+            0x0000bcf4      0430a0e3       mov r3, 4
+            0x0000bcf8      0320a0e1       mov r2, r3
+            0x0000bcfc      b4809fe5       ldr r8, [0x0000bdb8]        ; [0xbdb8:4]=0x8f04
+            0x0000bd00      a4409fe5       ldr r4, [0x0000bdac]        ; [0xbdac:4]=0x5e8
+            0x0000bd04      043088e0       add r3, r8, r4
+            0x0000bd08      0310a0e1       mov r1, r3
+            0x0000bd0c      a0809fe5       ldr r8, [0x0000bdb4]        ; [0xbdb4:4]=0x43a0
+            0x0000bd10      003098e5       ldr r3, [r8]
+            0x0000bd14      0300a0e1       mov r0, r3
+            0x0000bd18      04902de5       str sb, [sp, -4]!
+            0x0000bd1c      04802de5       str r8, [sp, -4]!
+            0x0000bd20      04e02de5       str lr, [sp, -4]!
+            0x0000bd24      84809fe5       ldr r8, [0x0000bdb0]        ; [0xbdb0:4]=448
+            0x0000bd28      008098e5       ldr r8, [r8]
+            0x0000bd2c      0fe0a0e1       mov lr, pc
+            0x0000bd30      08f0a0e1       mov pc, r8                  ; call to SysFileWrite
+            0x0000bd34      0000a0e1       mov r0, r0
+            0x0000bd38      04e09de4       pop {lr}
+            0x0000bd3c      04809de4       pop {r8}
+            0x0000bd40      04909de4       pop {sb}
+            0x0000bd44      00d08de2       add sp, sp, 0
+            0x0000bd48      0010a0e1       mov r1, r0
+            0x0000bd4c      04009de4       pop {r0}
+            0x0000bd50      0000a0e1       mov r0, r0
+            0x0000bd54      04002de5       str r0, [sp, -4]!
+            0x0000bd58      0000a0e1       mov r0, r0
+            0x0000bd5c      002098e5       ldr r2, [r8]
+            0x0000bd60      0200a0e1       mov r0, r2
+            0x0000bd64      04902de5       str sb, [sp, -4]!
+            0x0000bd68      04802de5       str r8, [sp, -4]!
+            0x0000bd6c      04e02de5       str lr, [sp, -4]!
+            0x0000bd70      30809fe5       ldr r8, [0x0000bda8]        ; [0xbda8:4]=404
+            0x0000bd74      008098e5       ldr r8, [r8]
+            0x0000bd78      0fe0a0e1       mov lr, pc
+            0x0000bd7c      08f0a0e1       mov pc, r8                  ; call to SysFileClose
+            0x0000bd80      0000a0e1       mov r0, r0
+            0x0000bd84      04e09de4       pop {lr}
+            0x0000bd88      04809de4       pop {r8}
+            0x0000bd8c      04909de4       pop {sb}
+            0x0000bd90      00d08de2       add sp, sp, 0
+            0x0000bd94      0010a0e1       mov r1, r0
+            0x0000bd98      04009de4       pop {r0}
+            0x0000bd9c      0000a0e1       mov r0, r0
+            0x0000bda0      0000a0e1       mov r0, r0
+            0x0000bda4      00a81be9       ldmdb fp, {fp, sp, pc}
+
+            0x0000bda8      00000194       00000194  ....
+            0x0000bdac      000005e8       000005e8  ....
+            0x0000bdb0      000001c0       000001c0  ....
+            0x0000bdb4      000043a0       000043a0  .C..
+            0x0000bdb8      00008f04       00008f04  ....
+            0x0000bdbc      000001b0       000001b0  ....
+            0x0000bdc0      00003602       00003602  .6..
+                       

@@ -1,0 +1,358 @@
+                        0x000109d4      0dc0a0e1       mov ip, sp
+            0x000109d8      00582de9       push {fp, ip, lr}
+            0x000109dc      0cb0a0e1       mov fp, ip
+            0x000109e0      78059fe5       ldr r0, [0x00010f60]        ; [0x10f60:4]=0x232c
+            0x000109e4      001090e5       ldr r1, [r0]
+            0x000109e8      04102de5       str r1, [sp, -4]!
+            0x000109ec      009080e5       str sb, [r0]
+            0x000109f0      0000a0e1       mov r0, r0
+            0x000109f4      0430a0e3       mov r3, 4
+            0x000109f8      0320a0e1       mov r2, r3
+            0x000109fc      1940d9e5       ldrb r4, [sb, 0x19]
+            0x00010a00      0400a0e1       mov r0, r4
+            0x00010a04      0210a0e3       mov r1, 2
+            0x00010a08      04202de5       str r2, [sp, -4]!
+            0x00010a0c      04402de5       str r4, [sp, -4]!
+            0x00010a10      04902de5       str sb, [sp, -4]!
+            0x00010a14      04802de5       str r8, [sp, -4]!
+            0x00010a18      04e02de5       str lr, [sp, -4]!
+            0x00010a1c      38859fe5       ldr r8, [0x00010f5c]        ; [0x10f5c:4]=0x528
+            0x00010a20      008098e5       ldr r8, [r8]
+            0x00010a24      0fe0a0e1       mov lr, pc
+            0x00010a28      08f0a0e1       mov pc, r8                  ; call to any_to_string
+            0x00010a2c      0000a0e1       mov r0, r0
+            0x00010a30      04e09de4       pop {lr}
+            0x00010a34      04809de4       pop {r8}
+            0x00010a38      04909de4       pop {sb}
+            0x00010a3c      0030a0e1       mov r3, r0
+            0x00010a40      04409de4       pop {r4}
+            0x00010a44      04209de4       pop {r2}
+            0x00010a48      0310a0e1       mov r1, r3
+            0x00010a4c      0e40a0e1       mov r4, lr
+            0x00010a50      010000eb       bl 0x10a5c
+        ,=< 0x00010a54      26414e5a       bpl 0x13a0ef4
+        |   0x00010a58      3d000000       andeq r0, r0, sp, lsr r0
+        |   0x00010a5c      0e30a0e1       mov r3, lr
+        |   0x00010a60      04e0a0e1       mov lr, r4
+        |   0x00010a64      0300a0e1       mov r0, r3
+        |   0x00010a68      04902de5       str sb, [sp, -4]!
+        |   0x00010a6c      04802de5       str r8, [sp, -4]!
+        |   0x00010a70      04e02de5       str lr, [sp, -4]!
+        |   0x00010a74      dc849fe5       ldr r8, [0x00010f58]        ; [0x10f58:4]=84
+        |   0x00010a78      008098e5       ldr r8, [r8]
+        |   0x00010a7c      0fe0a0e1       mov lr, pc
+        |   0x00010a80      08f0a0e1       mov pc, r8                  ; call to INSERT
+        |   0x00010a84      0000a0e1       mov r0, r0
+        |   0x00010a88      04e09de4       pop {lr}
+        |   0x00010a8c      04809de4       pop {r8}
+        |   0x00010a90      04909de4       pop {sb}
+        |   0x00010a94      00d08de2       add sp, sp, 0
+        |   0x00010a98      0000a0e1       mov r0, r0
+        |   0x00010a9c      b0849fe5       ldr r8, [0x00010f54]        ; [0x10f54:4]=0x8f04
+        |   0x00010aa0      a8249fe5       ldr r2, [0x00010f50]        ; [0x10f50:4]=0xbd4
+        |   0x00010aa4      021088e0       add r1, r8, r2
+        |   0x00010aa8      0030a0e3       mov r3, 0
+       .--> 0x00010aac      0000a0e1       mov r0, r0
+       :|   0x00010ab0      94249fe5       ldr r2, [0x00010f4c]        ; [0x10f4c:4]=256
+       :|   0x00010ab4      020053e1       cmp r3, r2
+       :|   0x00010ab8      0120a023       movhs r2, 1
+       :|   0x00010abc      0020a033       movlo r2, 0
+       :|   0x00010ac0      000052e3       cmp r2, 0
+      ,===< 0x00010ac4      0500001a       bne 0x10ae0
+      |:|   0x00010ac8      0000a0e1       mov r0, r0
+      |:|   0x00010acc      0320d0e7       ldrb r2, [r0, r3]
+      |:|   0x00010ad0      0320c1e7       strb r2, [r1, r3]
+      |:|   0x00010ad4      013083e2       add r3, r3, 1
+      |`==< 0x00010ad8      f3ffffea       b 0x10aac
+      | |   0x00010adc      0000a0e1       mov r0, r0
+      `---> 0x00010ae0      0000a0e1       mov r0, r0
+        |   0x00010ae4      0000a0e1       mov r0, r0
+        |   0x00010ae8      283099e5       ldr r3, [sb, 0x28]
+        |   0x00010aec      0300a0e1       mov r0, r3
+        |   0x00010af0      0510a0e3       mov r1, 5
+        |   0x00010af4      04302de5       str r3, [sp, -4]!
+        |   0x00010af8      04902de5       str sb, [sp, -4]!
+        |   0x00010afc      04802de5       str r8, [sp, -4]!
+        |   0x00010b00      04e02de5       str lr, [sp, -4]!
+        |   0x00010b04      50849fe5       ldr r8, [0x00010f5c]        ; [0x10f5c:4]=0x528
+        |   0x00010b08      008098e5       ldr r8, [r8]
+        |   0x00010b0c      0fe0a0e1       mov lr, pc
+        |   0x00010b10      08f0a0e1       mov pc, r8                  ; call to any_to_string
+        |   0x00010b14      0000a0e1       mov r0, r0
+        |   0x00010b18      04e09de4       pop {lr}
+        |   0x00010b1c      04809de4       pop {r8}
+        |   0x00010b20      04909de4       pop {sb}
+        |   0x00010b24      0020a0e1       mov r2, r0
+        |   0x00010b28      04309de4       pop {r3}
+        |   0x00010b2c      0210a0e1       mov r1, r2
+        |   0x00010b30      1c849fe5       ldr r8, [0x00010f54]        ; [0x10f54:4]=0x8f04
+        |   0x00010b34      14349fe5       ldr r3, [0x00010f50]        ; [0x10f50:4]=0xbd4
+        |   0x00010b38      032088e0       add r2, r8, r3
+        |   0x00010b3c      0200a0e1       mov r0, r2
+        |   0x00010b40      04902de5       str sb, [sp, -4]!
+        |   0x00010b44      04802de5       str r8, [sp, -4]!
+        |   0x00010b48      04e02de5       str lr, [sp, -4]!
+        |   0x00010b4c      f4839fe5       ldr r8, [0x00010f48]        ; [0x10f48:4]=40
+        |   0x00010b50      008098e5       ldr r8, [r8]
+        |   0x00010b54      0fe0a0e1       mov lr, pc
+        |   0x00010b58      08f0a0e1       mov pc, r8                  ; call to CONCAT
+        |   0x00010b5c      0000a0e1       mov r0, r0
+        |   0x00010b60      04e09de4       pop {lr}
+        |   0x00010b64      04809de4       pop {r8}
+        |   0x00010b68      04909de4       pop {sb}
+        |   0x00010b6c      00d08de2       add sp, sp, 0
+        |   0x00010b70      0000a0e1       mov r0, r0
+        |   0x00010b74      d4239fe5       ldr r2, [0x00010f50]        ; [0x10f50:4]=0xbd4
+        |   0x00010b78      021088e0       add r1, r8, r2
+        |   0x00010b7c      0030a0e3       mov r3, 0
+       .--> 0x00010b80      0000a0e1       mov r0, r0
+       :|   0x00010b84      c0239fe5       ldr r2, [0x00010f4c]        ; [0x10f4c:4]=256
+       :|   0x00010b88      020053e1       cmp r3, r2
+       :|   0x00010b8c      0120a023       movhs r2, 1
+       :|   0x00010b90      0020a033       movlo r2, 0
+       :|   0x00010b94      000052e3       cmp r2, 0
+      ,===< 0x00010b98      0500001a       bne 0x10bb4
+      |:|   0x00010b9c      0000a0e1       mov r0, r0
+      |:|   0x00010ba0      0320d0e7       ldrb r2, [r0, r3]
+      |:|   0x00010ba4      0320c1e7       strb r2, [r1, r3]
+      |:|   0x00010ba8      013083e2       add r3, r3, 1
+      |`==< 0x00010bac      f3ffffea       b 0x10b80
+      | |   0x00010bb0      0000a0e1       mov r0, r0
+      `---> 0x00010bb4      0000a0e1       mov r0, r0
+        |   0x00010bb8      0000a0e1       mov r0, r0
+        |   0x00010bbc      0e30a0e1       mov r3, lr
+        |   0x00010bc0      000000eb       bl 0x10bc8
+        |   0x00010bc4      3b000000       andeq r0, r0, fp, lsr r0
+        |   0x00010bc8      0e20a0e1       mov r2, lr
+        |   0x00010bcc      03e0a0e1       mov lr, r3
+        |   0x00010bd0      0210a0e1       mov r1, r2
+        |   0x00010bd4      78839fe5       ldr r8, [0x00010f54]        ; [0x10f54:4]=0x8f04
+        |   0x00010bd8      70339fe5       ldr r3, [0x00010f50]        ; [0x10f50:4]=0xbd4
+        |   0x00010bdc      032088e0       add r2, r8, r3
+        |   0x00010be0      0200a0e1       mov r0, r2
+        |   0x00010be4      04902de5       str sb, [sp, -4]!
+        |   0x00010be8      04802de5       str r8, [sp, -4]!
+        |   0x00010bec      04e02de5       str lr, [sp, -4]!
+        |   0x00010bf0      50839fe5       ldr r8, [0x00010f48]        ; [0x10f48:4]=40
+        |   0x00010bf4      008098e5       ldr r8, [r8]
+        |   0x00010bf8      0fe0a0e1       mov lr, pc
+        |   0x00010bfc      08f0a0e1       mov pc, r8                  ; call to CONCAT
+        |   0x00010c00      0000a0e1       mov r0, r0
+        |   0x00010c04      04e09de4       pop {lr}
+        |   0x00010c08      04809de4       pop {r8}
+        |   0x00010c0c      04909de4       pop {sb}
+        |   0x00010c10      00d08de2       add sp, sp, 0
+        |   0x00010c14      0000a0e1       mov r0, r0
+        |   0x00010c18      30239fe5       ldr r2, [0x00010f50]        ; [0x10f50:4]=0xbd4
+        |   0x00010c1c      021088e0       add r1, r8, r2
+        |   0x00010c20      0030a0e3       mov r3, 0
+       .--> 0x00010c24      0000a0e1       mov r0, r0
+       :|   0x00010c28      1c239fe5       ldr r2, [0x00010f4c]        ; [0x10f4c:4]=256
+       :|   0x00010c2c      020053e1       cmp r3, r2
+       :|   0x00010c30      0120a023       movhs r2, 1
+       :|   0x00010c34      0020a033       movlo r2, 0
+       :|   0x00010c38      000052e3       cmp r2, 0
+      ,===< 0x00010c3c      0500001a       bne 0x10c58
+      |:|   0x00010c40      0000a0e1       mov r0, r0
+      |:|   0x00010c44      0320d0e7       ldrb r2, [r0, r3]
+      |:|   0x00010c48      0320c1e7       strb r2, [r1, r3]
+      |:|   0x00010c4c      013083e2       add r3, r3, 1
+      |`==< 0x00010c50      f3ffffea       b 0x10c24
+      | |   0x00010c54      0000a0e1       mov r0, r0
+      `---> 0x00010c58      0000a0e1       mov r0, r0
+        |   0x00010c5c      0000a0e1       mov r0, r0
+        |   0x00010c60      2c3099e5       ldr r3, [sb, 0x2c]
+        |   0x00010c64      0300a0e1       mov r0, r3
+        |   0x00010c68      0510a0e3       mov r1, 5
+        |   0x00010c6c      04302de5       str r3, [sp, -4]!
+        |   0x00010c70      04902de5       str sb, [sp, -4]!
+        |   0x00010c74      04802de5       str r8, [sp, -4]!
+        |   0x00010c78      04e02de5       str lr, [sp, -4]!
+        |   0x00010c7c      d8829fe5       ldr r8, [0x00010f5c]        ; [0x10f5c:4]=0x528
+        |   0x00010c80      008098e5       ldr r8, [r8]
+        |   0x00010c84      0fe0a0e1       mov lr, pc
+        |   0x00010c88      08f0a0e1       mov pc, r8                  ; call to any_to_string
+        |   0x00010c8c      0000a0e1       mov r0, r0
+        |   0x00010c90      04e09de4       pop {lr}
+        |   0x00010c94      04809de4       pop {r8}
+        |   0x00010c98      04909de4       pop {sb}
+        |   0x00010c9c      0020a0e1       mov r2, r0
+        |   0x00010ca0      04309de4       pop {r3}
+        |   0x00010ca4      0210a0e1       mov r1, r2
+        |   0x00010ca8      a4829fe5       ldr r8, [0x00010f54]        ; [0x10f54:4]=0x8f04
+        |   0x00010cac      9c329fe5       ldr r3, [0x00010f50]        ; [0x10f50:4]=0xbd4
+        |   0x00010cb0      032088e0       add r2, r8, r3
+        |   0x00010cb4      0200a0e1       mov r0, r2
+        |   0x00010cb8      04902de5       str sb, [sp, -4]!
+        |   0x00010cbc      04802de5       str r8, [sp, -4]!
+        |   0x00010cc0      04e02de5       str lr, [sp, -4]!
+        |   0x00010cc4      7c829fe5       ldr r8, [0x00010f48]        ; [0x10f48:4]=40
+        |   0x00010cc8      008098e5       ldr r8, [r8]
+        |   0x00010ccc      0fe0a0e1       mov lr, pc
+        |   0x00010cd0      08f0a0e1       mov pc, r8                  ; call to CONCAT
+        |   0x00010cd4      0000a0e1       mov r0, r0
+        |   0x00010cd8      04e09de4       pop {lr}
+        |   0x00010cdc      04809de4       pop {r8}
+        |   0x00010ce0      04909de4       pop {sb}
+        |   0x00010ce4      00d08de2       add sp, sp, 0
+        |   0x00010ce8      0000a0e1       mov r0, r0
+        |   0x00010cec      5c229fe5       ldr r2, [0x00010f50]        ; [0x10f50:4]=0xbd4
+        |   0x00010cf0      021088e0       add r1, r8, r2
+        |   0x00010cf4      0030a0e3       mov r3, 0
+       .--> 0x00010cf8      0000a0e1       mov r0, r0
+       :|   0x00010cfc      48229fe5       ldr r2, [0x00010f4c]        ; [0x10f4c:4]=256
+       :|   0x00010d00      020053e1       cmp r3, r2
+       :|   0x00010d04      0120a023       movhs r2, 1
+       :|   0x00010d08      0020a033       movlo r2, 0
+       :|   0x00010d0c      000052e3       cmp r2, 0
+      ,===< 0x00010d10      0500001a       bne 0x10d2c
+      |:|   0x00010d14      0000a0e1       mov r0, r0
+      |:|   0x00010d18      0320d0e7       ldrb r2, [r0, r3]
+      |:|   0x00010d1c      0320c1e7       strb r2, [r1, r3]
+      |:|   0x00010d20      013083e2       add r3, r3, 1
+      |`==< 0x00010d24      f3ffffea       b 0x10cf8
+      | |   0x00010d28      0000a0e1       mov r0, r0
+      `---> 0x00010d2c      0000a0e1       mov r0, r0
+        |   0x00010d30      0000a0e1       mov r0, r0
+        |   0x00010d34      0e30a0e1       mov r3, lr
+        |   0x00010d38      000000eb       bl 0x10d40
+        |   0x00010d3c      3b000000       andeq r0, r0, fp, lsr r0
+        |   0x00010d40      0e20a0e1       mov r2, lr
+        |   0x00010d44      03e0a0e1       mov lr, r3
+        |   0x00010d48      0210a0e1       mov r1, r2
+        |   0x00010d4c      00829fe5       ldr r8, [0x00010f54]        ; [0x10f54:4]=0x8f04
+        |   0x00010d50      f8319fe5       ldr r3, [0x00010f50]        ; [0x10f50:4]=0xbd4
+        |   0x00010d54      032088e0       add r2, r8, r3
+        |   0x00010d58      0200a0e1       mov r0, r2
+        |   0x00010d5c      04902de5       str sb, [sp, -4]!
+        |   0x00010d60      04802de5       str r8, [sp, -4]!
+        |   0x00010d64      04e02de5       str lr, [sp, -4]!
+        |   0x00010d68      d8819fe5       ldr r8, [0x00010f48]        ; [0x10f48:4]=40
+        |   0x00010d6c      008098e5       ldr r8, [r8]
+        |   0x00010d70      0fe0a0e1       mov lr, pc
+        |   0x00010d74      08f0a0e1       mov pc, r8                  ; call to CONCAT
+        |   0x00010d78      0000a0e1       mov r0, r0
+        |   0x00010d7c      04e09de4       pop {lr}
+        |   0x00010d80      04809de4       pop {r8}
+        |   0x00010d84      04909de4       pop {sb}
+        |   0x00010d88      00d08de2       add sp, sp, 0
+        |   0x00010d8c      0000a0e1       mov r0, r0
+        |   0x00010d90      b8219fe5       ldr r2, [0x00010f50]        ; [0x10f50:4]=0xbd4
+        |   0x00010d94      021088e0       add r1, r8, r2
+        |   0x00010d98      0030a0e3       mov r3, 0
+       .--> 0x00010d9c      0000a0e1       mov r0, r0
+       :|   0x00010da0      a4219fe5       ldr r2, [0x00010f4c]        ; [0x10f4c:4]=256
+       :|   0x00010da4      020053e1       cmp r3, r2
+       :|   0x00010da8      0120a023       movhs r2, 1
+       :|   0x00010dac      0020a033       movlo r2, 0
+       :|   0x00010db0      000052e3       cmp r2, 0
+      ,===< 0x00010db4      0500001a       bne 0x10dd0
+      |:|   0x00010db8      0000a0e1       mov r0, r0
+      |:|   0x00010dbc      0320d0e7       ldrb r2, [r0, r3]
+      |:|   0x00010dc0      0320c1e7       strb r2, [r1, r3]
+      |:|   0x00010dc4      013083e2       add r3, r3, 1
+      |`==< 0x00010dc8      f3ffffea       b 0x10d9c
+      | |   0x00010dcc      0000a0e1       mov r0, r0
+      `---> 0x00010dd0      0000a0e1       mov r0, r0
+        |   0x00010dd4      0000a0e1       mov r0, r0
+        |   0x00010dd8      c430d9e5       ldrb r3, [sb, 0xc4]
+        |   0x00010ddc      0300a0e1       mov r0, r3
+        |   0x00010de0      0210a0e3       mov r1, 2
+        |   0x00010de4      04302de5       str r3, [sp, -4]!
+        |   0x00010de8      04902de5       str sb, [sp, -4]!
+        |   0x00010dec      04802de5       str r8, [sp, -4]!
+        |   0x00010df0      04e02de5       str lr, [sp, -4]!
+        |   0x00010df4      60819fe5       ldr r8, [0x00010f5c]        ; [0x10f5c:4]=0x528
+        |   0x00010df8      008098e5       ldr r8, [r8]
+        |   0x00010dfc      0fe0a0e1       mov lr, pc
+        |   0x00010e00      08f0a0e1       mov pc, r8                  ; call to any_to_string
+        |   0x00010e04      0000a0e1       mov r0, r0
+        |   0x00010e08      04e09de4       pop {lr}
+        |   0x00010e0c      04809de4       pop {r8}
+        |   0x00010e10      04909de4       pop {sb}
+        |   0x00010e14      0020a0e1       mov r2, r0
+        |   0x00010e18      04309de4       pop {r3}
+        |   0x00010e1c      0210a0e1       mov r1, r2
+        |   0x00010e20      2c819fe5       ldr r8, [0x00010f54]        ; [0x10f54:4]=0x8f04
+        |   0x00010e24      24319fe5       ldr r3, [0x00010f50]        ; [0x10f50:4]=0xbd4
+        |   0x00010e28      032088e0       add r2, r8, r3
+        |   0x00010e2c      0200a0e1       mov r0, r2
+        |   0x00010e30      04902de5       str sb, [sp, -4]!
+        |   0x00010e34      04802de5       str r8, [sp, -4]!
+        |   0x00010e38      04e02de5       str lr, [sp, -4]!
+        |   0x00010e3c      04819fe5       ldr r8, [0x00010f48]        ; [0x10f48:4]=40
+        |   0x00010e40      008098e5       ldr r8, [r8]
+        |   0x00010e44      0fe0a0e1       mov lr, pc
+        |   0x00010e48      08f0a0e1       mov pc, r8                  ; call to CONCAT
+        |   0x00010e4c      0000a0e1       mov r0, r0
+        |   0x00010e50      04e09de4       pop {lr}
+        |   0x00010e54      04809de4       pop {r8}
+        |   0x00010e58      04909de4       pop {sb}
+        |   0x00010e5c      00d08de2       add sp, sp, 0
+        |   0x00010e60      0000a0e1       mov r0, r0
+        |   0x00010e64      e4209fe5       ldr r2, [0x00010f50]        ; [0x10f50:4]=0xbd4
+        |   0x00010e68      021088e0       add r1, r8, r2
+        |   0x00010e6c      0030a0e3       mov r3, 0
+       .--> 0x00010e70      0000a0e1       mov r0, r0
+       :|   0x00010e74      d0209fe5       ldr r2, [0x00010f4c]        ; [0x10f4c:4]=256
+       :|   0x00010e78      020053e1       cmp r3, r2
+       :|   0x00010e7c      0120a023       movhs r2, 1
+       :|   0x00010e80      0020a033       movlo r2, 0
+       :|   0x00010e84      000052e3       cmp r2, 0
+      ,===< 0x00010e88      0500001a       bne 0x10ea4
+      |:|   0x00010e8c      0000a0e1       mov r0, r0
+      |:|   0x00010e90      0320d0e7       ldrb r2, [r0, r3]
+      |:|   0x00010e94      0320c1e7       strb r2, [r1, r3]
+      |:|   0x00010e98      013083e2       add r3, r3, 1
+      |`==< 0x00010e9c      f3ffffea       b 0x10e70
+      | |   0x00010ea0      0000a0e1       mov r0, r0
+      `---> 0x00010ea4      0000a0e1       mov r0, r0
+        |   0x00010ea8      0000a0e1       mov r0, r0
+        |   0x00010eac      0910a0e1       mov r1, sb
+        |   0x00010eb0      10d04de2       sub sp, sp, 0x10
+        |   0x00010eb4      0d20a0e1       mov r2, sp
+        |   0x00010eb8      94809fe5       ldr r8, [0x00010f54]        ; [0x10f54:4]=0x8f04
+        |   0x00010ebc      80409fe5       ldr r4, [0x00010f44]        ; [0x10f44:4]=0xbcc
+        |   0x00010ec0      043088e0       add r3, r8, r4
+        |   0x00010ec4      0c3082e5       str r3, [r2, 0xc]
+        |   0x00010ec8      80409fe5       ldr r4, [0x00010f50]        ; [0x10f50:4]=0xbd4
+        |   0x00010ecc      043088e0       add r3, r8, r4
+        |   0x00010ed0      043082e5       str r3, [r2, 4]
+        |   0x00010ed4      64409fe5       ldr r4, [0x00010f40]        ; [0x10f40:4]=0x5ec
+        |   0x00010ed8      043088e0       add r3, r8, r4
+        |   0x00010edc      003082e5       str r3, [r2]
+        |   0x00010ee0      0290a0e1       mov sb, r2
+        |   0x00010ee4      04102de5       str r1, [sp, -4]!
+        |   0x00010ee8      04902de5       str sb, [sp, -4]!
+        |   0x00010eec      04802de5       str r8, [sp, -4]!
+        |   0x00010ef0      04e02de5       str lr, [sp, -4]!
+        |   0x00010ef4      40809fe5       ldr r8, [0x00010f3c]        ; [0x10f3c:4]=0x3c4
+        |   0x00010ef8      008098e5       ldr r8, [r8]
+        |   0x00010efc      0fe0a0e1       mov lr, pc
+        |   0x00010f00      08f0a0e1       mov pc, r8                  ; call to sub_8a28
+        |   0x00010f04      0000a0e1       mov r0, r0
+        |   0x00010f08      04e09de4       pop {lr}
+        |   0x00010f0c      04809de4       pop {r8}
+        |   0x00010f10      04909de4       pop {sb}
+        |   0x00010f14      04109de4       pop {r1}
+        |   0x00010f18      0800d9e5       ldrb r0, [sb, 8]
+        |   0x00010f1c      10d08de2       add sp, sp, 0x10
+        |   0x00010f20      0190a0e1       mov sb, r1
+        |   0x00010f24      0000a0e1       mov r0, r0
+        |   0x00010f28      0000a0e1       mov r0, r0
+        |   0x00010f2c      2c209fe5       ldr r2, [0x00010f60]        ; [0x10f60:4]=0x232c
+        |   0x00010f30      04109de4       pop {r1}
+        |   0x00010f34      001082e5       str r1, [r2]
+        |   0x00010f38      00a81be9       ldmdb fp, {fp, sp, pc}
+
+            0x00010f3c      000003c4       000003c4  ....
+            0x00010f40      000005ec       000005ec  ....
+            0x00010f44      00000bcc       00000bcc  ....
+            0x00010f48      00000028       00000028  (... ascii
+            0x00010f4c      00000100       00000100  ....
+            0x00010f50      00000bd4       00000bd4  ....
+            0x00010f54      00008f04       00008f04  ....
+            0x00010f58      00000054       00000054  T... ascii
+            0x00010f5c      00000528       00000528  (...
+            0x00010f60      0000232c       0000232c  ,#.. ascii
+                       

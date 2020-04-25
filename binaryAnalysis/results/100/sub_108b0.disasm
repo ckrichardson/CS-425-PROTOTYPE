@@ -1,0 +1,75 @@
+                        0x000108b0      0dc0a0e1       mov ip, sp
+            0x000108b4      00582de9       push {fp, ip, lr}
+            0x000108b8      0cb0a0e1       mov fp, ip
+            0x000108bc      04002de5       str r0, [sp, -4]!
+            0x000108c0      08819fe5       ldr r8, [0x000109d0]        ; [0x109d0:4]=0x5035
+            0x000108c4      0010d8e5       ldrb r1, [r8]
+            0x000108c8      04002de5       str r0, [sp, -4]!
+            0x000108cc      0900a0e1       mov r0, sb
+            0x000108d0      04902de5       str sb, [sp, -4]!
+            0x000108d4      04802de5       str r8, [sp, -4]!
+            0x000108d8      04e02de5       str lr, [sp, -4]!
+            0x000108dc      e8809fe5       ldr r8, [0x000109cc]        ; [0x109cc:4]=180
+            0x000108e0      008098e5       ldr r8, [r8]
+            0x000108e4      0fe0a0e1       mov lr, pc
+            0x000108e8      08f0a0e1       mov pc, r8                  ; call to TONinit
+            0x000108ec      0000a0e1       mov r0, r0
+            0x000108f0      04e09de4       pop {lr}
+            0x000108f4      04809de4       pop {r8}
+            0x000108f8      04909de4       pop {sb}
+            0x000108fc      04009de4       pop {r0}
+            0x00010900      0010a0e1       mov r1, r0
+            0x00010904      e21548e5       strb r1, [r8, -0x5e2]
+            0x00010908      b8109fe5       ldr r1, [0x000109c8]        ; [0x109c8:4]=0x1388
+            0x0001090c      0c1089e5       str r1, [sb, 0xc]
+            0x00010910      0010a0e3       mov r1, 0
+            0x00010914      1810c9e5       strb r1, [sb, 0x18]
+            0x00010918      0010a0e3       mov r1, 0
+            0x0001091c      1910c9e5       strb r1, [sb, 0x19]
+            0x00010920      1f10a0e3       mov r1, 0x1f
+            0x00010924      1a10c9e5       strb r1, [sb, 0x1a]
+            0x00010928      94109fe5       ldr r1, [0x000109c4]        ; [0x109c4:4]=0x2bf20
+            0x0001092c      1c1089e5       str r1, [sb, 0x1c]
+            0x00010930      0110a0e3       mov r1, 1
+            0x00010934      2010c9e5       strb r1, [sb, 0x20]
+            0x00010938      0010a0e3       mov r1, 0
+            0x0001093c      2110c9e5       strb r1, [sb, 0x21]
+            0x00010940      0010d8e5       ldrb r1, [r8]
+            0x00010944      04002de5       str r0, [sp, -4]!
+            0x00010948      04902de5       str sb, [sp, -4]!
+            0x0001094c      249089e2       add sb, sb, 0x24
+            0x00010950      0100a0e1       mov r0, r1
+            0x00010954      04102de5       str r1, [sp, -4]!
+            0x00010958      04902de5       str sb, [sp, -4]!
+            0x0001095c      04802de5       str r8, [sp, -4]!
+            0x00010960      04e02de5       str lr, [sp, -4]!
+            0x00010964      54809fe5       ldr r8, [0x000109c0]        ; [0x109c0:4]=0x4a4
+            0x00010968      008098e5       ldr r8, [r8]
+            0x0001096c      0fe0a0e1       mov lr, pc
+            0x00010970      08f0a0e1       mov pc, r8                  ; call to sub_168ac
+            0x00010974      0000a0e1       mov r0, r0
+            0x00010978      04e09de4       pop {lr}
+            0x0001097c      04809de4       pop {r8}
+            0x00010980      04909de4       pop {sb}
+            0x00010984      04109de4       pop {r1}
+            0x00010988      04909de4       pop {sb}
+            0x0001098c      04009de4       pop {r0}
+            0x00010990      0010a0e1       mov r1, r0
+            0x00010994      e21548e5       strb r1, [r8, -0x5e2]
+            0x00010998      0010a0e3       mov r1, 0
+            0x0001099c      c410c9e5       strb r1, [sb, 0xc4]
+            0x000109a0      0010a0e3       mov r1, 0
+            0x000109a4      c81089e5       str r1, [sb, 0xc8]
+            0x000109a8      04009de4       pop {r0}
+            0x000109ac      000050e3       cmp r0, 0
+        ,=< 0x000109b0      0000001a       bne 0x109b8
+        |   0x000109b4      0000a0e1       mov r0, r0
+        `-> 0x000109b8      0000a0e1       mov r0, r0
+            0x000109bc      00a81be9       ldmdb fp, {fp, sp, pc}
+
+            0x000109c0      000004a4       000004a4  ....
+            0x000109c4      0002bf20       0002bf20   ...
+            0x000109c8      00001388       00001388  ....
+            0x000109cc      000000b4       000000b4  ....
+            0x000109d0      00005035       00005035  5P.. ascii
+                       

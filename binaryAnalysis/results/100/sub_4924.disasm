@@ -1,0 +1,90 @@
+                        0x00004924      0dc0a0e1       mov ip, sp
+            0x00004928      00582de9       push {fp, ip, lr}
+            0x0000492c      0cb0a0e1       mov fp, ip
+            0x00004930      0000a0e3       mov r0, 0
+            0x00004934      b000c9e1       strh r0, [sb]
+            0x00004938      40819fe5       ldr r8, [0x00004a80]        ; [0x4a80:4]=0x5035
+            0x0000493c      0000d8e5       ldrb r0, [r8]
+            0x00004940      04002de5       str r0, [sp, -4]!
+            0x00004944      040089e2       add r0, sb, 4
+            0x00004948      0010a0e1       mov r1, r0
+            0x0000494c      04902de5       str sb, [sp, -4]!
+            0x00004950      04802de5       str r8, [sp, -4]!
+            0x00004954      04e02de5       str lr, [sp, -4]!
+            0x00004958      1c819fe5       ldr r8, [0x00004a7c]        ; [0x4a7c:4]=0x290
+            0x0000495c      008098e5       ldr r8, [r8]
+            0x00004960      0fe0a0e1       mov lr, pc
+            0x00004964      08f0a0e1       mov pc, r8                  ; call to CRC16init
+            0x00004968      0000a0e1       mov r0, r0
+            0x0000496c      04e09de4       pop {lr}
+            0x00004970      04809de4       pop {r8}
+            0x00004974      04909de4       pop {sb}
+            0x00004978      04009de4       pop {r0}
+            0x0000497c      e20548e5       strb r0, [r8, -0x5e2]
+            0x00004980      0000a0e3       mov r0, 0
+            0x00004984      b201c9e1       strh r0, [sb, 0x12]
+            0x00004988      0000a0e3       mov r0, 0
+            0x0000498c      0800c9e5       strb r0, [sb, 8]
+            0x00004990      0000a0e3       mov r0, 0
+            0x00004994      0900c9e5       strb r0, [sb, 9]
+            0x00004998      04002de5       str r0, [sp, -4]!
+            0x0000499c      040089e2       add r0, sb, 4
+            0x000049a0      04902de5       str sb, [sp, -4]!
+            0x000049a4      04802de5       str r8, [sp, -4]!
+            0x000049a8      04e02de5       str lr, [sp, -4]!
+            0x000049ac      c4809fe5       ldr r8, [0x00004a78]        ; [0x4a78:4]=0x28c
+            0x000049b0      008098e5       ldr r8, [r8]
+            0x000049b4      0fe0a0e1       mov lr, pc
+            0x000049b8      08f0a0e1       mov pc, r8                  ; call to CRC16
+            0x000049bc      0000a0e1       mov r0, r0
+            0x000049c0      04e09de4       pop {lr}
+            0x000049c4      04809de4       pop {r8}
+            0x000049c8      04909de4       pop {sb}
+            0x000049cc      04009de4       pop {r0}
+            0x000049d0      0000a0e3       mov r0, 0
+            0x000049d4      b000c9e1       strh r0, [sb]
+        .-> 0x000049d8      0000a0e1       mov r0, r0
+        :   0x000049dc      f000d9e1       ldrsh r0, [sb]
+        :   0x000049e0      f011d9e1       ldrsh r1, [sb, 0x10]
+        :   0x000049e4      011041e2       sub r1, r1, 1
+        :   0x000049e8      010050e1       cmp r0, r1
+        :   0x000049ec      0100a0c3       movgt r0, 1
+        :   0x000049f0      0000a0d3       movle r0, 0
+        :   0x000049f4      000050e3       cmp r0, 0
+       ,==< 0x000049f8      1900001a       bne 0x4a64
+       |:   0x000049fc      0000a0e1       mov r0, r0
+       |:   0x00004a00      f000d9e1       ldrsh r0, [sb]
+       |:   0x00004a04      0c1099e5       ldr r1, [sb, 0xc]
+       |:   0x00004a08      0000d1e7       ldrb r0, [r1, r0]
+       |:   0x00004a0c      0800c9e5       strb r0, [sb, 8]
+       |:   0x00004a10      0100a0e3       mov r0, 1
+       |:   0x00004a14      0900c9e5       strb r0, [sb, 9]
+       |:   0x00004a18      04002de5       str r0, [sp, -4]!
+       |:   0x00004a1c      040089e2       add r0, sb, 4
+       |:   0x00004a20      04902de5       str sb, [sp, -4]!
+       |:   0x00004a24      04802de5       str r8, [sp, -4]!
+       |:   0x00004a28      04e02de5       str lr, [sp, -4]!
+       |:   0x00004a2c      44809fe5       ldr r8, [0x00004a78]        ; [0x4a78:4]=0x28c
+       |:   0x00004a30      008098e5       ldr r8, [r8]
+       |:   0x00004a34      0fe0a0e1       mov lr, pc
+       |:   0x00004a38      08f0a0e1       mov pc, r8                  ; call to CRC16
+       |:   0x00004a3c      0000a0e1       mov r0, r0
+       |:   0x00004a40      04e09de4       pop {lr}
+       |:   0x00004a44      04809de4       pop {r8}
+       |:   0x00004a48      04909de4       pop {sb}
+       |:   0x00004a4c      04009de4       pop {r0}
+       |:   0x00004a50      f000d9e1       ldrsh r0, [sb]
+       |:   0x00004a54      010080e2       add r0, r0, 1
+       |:   0x00004a58      b000c9e1       strh r0, [sb]
+       |`=< 0x00004a5c      ddffffea       b 0x49d8
+       |    0x00004a60      0000a0e1       mov r0, r0
+       `--> 0x00004a64      0000a0e1       mov r0, r0
+            0x00004a68      ba00d9e1       ldrh r0, [sb, 0xa]
+            0x00004a6c      b201c9e1       strh r0, [sb, 0x12]
+            0x00004a70      0000a0e1       mov r0, r0
+            0x00004a74      00a81be9       ldmdb fp, {fp, sp, pc}
+
+            0x00004a78      0000028c       0000028c  ....
+            0x00004a7c      00000290       00000290  ....
+            0x00004a80      00005035       00005035  5P.. ascii
+                       

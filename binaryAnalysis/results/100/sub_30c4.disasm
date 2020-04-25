@@ -1,0 +1,8 @@
+                        0x000030c4      0dc0a0e1       mov ip, sp
+            0x000030c8      00582de9       push {fp, ip, lr}
+            0x000030cc      0cb0a0e1       mov fp, ip
+            0x000030d0      00009fe5       ldr r0, [pc]                ; [0x30d8:4]=0x1957d
+            0x000030d4      00a81be9       ldmdb fp, {fp, sp, pc}
+
+            0x000030d8      0001957d       0001957d  }...
+                       

@@ -1,0 +1,92 @@
+                        0x000168ac      0dc0a0e1       mov ip, sp
+            0x000168b0      00582de9       push {fp, ip, lr}
+            0x000168b4      0cb0a0e1       mov fp, ip
+            0x000168b8      04002de5       str r0, [sp, -4]!
+            0x000168bc      0010a0e3       mov r1, 0
+            0x000168c0      001089e5       str r1, [sb]
+            0x000168c4      0010a0e3       mov r1, 0
+            0x000168c8      041089e5       str r1, [sb, 4]
+            0x000168cc      0010a0e3       mov r1, 0
+            0x000168d0      081089e5       str r1, [sb, 8]
+            0x000168d4      0010a0e3       mov r1, 0
+            0x000168d8      0c1089e5       str r1, [sb, 0xc]
+            0x000168dc      0010a0e3       mov r1, 0
+            0x000168e0      101089e5       str r1, [sb, 0x10]
+            0x000168e4      0010a0e3       mov r1, 0
+            0x000168e8      141089e5       str r1, [sb, 0x14]
+            0x000168ec      0010a0e3       mov r1, 0
+            0x000168f0      181089e5       str r1, [sb, 0x18]
+            0x000168f4      0010a0e3       mov r1, 0
+            0x000168f8      1c1089e5       str r1, [sb, 0x1c]
+            0x000168fc      0010a0e3       mov r1, 0
+            0x00016900      201089e5       str r1, [sb, 0x20]
+            0x00016904      0010a0e3       mov r1, 0
+            0x00016908      241089e5       str r1, [sb, 0x24]
+            0x0001690c      0010a0e3       mov r1, 0
+            0x00016910      281089e5       str r1, [sb, 0x28]
+            0x00016914      0010a0e3       mov r1, 0
+            0x00016918      2c1089e5       str r1, [sb, 0x2c]
+            0x0001691c      0010a0e3       mov r1, 0
+            0x00016920      301089e5       str r1, [sb, 0x30]
+            0x00016924      0010a0e3       mov r1, 0
+            0x00016928      341089e5       str r1, [sb, 0x34]
+            0x0001692c      0010a0e3       mov r1, 0
+            0x00016930      381089e5       str r1, [sb, 0x38]
+            0x00016934      0010a0e3       mov r1, 0
+            0x00016938      3c1089e5       str r1, [sb, 0x3c]
+            0x0001693c      0010a0e3       mov r1, 0
+            0x00016940      401089e5       str r1, [sb, 0x40]
+            0x00016944      0010a0e3       mov r1, 0
+            0x00016948      441089e5       str r1, [sb, 0x44]
+            0x0001694c      0010a0e3       mov r1, 0
+            0x00016950      481089e5       str r1, [sb, 0x48]
+            0x00016954      0010a0e3       mov r1, 0
+            0x00016958      4c1089e5       str r1, [sb, 0x4c]
+            0x0001695c      0010a0e3       mov r1, 0
+            0x00016960      501089e5       str r1, [sb, 0x50]
+            0x00016964      0010a0e3       mov r1, 0
+            0x00016968      541089e5       str r1, [sb, 0x54]
+            0x0001696c      0010a0e3       mov r1, 0
+            0x00016970      581089e5       str r1, [sb, 0x58]
+            0x00016974      0010a0e3       mov r1, 0
+            0x00016978      5c1089e5       str r1, [sb, 0x5c]
+            0x0001697c      0010a0e3       mov r1, 0
+            0x00016980      601089e5       str r1, [sb, 0x60]
+            0x00016984      0010a0e3       mov r1, 0
+            0x00016988      641089e5       str r1, [sb, 0x64]
+            0x0001698c      0010a0e3       mov r1, 0
+            0x00016990      681089e5       str r1, [sb, 0x68]
+            0x00016994      0010a0e3       mov r1, 0
+            0x00016998      6c1089e5       str r1, [sb, 0x6c]
+            0x0001699c      0010a0e3       mov r1, 0
+            0x000169a0      701089e5       str r1, [sb, 0x70]
+            0x000169a4      0010a0e3       mov r1, 0
+            0x000169a8      741089e5       str r1, [sb, 0x74]
+            0x000169ac      0010a0e3       mov r1, 0
+            0x000169b0      781089e5       str r1, [sb, 0x78]
+            0x000169b4      0010a0e3       mov r1, 0
+            0x000169b8      7c1089e5       str r1, [sb, 0x7c]
+            0x000169bc      0010a0e3       mov r1, 0
+            0x000169c0      801089e5       str r1, [sb, 0x80]
+            0x000169c4      0010a0e3       mov r1, 0
+            0x000169c8      841089e5       str r1, [sb, 0x84]
+            0x000169cc      0010a0e3       mov r1, 0
+            0x000169d0      881089e5       str r1, [sb, 0x88]
+            0x000169d4      0010a0e3       mov r1, 0
+            0x000169d8      8c1089e5       str r1, [sb, 0x8c]
+            0x000169dc      0010a0e3       mov r1, 0
+            0x000169e0      901089e5       str r1, [sb, 0x90]
+            0x000169e4      0010a0e3       mov r1, 0
+            0x000169e8      941089e5       str r1, [sb, 0x94]
+            0x000169ec      0010a0e3       mov r1, 0
+            0x000169f0      981089e5       str r1, [sb, 0x98]
+            0x000169f4      0010a0e3       mov r1, 0
+            0x000169f8      9c1089e5       str r1, [sb, 0x9c]
+            0x000169fc      04009de4       pop {r0}
+            0x00016a00      000050e3       cmp r0, 0
+        ,=< 0x00016a04      0000001a       bne 0x16a0c
+        |   0x00016a08      0000a0e1       mov r0, r0
+        `-> 0x00016a0c      0000a0e1       mov r0, r0
+            0x00016a10      00a81be9       ldmdb fp, {fp, sp, pc}
+
+                       

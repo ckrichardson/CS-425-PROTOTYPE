@@ -1,0 +1,473 @@
+                        0x0000b4cc      0dc0a0e1       mov ip, sp
+            0x0000b4d0      00582de9       push {fp, ip, lr}
+            0x0000b4d4      0cb0a0e1       mov fp, ip
+            0x0000b4d8      0000a0e1       mov r0, r0
+            0x0000b4dc      0e30a0e1       mov r3, lr
+            0x0000b4e0      000000eb       bl 0xb4e8
+            0x0000b4e4      72000000       andeq r0, r0, r2, ror r0
+            0x0000b4e8      0e20a0e1       mov r2, lr
+            0x0000b4ec      03e0a0e1       mov lr, r3
+            0x0000b4f0      0210a0e1       mov r1, r2
+            0x0000b4f4      28879fe5       ldr r8, [0x0000bc24]        ; [0xbc24:4]=0x3602
+            0x0000b4f8      0820a0e1       mov r2, r8
+            0x0000b4fc      0200a0e1       mov r0, r2
+            0x0000b500      04902de5       str sb, [sp, -4]!
+            0x0000b504      04802de5       str r8, [sp, -4]!
+            0x0000b508      04e02de5       str lr, [sp, -4]!
+            0x0000b50c      0c879fe5       ldr r8, [0x0000bc20]        ; [0xbc20:4]=432
+            0x0000b510      008098e5       ldr r8, [r8]
+            0x0000b514      0fe0a0e1       mov lr, pc
+            0x0000b518      08f0a0e1       mov pc, r8                  ; call to SysFileOpen
+            0x0000b51c      0000a0e1       mov r0, r0
+            0x0000b520      04e09de4       pop {lr}
+            0x0000b524      04809de4       pop {r8}
+            0x0000b528      04909de4       pop {sb}
+            0x0000b52c      00d08de2       add sp, sp, 0
+            0x0000b530      0000a0e1       mov r0, r0
+            0x0000b534      9e0d88e5       str r0, [r8, 0xd9e]
+            0x0000b538      0000a0e1       mov r0, r0
+            0x0000b53c      9e0d98e5       ldr r0, [r8, 0xd9e]
+            0x0000b540      000050e3       cmp r0, 0
+            0x0000b544      0100a013       movne r0, 1
+            0x0000b548      0000a003       moveq r0, 0
+            0x0000b54c      0000a0e1       mov r0, r0
+            0x0000b550      0000a0e1       mov r0, r0
+            0x0000b554      000050e3       cmp r0, 0
+        ,=< 0x0000b558      0300001a       bne 0xb56c
+        |   0x0000b55c      0000a0e1       mov r0, r0
+        |   0x0000b560      0000a0e1       mov r0, r0
+       ,==< 0x0000b564      9d0100ea       b 0xbbe0
+       ||   0x0000b568      0000a0e1       mov r0, r0
+       |`-> 0x0000b56c      0000a0e1       mov r0, r0
+       |    0x0000b570      0000a0e1       mov r0, r0
+       |    0x0000b574      0000a0e1       mov r0, r0
+       |    0x0000b578      9c869fe5       ldr r8, [0x0000bc1c]        ; [0xbc1c:4]=0x8f04
+       |    0x0000b57c      d02b98e5       ldr r2, [r8, 0xbd0]
+       |    0x0000b580      0210a0e1       mov r1, r2
+       |    0x0000b584      8c869fe5       ldr r8, [0x0000bc18]        ; [0xbc18:4]=0x43a0
+       |    0x0000b588      002098e5       ldr r2, [r8]
+       |    0x0000b58c      0200a0e1       mov r0, r2
+       |    0x0000b590      04902de5       str sb, [sp, -4]!
+       |    0x0000b594      04802de5       str r8, [sp, -4]!
+       |    0x0000b598      04e02de5       str lr, [sp, -4]!
+       |    0x0000b59c      70869fe5       ldr r8, [0x0000bc14]        ; [0xbc14:4]=444
+       |    0x0000b5a0      008098e5       ldr r8, [r8]
+       |    0x0000b5a4      0fe0a0e1       mov lr, pc
+       |    0x0000b5a8      08f0a0e1       mov pc, r8                  ; call to SysFileSetPos
+       |    0x0000b5ac      0000a0e1       mov r0, r0
+       |    0x0000b5b0      04e09de4       pop {lr}
+       |    0x0000b5b4      04809de4       pop {r8}
+       |    0x0000b5b8      04909de4       pop {sb}
+       |    0x0000b5bc      00d08de2       add sp, sp, 0
+       |    0x0000b5c0      0000a0e1       mov r0, r0
+       |    0x0000b5c4      0010a0e3       mov r1, 0
+       |    0x0000b5c8      0000a0e1       mov r0, r0
+       |    0x0000b5cc      48869fe5       ldr r8, [0x0000bc1c]        ; [0xbc1c:4]=0x8f04
+       |    0x0000b5d0      e81588e5       str r1, [r8, 0x5e8]
+       |.-> 0x0000b5d4      0000a0e1       mov r0, r0
+       |:   0x0000b5d8      0000a0e1       mov r0, r0
+       |:   0x0000b5dc      04002de5       str r0, [sp, -4]!
+       |:   0x0000b5e0      0000a0e1       mov r0, r0
+       |:   0x0000b5e4      0430a0e3       mov r3, 4
+       |:   0x0000b5e8      0320a0e1       mov r2, r3
+       |:   0x0000b5ec      28869fe5       ldr r8, [0x0000bc1c]        ; [0xbc1c:4]=0x8f04
+       |:   0x0000b5f0      043088e2       add r3, r8, 4
+       |:   0x0000b5f4      0310a0e1       mov r1, r3
+       |:   0x0000b5f8      18869fe5       ldr r8, [0x0000bc18]        ; [0xbc18:4]=0x43a0
+       |:   0x0000b5fc      003098e5       ldr r3, [r8]
+       |:   0x0000b600      0300a0e1       mov r0, r3
+       |:   0x0000b604      04902de5       str sb, [sp, -4]!
+       |:   0x0000b608      04802de5       str r8, [sp, -4]!
+       |:   0x0000b60c      04e02de5       str lr, [sp, -4]!
+       |:   0x0000b610      f8859fe5       ldr r8, [0x0000bc10]        ; [0xbc10:4]=436
+       |:   0x0000b614      008098e5       ldr r8, [r8]
+       |:   0x0000b618      0fe0a0e1       mov lr, pc
+       |:   0x0000b61c      08f0a0e1       mov pc, r8                  ; call to SysFileRead
+       |:   0x0000b620      0000a0e1       mov r0, r0
+       |:   0x0000b624      04e09de4       pop {lr}
+       |:   0x0000b628      04809de4       pop {r8}
+       |:   0x0000b62c      04909de4       pop {sb}
+       |:   0x0000b630      00d08de2       add sp, sp, 0
+       |:   0x0000b634      0010a0e1       mov r1, r0
+       |:   0x0000b638      04009de4       pop {r0}
+       |:   0x0000b63c      0000a0e1       mov r0, r0
+       |:   0x0000b640      04002de5       str r0, [sp, -4]!
+       |:   0x0000b644      002098e5       ldr r2, [r8]
+       |:   0x0000b648      0200a0e1       mov r0, r2
+       |:   0x0000b64c      04902de5       str sb, [sp, -4]!
+       |:   0x0000b650      04802de5       str r8, [sp, -4]!
+       |:   0x0000b654      04e02de5       str lr, [sp, -4]!
+       |:   0x0000b658      ac859fe5       ldr r8, [0x0000bc0c]        ; [0xbc0c:4]=420
+       |:   0x0000b65c      008098e5       ldr r8, [r8]
+       |:   0x0000b660      0fe0a0e1       mov lr, pc
+       |:   0x0000b664      08f0a0e1       mov pc, r8                  ; call to SysFileGetPos
+       |:   0x0000b668      0000a0e1       mov r0, r0
+       |:   0x0000b66c      04e09de4       pop {lr}
+       |:   0x0000b670      04809de4       pop {r8}
+       |:   0x0000b674      04909de4       pop {sb}
+       |:   0x0000b678      00d08de2       add sp, sp, 0
+       |:   0x0000b67c      0010a0e1       mov r1, r0
+       |:   0x0000b680      04009de4       pop {r0}
+       |:   0x0000b684      0000a0e1       mov r0, r0
+       |:   0x0000b688      041008e5       str r1, [r8, -4]
+       |:   0x0000b68c      0000a0e1       mov r0, r0
+       |:   0x0000b690      04002de5       str r0, [sp, -4]!
+       |:   0x0000b694      0000a0e1       mov r0, r0
+       |:   0x0000b698      0430a0e3       mov r3, 4
+       |:   0x0000b69c      0320a0e1       mov r2, r3
+       |:   0x0000b6a0      74859fe5       ldr r8, [0x0000bc1c]        ; [0xbc1c:4]=0x8f04
+       |:   0x0000b6a4      5c459fe5       ldr r4, [0x0000bc08]        ; [0xbc08:4]=0x5e8
+       |:   0x0000b6a8      043088e0       add r3, r8, r4
+       |:   0x0000b6ac      0310a0e1       mov r1, r3
+       |:   0x0000b6b0      60859fe5       ldr r8, [0x0000bc18]        ; [0xbc18:4]=0x43a0
+       |:   0x0000b6b4      003098e5       ldr r3, [r8]
+       |:   0x0000b6b8      0300a0e1       mov r0, r3
+       |:   0x0000b6bc      04902de5       str sb, [sp, -4]!
+       |:   0x0000b6c0      04802de5       str r8, [sp, -4]!
+       |:   0x0000b6c4      04e02de5       str lr, [sp, -4]!
+       |:   0x0000b6c8      40859fe5       ldr r8, [0x0000bc10]        ; [0xbc10:4]=436
+       |:   0x0000b6cc      008098e5       ldr r8, [r8]
+       |:   0x0000b6d0      0fe0a0e1       mov lr, pc
+       |:   0x0000b6d4      08f0a0e1       mov pc, r8                  ; call to SysFileRead
+       |:   0x0000b6d8      0000a0e1       mov r0, r0
+       |:   0x0000b6dc      04e09de4       pop {lr}
+       |:   0x0000b6e0      04809de4       pop {r8}
+       |:   0x0000b6e4      04909de4       pop {sb}
+       |:   0x0000b6e8      00d08de2       add sp, sp, 0
+       |:   0x0000b6ec      0010a0e1       mov r1, r0
+       |:   0x0000b6f0      04009de4       pop {r0}
+       |:   0x0000b6f4      0000a0e1       mov r0, r0
+       |:   0x0000b6f8      04002de5       str r0, [sp, -4]!
+       |:   0x0000b6fc      002098e5       ldr r2, [r8]
+       |:   0x0000b700      0200a0e1       mov r0, r2
+       |:   0x0000b704      04902de5       str sb, [sp, -4]!
+       |:   0x0000b708      04802de5       str r8, [sp, -4]!
+       |:   0x0000b70c      04e02de5       str lr, [sp, -4]!
+       |:   0x0000b710      ec849fe5       ldr r8, [0x0000bc04]        ; [0xbc04:4]=416
+       |:   0x0000b714      008098e5       ldr r8, [r8]
+       |:   0x0000b718      0fe0a0e1       mov lr, pc
+       |:   0x0000b71c      08f0a0e1       mov pc, r8                  ; call to SysFileEOF
+       |:   0x0000b720      0000a0e1       mov r0, r0
+       |:   0x0000b724      04e09de4       pop {lr}
+       |:   0x0000b728      04809de4       pop {r8}
+       |:   0x0000b72c      04909de4       pop {sb}
+       |:   0x0000b730      00d08de2       add sp, sp, 0
+       |:   0x0000b734      0010a0e1       mov r1, r0
+       |:   0x0000b738      04009de4       pop {r0}
+       |:   0x0000b73c      d8849fe5       ldr r8, [0x0000bc1c]        ; [0xbc1c:4]=0x8f04
+       |:   0x0000b740      e82598e5       ldr r2, [r8, 0x5e8]
+       |:   0x0000b744      000052e3       cmp r2, 0
+       |:   0x0000b748      0120a013       movne r2, 1
+       |:   0x0000b74c      0020a003       moveq r2, 0
+       |:   0x0000b750      021081e1       orr r1, r1, r2
+       |:   0x0000b754      011021e2       eor r1, r1, 1
+       |:   0x0000b758      0000a0e1       mov r0, r0
+       |:   0x0000b75c      0000a0e1       mov r0, r0
+       |:   0x0000b760      000051e3       cmp r1, 0
+       |`=< 0x0000b764      9affff1a       bne 0xb5d4
+       |    0x0000b768      0000a0e1       mov r0, r0
+       |    0x0000b76c      0000a0e1       mov r0, r0
+       |    0x0000b770      0000a0e1       mov r0, r0
+       |    0x0000b774      9c849fe5       ldr r8, [0x0000bc18]        ; [0xbc18:4]=0x43a0
+       |    0x0000b778      001098e5       ldr r1, [r8]
+       |    0x0000b77c      0100a0e1       mov r0, r1
+       |    0x0000b780      04902de5       str sb, [sp, -4]!
+       |    0x0000b784      04802de5       str r8, [sp, -4]!
+       |    0x0000b788      04e02de5       str lr, [sp, -4]!
+       |    0x0000b78c      6c849fe5       ldr r8, [0x0000bc00]        ; [0xbc00:4]=404
+       |    0x0000b790      008098e5       ldr r8, [r8]
+       |    0x0000b794      0fe0a0e1       mov lr, pc
+       |    0x0000b798      08f0a0e1       mov pc, r8                  ; call to SysFileClose
+       |    0x0000b79c      0000a0e1       mov r0, r0
+       |    0x0000b7a0      04e09de4       pop {lr}
+       |    0x0000b7a4      04809de4       pop {r8}
+       |    0x0000b7a8      04909de4       pop {sb}
+       |    0x0000b7ac      00d08de2       add sp, sp, 0
+       |    0x0000b7b0      0000a0e1       mov r0, r0
+       |    0x0000b7b4      60849fe5       ldr r8, [0x0000bc1c]        ; [0xbc1c:4]=0x8f04
+       |    0x0000b7b8      e81598e5       ldr r1, [r8, 0x5e8]
+       |    0x0000b7bc      000051e3       cmp r1, 0
+       |    0x0000b7c0      0110a013       movne r1, 1
+       |    0x0000b7c4      0010a003       moveq r1, 0
+       |    0x0000b7c8      0000a0e1       mov r0, r0
+       |    0x0000b7cc      0000a0e1       mov r0, r0
+       |    0x0000b7d0      000051e3       cmp r1, 0
+       |,=< 0x0000b7d4      1800001a       bne 0xb83c
+       ||   0x0000b7d8      0000a0e1       mov r0, r0
+       ||   0x0000b7dc      0000a0e1       mov r0, r0
+       ||   0x0000b7e0      0000a0e3       mov r0, 0
+       ||   0x0000b7e4      0000a0e1       mov r0, r0
+       ||   0x0000b7e8      2c849fe5       ldr r8, [0x0000bc1c]        ; [0xbc1c:4]=0x8f04
+       ||   0x0000b7ec      d00b88e5       str r0, [r8, 0xbd0]
+       ||   0x0000b7f0      0000a0e1       mov r0, r0
+       ||   0x0000b7f4      28849fe5       ldr r8, [0x0000bc24]        ; [0xbc24:4]=0x3602
+       ||   0x0000b7f8      0810a0e1       mov r1, r8
+       ||   0x0000b7fc      0100a0e1       mov r0, r1
+       ||   0x0000b800      04902de5       str sb, [sp, -4]!
+       ||   0x0000b804      04802de5       str r8, [sp, -4]!
+       ||   0x0000b808      04e02de5       str lr, [sp, -4]!
+       ||   0x0000b80c      e8839fe5       ldr r8, [0x0000bbfc]        ; [0xbbfc:4]=412
+       ||   0x0000b810      008098e5       ldr r8, [r8]
+       ||   0x0000b814      0fe0a0e1       mov lr, pc
+       ||   0x0000b818      08f0a0e1       mov pc, r8                  ; call to SysFileDelete
+       ||   0x0000b81c      0000a0e1       mov r0, r0
+       ||   0x0000b820      04e09de4       pop {lr}
+       ||   0x0000b824      04809de4       pop {r8}
+       ||   0x0000b828      04909de4       pop {sb}
+       ||   0x0000b82c      00d08de2       add sp, sp, 0
+       ||   0x0000b830      0000a0e1       mov r0, r0
+      ,===< 0x0000b834      e90000ea       b 0xbbe0
+      |||   0x0000b838      0000a0e1       mov r0, r0
+      ||`-> 0x0000b83c      0000a0e1       mov r0, r0
+      ||    0x0000b840      0000a0e1       mov r0, r0
+      ||    0x0000b844      0000a0e1       mov r0, r0
+      ||    0x0000b848      0e30a0e1       mov r3, lr
+      ||    0x0000b84c      000000eb       bl 0xb854
+      ||    0x0000b850      72000000       andeq r0, r0, r2, ror r0
+      ||    0x0000b854      0e20a0e1       mov r2, lr
+      ||    0x0000b858      03e0a0e1       mov lr, r3
+      ||    0x0000b85c      0210a0e1       mov r1, r2
+      ||    0x0000b860      90839fe5       ldr r8, [0x0000bbf8]        ; [0xbbf8:4]=0x3560
+      ||    0x0000b864      0820a0e1       mov r2, r8
+      ||    0x0000b868      0200a0e1       mov r0, r2
+      ||    0x0000b86c      04902de5       str sb, [sp, -4]!
+      ||    0x0000b870      04802de5       str r8, [sp, -4]!
+      ||    0x0000b874      04e02de5       str lr, [sp, -4]!
+      ||    0x0000b878      a0839fe5       ldr r8, [0x0000bc20]        ; [0xbc20:4]=432
+      ||    0x0000b87c      008098e5       ldr r8, [r8]
+      ||    0x0000b880      0fe0a0e1       mov lr, pc
+      ||    0x0000b884      08f0a0e1       mov pc, r8                  ; call to SysFileOpen
+      ||    0x0000b888      0000a0e1       mov r0, r0
+      ||    0x0000b88c      04e09de4       pop {lr}
+      ||    0x0000b890      04809de4       pop {r8}
+      ||    0x0000b894      04909de4       pop {sb}
+      ||    0x0000b898      00d08de2       add sp, sp, 0
+      ||    0x0000b89c      0000a0e1       mov r0, r0
+      ||    0x0000b8a0      400e88e5       str r0, [r8, 0xe40]
+      ||    0x0000b8a4      0000a0e1       mov r0, r0
+      ||    0x0000b8a8      400e98e5       ldr r0, [r8, 0xe40]
+      ||    0x0000b8ac      000050e3       cmp r0, 0
+      ||    0x0000b8b0      0100a003       moveq r0, 1
+      ||    0x0000b8b4      0000a013       movne r0, 0
+      ||    0x0000b8b8      0000a0e1       mov r0, r0
+      ||    0x0000b8bc      0000a0e1       mov r0, r0
+      ||    0x0000b8c0      000050e3       cmp r0, 0
+      ||,=< 0x0000b8c4      4500001a       bne 0xb9e0
+      |||   0x0000b8c8      0000a0e1       mov r0, r0
+      |||   0x0000b8cc      0000a0e1       mov r0, r0
+      |||   0x0000b8d0      44839fe5       ldr r8, [0x0000bc1c]        ; [0xbc1c:4]=0x8f04
+      |||   0x0000b8d4      042098e5       ldr r2, [r8, 4]
+      |||   0x0000b8d8      0210a0e1       mov r1, r2
+      |||   0x0000b8dc      34839fe5       ldr r8, [0x0000bc18]        ; [0xbc18:4]=0x43a0
+      |||   0x0000b8e0      002098e5       ldr r2, [r8]
+      |||   0x0000b8e4      0200a0e1       mov r0, r2
+      |||   0x0000b8e8      04902de5       str sb, [sp, -4]!
+      |||   0x0000b8ec      04802de5       str r8, [sp, -4]!
+      |||   0x0000b8f0      04e02de5       str lr, [sp, -4]!
+      |||   0x0000b8f4      18839fe5       ldr r8, [0x0000bc14]        ; [0xbc14:4]=444
+      |||   0x0000b8f8      008098e5       ldr r8, [r8]
+      |||   0x0000b8fc      0fe0a0e1       mov lr, pc
+      |||   0x0000b900      08f0a0e1       mov pc, r8                  ; call to SysFileSetPos
+      |||   0x0000b904      0000a0e1       mov r0, r0
+      |||   0x0000b908      04e09de4       pop {lr}
+      |||   0x0000b90c      04809de4       pop {r8}
+      |||   0x0000b910      04909de4       pop {sb}
+      |||   0x0000b914      00d08de2       add sp, sp, 0
+      |||   0x0000b918      0000a0e1       mov r0, r0
+      |||   0x0000b91c      04002de5       str r0, [sp, -4]!
+      |||   0x0000b920      0000a0e1       mov r0, r0
+      |||   0x0000b924      f0829fe5       ldr r8, [0x0000bc1c]        ; [0xbc1c:4]=0x8f04
+      |||   0x0000b928      e83598e5       ldr r3, [r8, 0x5e8]
+      |||   0x0000b92c      0320a0e1       mov r2, r3
+      |||   0x0000b930      083088e2       add r3, r8, 8
+      |||   0x0000b934      0310a0e1       mov r1, r3
+      |||   0x0000b938      d8829fe5       ldr r8, [0x0000bc18]        ; [0xbc18:4]=0x43a0
+      |||   0x0000b93c      003098e5       ldr r3, [r8]
+      |||   0x0000b940      0300a0e1       mov r0, r3
+      |||   0x0000b944      04902de5       str sb, [sp, -4]!
+      |||   0x0000b948      04802de5       str r8, [sp, -4]!
+      |||   0x0000b94c      04e02de5       str lr, [sp, -4]!
+      |||   0x0000b950      b8829fe5       ldr r8, [0x0000bc10]        ; [0xbc10:4]=436
+      |||   0x0000b954      008098e5       ldr r8, [r8]
+      |||   0x0000b958      0fe0a0e1       mov lr, pc
+      |||   0x0000b95c      08f0a0e1       mov pc, r8                  ; call to SysFileRead
+      |||   0x0000b960      0000a0e1       mov r0, r0
+      |||   0x0000b964      04e09de4       pop {lr}
+      |||   0x0000b968      04809de4       pop {r8}
+      |||   0x0000b96c      04909de4       pop {sb}
+      |||   0x0000b970      00d08de2       add sp, sp, 0
+      |||   0x0000b974      0010a0e1       mov r1, r0
+      |||   0x0000b978      04009de4       pop {r0}
+      |||   0x0000b97c      0000a0e1       mov r0, r0
+      |||   0x0000b980      0110a0e3       mov r1, 1
+      |||   0x0000b984      0000a0e1       mov r0, r0
+      |||   0x0000b988      8c829fe5       ldr r8, [0x0000bc1c]        ; [0xbc1c:4]=0x8f04
+      |||   0x0000b98c      0210c8e5       strb r1, [r8, 2]
+      |||   0x0000b990      0000a0e1       mov r0, r0
+      |||   0x0000b994      04002de5       str r0, [sp, -4]!
+      |||   0x0000b998      0000a0e1       mov r0, r0
+      |||   0x0000b99c      74829fe5       ldr r8, [0x0000bc18]        ; [0xbc18:4]=0x43a0
+      |||   0x0000b9a0      002098e5       ldr r2, [r8]
+      |||   0x0000b9a4      0200a0e1       mov r0, r2
+      |||   0x0000b9a8      04902de5       str sb, [sp, -4]!
+      |||   0x0000b9ac      04802de5       str r8, [sp, -4]!
+      |||   0x0000b9b0      04e02de5       str lr, [sp, -4]!
+      |||   0x0000b9b4      44829fe5       ldr r8, [0x0000bc00]        ; [0xbc00:4]=404
+      |||   0x0000b9b8      008098e5       ldr r8, [r8]
+      |||   0x0000b9bc      0fe0a0e1       mov lr, pc
+      |||   0x0000b9c0      08f0a0e1       mov pc, r8                  ; call to SysFileClose
+      |||   0x0000b9c4      0000a0e1       mov r0, r0
+      |||   0x0000b9c8      04e09de4       pop {lr}
+      |||   0x0000b9cc      04809de4       pop {r8}
+      |||   0x0000b9d0      04909de4       pop {sb}
+      |||   0x0000b9d4      00d08de2       add sp, sp, 0
+      |||   0x0000b9d8      0010a0e1       mov r1, r0
+      |||   0x0000b9dc      04009de4       pop {r0}
+      ||`-> 0x0000b9e0      0000a0e1       mov r0, r0
+      ||    0x0000b9e4      0000a0e1       mov r0, r0
+      ||    0x0000b9e8      0000a0e1       mov r0, r0
+      ||    0x0000b9ec      04002de5       str r0, [sp, -4]!
+      ||    0x0000b9f0      0e30a0e1       mov r3, lr
+      ||    0x0000b9f4      000000eb       bl 0xb9fc
+      ||    0x0000b9f8      61000000       andeq r0, r0, r1, rrx
+      ||    0x0000b9fc      0e20a0e1       mov r2, lr
+      ||    0x0000ba00      03e0a0e1       mov lr, r3
+      ||    0x0000ba04      0210a0e1       mov r1, r2
+      ||    0x0000ba08      14829fe5       ldr r8, [0x0000bc24]        ; [0xbc24:4]=0x3602
+      ||    0x0000ba0c      0820a0e1       mov r2, r8
+      ||    0x0000ba10      0200a0e1       mov r0, r2
+      ||    0x0000ba14      04902de5       str sb, [sp, -4]!
+      ||    0x0000ba18      04802de5       str r8, [sp, -4]!
+      ||    0x0000ba1c      04e02de5       str lr, [sp, -4]!
+      ||    0x0000ba20      f8819fe5       ldr r8, [0x0000bc20]        ; [0xbc20:4]=432
+      ||    0x0000ba24      008098e5       ldr r8, [r8]
+      ||    0x0000ba28      0fe0a0e1       mov lr, pc
+      ||    0x0000ba2c      08f0a0e1       mov pc, r8                  ; call to SysFileOpen
+      ||    0x0000ba30      0000a0e1       mov r0, r0
+      ||    0x0000ba34      04e09de4       pop {lr}
+      ||    0x0000ba38      04809de4       pop {r8}
+      ||    0x0000ba3c      04909de4       pop {sb}
+      ||    0x0000ba40      00d08de2       add sp, sp, 0
+      ||    0x0000ba44      0010a0e1       mov r1, r0
+      ||    0x0000ba48      04009de4       pop {r0}
+      ||    0x0000ba4c      0000a0e1       mov r0, r0
+      ||    0x0000ba50      9e1d88e5       str r1, [r8, 0xd9e]
+      ||    0x0000ba54      0000a0e1       mov r0, r0
+      ||    0x0000ba58      9e1d98e5       ldr r1, [r8, 0xd9e]
+      ||    0x0000ba5c      000051e3       cmp r1, 0
+      ||    0x0000ba60      0110a003       moveq r1, 1
+      ||    0x0000ba64      0010a013       movne r1, 0
+      ||    0x0000ba68      0000a0e1       mov r0, r0
+      ||    0x0000ba6c      0000a0e1       mov r0, r0
+      ||    0x0000ba70      000051e3       cmp r1, 0
+      ||,=< 0x0000ba74      5700001a       bne 0xbbd8
+      |||   0x0000ba78      0000a0e1       mov r0, r0
+      |||   0x0000ba7c      0000a0e1       mov r0, r0
+      |||   0x0000ba80      6c819fe5       ldr r8, [0x0000bbf4]        ; [0xbbf4:4]=0x439c
+      |||   0x0000ba84      002098e5       ldr r2, [r8]
+      |||   0x0000ba88      0210a0e1       mov r1, r2
+      |||   0x0000ba8c      042098e5       ldr r2, [r8, 4]
+      |||   0x0000ba90      0200a0e1       mov r0, r2
+      |||   0x0000ba94      04902de5       str sb, [sp, -4]!
+      |||   0x0000ba98      04802de5       str r8, [sp, -4]!
+      |||   0x0000ba9c      04e02de5       str lr, [sp, -4]!
+      |||   0x0000baa0      6c819fe5       ldr r8, [0x0000bc14]        ; [0xbc14:4]=444
+      |||   0x0000baa4      008098e5       ldr r8, [r8]
+      |||   0x0000baa8      0fe0a0e1       mov lr, pc
+      |||   0x0000baac      08f0a0e1       mov pc, r8                  ; call to SysFileSetPos
+      |||   0x0000bab0      0000a0e1       mov r0, r0
+      |||   0x0000bab4      04e09de4       pop {lr}
+      |||   0x0000bab8      04809de4       pop {r8}
+      |||   0x0000babc      04909de4       pop {sb}
+      |||   0x0000bac0      00d08de2       add sp, sp, 0
+      |||   0x0000bac4      0000a0e1       mov r0, r0
+      |||   0x0000bac8      0010a0e3       mov r1, 0
+      |||   0x0000bacc      0000a0e1       mov r0, r0
+      |||   0x0000bad0      041008e5       str r1, [r8, -4]
+      |||   0x0000bad4      0000a0e1       mov r0, r0
+      |||   0x0000bad8      04002de5       str r0, [sp, -4]!
+      |||   0x0000badc      0000a0e1       mov r0, r0
+      |||   0x0000bae0      0430a0e3       mov r3, 4
+      |||   0x0000bae4      0320a0e1       mov r2, r3
+      |||   0x0000bae8      00419fe5       ldr r4, [0x0000bbf0]        ; [0xbbf0:4]=0xfffffffc
+      |||   0x0000baec      043088e0       add r3, r8, r4
+      |||   0x0000baf0      0310a0e1       mov r1, r3
+      |||   0x0000baf4      043098e5       ldr r3, [r8, 4]
+      |||   0x0000baf8      0300a0e1       mov r0, r3
+      |||   0x0000bafc      04902de5       str sb, [sp, -4]!
+      |||   0x0000bb00      04802de5       str r8, [sp, -4]!
+      |||   0x0000bb04      04e02de5       str lr, [sp, -4]!
+      |||   0x0000bb08      dc809fe5       ldr r8, [0x0000bbec]        ; [0xbbec:4]=448
+      |||   0x0000bb0c      008098e5       ldr r8, [r8]
+      |||   0x0000bb10      0fe0a0e1       mov lr, pc
+      |||   0x0000bb14      08f0a0e1       mov pc, r8                  ; call to SysFileWrite
+      |||   0x0000bb18      0000a0e1       mov r0, r0
+      |||   0x0000bb1c      04e09de4       pop {lr}
+      |||   0x0000bb20      04809de4       pop {r8}
+      |||   0x0000bb24      04909de4       pop {sb}
+      |||   0x0000bb28      00d08de2       add sp, sp, 0
+      |||   0x0000bb2c      0010a0e1       mov r1, r0
+      |||   0x0000bb30      04009de4       pop {r0}
+      |||   0x0000bb34      0000a0e1       mov r0, r0
+      |||   0x0000bb38      04002de5       str r0, [sp, -4]!
+      |||   0x0000bb3c      042098e5       ldr r2, [r8, 4]
+      |||   0x0000bb40      0200a0e1       mov r0, r2
+      |||   0x0000bb44      04902de5       str sb, [sp, -4]!
+      |||   0x0000bb48      04802de5       str r8, [sp, -4]!
+      |||   0x0000bb4c      04e02de5       str lr, [sp, -4]!
+      |||   0x0000bb50      b4809fe5       ldr r8, [0x0000bc0c]        ; [0xbc0c:4]=420
+      |||   0x0000bb54      008098e5       ldr r8, [r8]
+      |||   0x0000bb58      0fe0a0e1       mov lr, pc
+      |||   0x0000bb5c      08f0a0e1       mov pc, r8                  ; call to SysFileGetPos
+      |||   0x0000bb60      0000a0e1       mov r0, r0
+      |||   0x0000bb64      04e09de4       pop {lr}
+      |||   0x0000bb68      04809de4       pop {r8}
+      |||   0x0000bb6c      04909de4       pop {sb}
+      |||   0x0000bb70      00d08de2       add sp, sp, 0
+      |||   0x0000bb74      0010a0e1       mov r1, r0
+      |||   0x0000bb78      04009de4       pop {r0}
+      |||   0x0000bb7c      0000a0e1       mov r0, r0
+      |||   0x0000bb80      94809fe5       ldr r8, [0x0000bc1c]        ; [0xbc1c:4]=0x8f04
+      |||   0x0000bb84      d01b88e5       str r1, [r8, 0xbd0]
+      |||   0x0000bb88      0000a0e1       mov r0, r0
+      |||   0x0000bb8c      04002de5       str r0, [sp, -4]!
+      |||   0x0000bb90      0000a0e1       mov r0, r0
+      |||   0x0000bb94      7c809fe5       ldr r8, [0x0000bc18]        ; [0xbc18:4]=0x43a0
+      |||   0x0000bb98      002098e5       ldr r2, [r8]
+      |||   0x0000bb9c      0200a0e1       mov r0, r2
+      |||   0x0000bba0      04902de5       str sb, [sp, -4]!
+      |||   0x0000bba4      04802de5       str r8, [sp, -4]!
+      |||   0x0000bba8      04e02de5       str lr, [sp, -4]!
+      |||   0x0000bbac      4c809fe5       ldr r8, [0x0000bc00]        ; [0xbc00:4]=404
+      |||   0x0000bbb0      008098e5       ldr r8, [r8]
+      |||   0x0000bbb4      0fe0a0e1       mov lr, pc
+      |||   0x0000bbb8      08f0a0e1       mov pc, r8                  ; call to SysFileClose
+      |||   0x0000bbbc      0000a0e1       mov r0, r0
+      |||   0x0000bbc0      04e09de4       pop {lr}
+      |||   0x0000bbc4      04809de4       pop {r8}
+      |||   0x0000bbc8      04909de4       pop {sb}
+      |||   0x0000bbcc      00d08de2       add sp, sp, 0
+      |||   0x0000bbd0      0010a0e1       mov r1, r0
+      |||   0x0000bbd4      04009de4       pop {r0}
+      ||`-> 0x0000bbd8      0000a0e1       mov r0, r0
+      ||    0x0000bbdc      0000a0e1       mov r0, r0
+      ``--> 0x0000bbe0      0000a0e1       mov r0, r0
+            0x0000bbe4      0000a0e1       mov r0, r0
+            0x0000bbe8      00a81be9       ldmdb fp, {fp, sp, pc}
+
+            0x0000bbec      000001c0       000001c0  ....
+            0x0000bbf0      fffffffc       fffffffc  ....
+            0x0000bbf4      0000439c       0000439c  .C..
+            0x0000bbf8      00003560       00003560  `5.. ascii
+            0x0000bbfc      0000019c       0000019c  ....
+            0x0000bc00      00000194       00000194  ....
+            0x0000bc04      000001a0       000001a0  ....
+            0x0000bc08      000005e8       000005e8  ....
+            0x0000bc0c      000001a4       000001a4  ....
+            0x0000bc10      000001b4       000001b4  ....
+            0x0000bc14      000001bc       000001bc  ....
+            0x0000bc18      000043a0       000043a0  .C..
+            0x0000bc1c      00008f04       00008f04  ....
+            0x0000bc20      000001b0       000001b0  ....
+            0x0000bc24      00003602       00003602  .6..
+                       

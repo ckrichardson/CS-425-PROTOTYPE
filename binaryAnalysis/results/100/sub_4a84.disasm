@@ -1,0 +1,136 @@
+                        0x00004a84      0dc0a0e1       mov ip, sp
+            0x00004a88      00582de9       push {fp, ip, lr}
+            0x00004a8c      0cb0a0e1       mov fp, ip
+            0x00004a90      0000a0e3       mov r0, 0
+            0x00004a94      0200c9e5       strb r0, [sb, 2]
+            0x00004a98      0000d9e5       ldrb r0, [sb]
+            0x00004a9c      390050e3       cmp r0, 0x39                ; '9'
+            0x00004aa0      0100a093       movls r0, 1
+            0x00004aa4      0000a083       movhi r0, 0
+            0x00004aa8      0010d9e5       ldrb r1, [sb]
+            0x00004aac      300051e3       cmp r1, 0x30                ; '0'
+            0x00004ab0      0110a023       movhs r1, 1
+            0x00004ab4      0010a033       movlo r1, 0
+            0x00004ab8      010000e0       and r0, r0, r1
+            0x00004abc      010020e2       eor r0, r0, 1
+            0x00004ac0      000050e3       cmp r0, 0
+        ,=< 0x00004ac4      0500001a       bne 0x4ae0
+        |   0x00004ac8      0000a0e1       mov r0, r0
+        |   0x00004acc      0000d9e5       ldrb r0, [sb]
+        |   0x00004ad0      0f0000e2       and r0, r0, 0xf
+        |   0x00004ad4      0200c9e5       strb r0, [sb, 2]
+       ,==< 0x00004ad8      290000ea       b 0x4b84
+       ||   0x00004adc      0000a0e1       mov r0, r0
+       |`-> 0x00004ae0      0000a0e1       mov r0, r0
+       |    0x00004ae4      0000d9e5       ldrb r0, [sb]
+       |    0x00004ae8      460050e3       cmp r0, 0x46                ; 'F'
+       |    0x00004aec      0100a093       movls r0, 1
+       |    0x00004af0      0000a083       movhi r0, 0
+       |    0x00004af4      0010d9e5       ldrb r1, [sb]
+       |    0x00004af8      410051e3       cmp r1, 0x41                ; 'A'
+       |    0x00004afc      0110a023       movhs r1, 1
+       |    0x00004b00      0010a033       movlo r1, 0
+       |    0x00004b04      010000e0       and r0, r0, r1
+       |    0x00004b08      010020e2       eor r0, r0, 1
+       |    0x00004b0c      000050e3       cmp r0, 0
+       |,=< 0x00004b10      0500001a       bne 0x4b2c
+       ||   0x00004b14      0000a0e1       mov r0, r0
+       ||   0x00004b18      0000d9e5       ldrb r0, [sb]
+       ||   0x00004b1c      370040e2       sub r0, r0, 0x37
+       ||   0x00004b20      0200c9e5       strb r0, [sb, 2]
+      ,===< 0x00004b24      160000ea       b 0x4b84
+      |||   0x00004b28      0000a0e1       mov r0, r0
+      ||`-> 0x00004b2c      0000a0e1       mov r0, r0
+      ||    0x00004b30      0000d9e5       ldrb r0, [sb]
+      ||    0x00004b34      660050e3       cmp r0, 0x66                ; 'f'
+      ||    0x00004b38      0100a093       movls r0, 1
+      ||    0x00004b3c      0000a083       movhi r0, 0
+      ||    0x00004b40      0010d9e5       ldrb r1, [sb]
+      ||    0x00004b44      610051e3       cmp r1, 0x61                ; 'a'
+      ||    0x00004b48      0110a023       movhs r1, 1
+      ||    0x00004b4c      0010a033       movlo r1, 0
+      ||    0x00004b50      010000e0       and r0, r0, r1
+      ||    0x00004b54      010020e2       eor r0, r0, 1
+      ||    0x00004b58      000050e3       cmp r0, 0
+      ||,=< 0x00004b5c      0500001a       bne 0x4b78
+      |||   0x00004b60      0000a0e1       mov r0, r0
+      |||   0x00004b64      0000d9e5       ldrb r0, [sb]
+      |||   0x00004b68      570040e2       sub r0, r0, 0x57
+      |||   0x00004b6c      0200c9e5       strb r0, [sb, 2]
+     ,====< 0x00004b70      030000ea       b 0x4b84
+     ||||   0x00004b74      0000a0e1       mov r0, r0
+     |||`-> 0x00004b78      0000a0e1       mov r0, r0
+     |||    0x00004b7c      0000a0e3       mov r0, 0
+     |||    0x00004b80      0200c9e5       strb r0, [sb, 2]
+     ```--> 0x00004b84      0000a0e1       mov r0, r0
+            0x00004b88      0200d9e5       ldrb r0, [sb, 2]
+            0x00004b8c      1010a0e3       mov r1, 0x10
+            0x00004b90      900100e0       mul r0, r0, r1
+            0x00004b94      0200c9e5       strb r0, [sb, 2]
+            0x00004b98      0100d9e5       ldrb r0, [sb, 1]
+            0x00004b9c      390050e3       cmp r0, 0x39                ; '9'
+            0x00004ba0      0100a093       movls r0, 1
+            0x00004ba4      0000a083       movhi r0, 0
+            0x00004ba8      0110d9e5       ldrb r1, [sb, 1]
+            0x00004bac      300051e3       cmp r1, 0x30                ; '0'
+            0x00004bb0      0110a023       movhs r1, 1
+            0x00004bb4      0010a033       movlo r1, 0
+            0x00004bb8      010000e0       and r0, r0, r1
+            0x00004bbc      010020e2       eor r0, r0, 1
+            0x00004bc0      000050e3       cmp r0, 0
+        ,=< 0x00004bc4      0700001a       bne 0x4be8
+        |   0x00004bc8      0000a0e1       mov r0, r0
+        |   0x00004bcc      0200d9e5       ldrb r0, [sb, 2]
+        |   0x00004bd0      0110d9e5       ldrb r1, [sb, 1]
+        |   0x00004bd4      0f1001e2       and r1, r1, 0xf
+        |   0x00004bd8      010080e1       orr r0, r0, r1
+        |   0x00004bdc      0200c9e5       strb r0, [sb, 2]
+       ,==< 0x00004be0      2a0000ea       b 0x4c90
+       ||   0x00004be4      0000a0e1       mov r0, r0
+       |`-> 0x00004be8      0000a0e1       mov r0, r0
+       |    0x00004bec      0100d9e5       ldrb r0, [sb, 1]
+       |    0x00004bf0      460050e3       cmp r0, 0x46                ; 'F'
+       |    0x00004bf4      0100a093       movls r0, 1
+       |    0x00004bf8      0000a083       movhi r0, 0
+       |    0x00004bfc      0110d9e5       ldrb r1, [sb, 1]
+       |    0x00004c00      410051e3       cmp r1, 0x41                ; 'A'
+       |    0x00004c04      0110a023       movhs r1, 1
+       |    0x00004c08      0010a033       movlo r1, 0
+       |    0x00004c0c      010000e0       and r0, r0, r1
+       |    0x00004c10      010020e2       eor r0, r0, 1
+       |    0x00004c14      000050e3       cmp r0, 0
+       |,=< 0x00004c18      0700001a       bne 0x4c3c
+       ||   0x00004c1c      0000a0e1       mov r0, r0
+       ||   0x00004c20      0200d9e5       ldrb r0, [sb, 2]
+       ||   0x00004c24      0110d9e5       ldrb r1, [sb, 1]
+       ||   0x00004c28      371041e2       sub r1, r1, 0x37
+       ||   0x00004c2c      010080e1       orr r0, r0, r1
+       ||   0x00004c30      0200c9e5       strb r0, [sb, 2]
+      ,===< 0x00004c34      150000ea       b 0x4c90
+      |||   0x00004c38      0000a0e1       mov r0, r0
+      ||`-> 0x00004c3c      0000a0e1       mov r0, r0
+      ||    0x00004c40      0100d9e5       ldrb r0, [sb, 1]
+      ||    0x00004c44      660050e3       cmp r0, 0x66                ; 'f'
+      ||    0x00004c48      0100a093       movls r0, 1
+      ||    0x00004c4c      0000a083       movhi r0, 0
+      ||    0x00004c50      0110d9e5       ldrb r1, [sb, 1]
+      ||    0x00004c54      9120a0e3       mov r2, 0x91
+      ||    0x00004c58      020051e1       cmp r1, r2
+      ||    0x00004c5c      0110a023       movhs r1, 1
+      ||    0x00004c60      0010a033       movlo r1, 0
+      ||    0x00004c64      010000e0       and r0, r0, r1
+      ||    0x00004c68      010020e2       eor r0, r0, 1
+      ||    0x00004c6c      000050e3       cmp r0, 0
+      ||,=< 0x00004c70      0500001a       bne 0x4c8c
+      |||   0x00004c74      0000a0e1       mov r0, r0
+      |||   0x00004c78      0200d9e5       ldrb r0, [sb, 2]
+      |||   0x00004c7c      0110d9e5       ldrb r1, [sb, 1]
+      |||   0x00004c80      571041e2       sub r1, r1, 0x57
+      |||   0x00004c84      010080e1       orr r0, r0, r1
+      |||   0x00004c88      0200c9e5       strb r0, [sb, 2]
+      ||`-> 0x00004c8c      0000a0e1       mov r0, r0
+      ``--> 0x00004c90      0000a0e1       mov r0, r0
+            0x00004c94      0000a0e1       mov r0, r0
+            0x00004c98      00a81be9       ldmdb fp, {fp, sp, pc}
+
+                       
