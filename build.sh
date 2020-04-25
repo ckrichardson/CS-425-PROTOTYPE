@@ -1,2 +1,2 @@
-#!/usr/bin/env bash
+#!/bin/bash
 sudo docker build -t sdn-toolkit container/
