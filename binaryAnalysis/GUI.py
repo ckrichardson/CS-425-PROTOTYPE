@@ -85,7 +85,7 @@ def acConnect(dom):
 
 # This runs the entire automation process for analyzing PLC's, any integrity checks, as well as 
 # graphical outputs.
-def acStartAnalysis(dom):i
+def acStartAnalysis(dom):
     # Integrity radio button bools
     integrity_1_bool = dom.getContent("integrity1")
     integrity_2_bool = dom.getContent("integrity2")
