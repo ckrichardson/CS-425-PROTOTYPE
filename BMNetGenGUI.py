@@ -6,7 +6,7 @@
 # Team: 30
 ##############################################################################
 
-from BMNetGen import generateTopo
+import BMNetGen
 import threading
 
 def generateNetworkBody():
@@ -28,11 +28,12 @@ def generateNetworkBody():
     return body
 
 def acNetworkStart(dom):
-    generateTopo()
+    BMNetGen.generateTopo()
 
 def acNetworkBench(dom):
-    pass
+    BMNetGen.plotNet()
 
+# acShowGraph is not working gives KeyError
 def acShowGraph(dom):
     pass
 
