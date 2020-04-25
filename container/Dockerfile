@@ -3,8 +3,6 @@ FROM ubuntu:18.04
 USER root
 WORKDIR /root
 
-COPY ENTRYPOINT.sh /
-
 RUN apt-get update && apt-get install -y --no-install-recommends \
     sudo \
     python3 \
@@ -21,7 +19,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     x11-xserver-utils \
     xterm \
  && rm -rf /var/lib/apt/lists/* \
- && chmod +x /ENTRYPOINT.sh
  
 RUN pip3 install atlastk setuptools
 
@@ -52,6 +49,10 @@ WORKDIR /root
 RUN git clone https://github.com/ckrichardson/CS-425-PROTOTYPE
 
 WORKDIR /root/CS-425-PROTOTYPE
+
+COPY ENTRYPOINT.sh /
+
+RUN chmod +x /ENTRYPOINT.sh
 
 ENTRYPOINT ["/ENTRYPOINT.sh"]
 
