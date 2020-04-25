@@ -21,15 +21,27 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     xterm \
  && rm -rf /var/lib/apt/lists/* 
  
- RUN pip3 install atlastk
+RUN pip3 install atlastk scapy
  
- RUN git clone https://github.com/mininet/mininet.git
+RUN git clone https://github.com/mininet/mininet.git 
  
- RUN git clone https://gitlab.com/akihe/blab 
+RUN apt update && mininet/util/install.sh
  
- RUN git clone https://gitlab.com/akihe/radamsa 
+RUN git clone https://gitlab.com/akihe/blab 
+
+WORKDIR /root/blab
+
+RUN make && make install
  
- RUN mininet/util/install.sh
- 
+WORKDIR /root
+
+RUN git clone https://gitlab.com/akihe/radamsa 
+
+WORKDIR /root/radamsa
+
+RUN make && make install
+
+WORKDIR /root
+
 EXPOSE 6633 6653 6640
 
