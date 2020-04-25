@@ -21,7 +21,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     xterm \
  && rm -rf /var/lib/apt/lists/* 
  
-RUN pip3 install atlastk scapy
+RUN pip3 install atlastk setuptools
+
+RUN pip3 install scapy
  
 RUN git clone https://github.com/mininet/mininet.git 
  
