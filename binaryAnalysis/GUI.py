@@ -24,9 +24,17 @@ codebase which is written in Python2.
 def call_python_version(Version, Module, Function, ArgumentList):
     gw = execnet.makegateway("popen//python=python%s" % Version)
     channel = gw.remote_exec("""
-        from %s import %s as the_function
+        try:
+            from %s import %s as the_function
+        except ImportError:
+            print("Abs import fail")
+
+        try:
+            from binaryAnalyis/%s import %s as the_function
+        except:
+            print("Relative import fail")
         channel.send(the_function(*channel.receive()))
-    """ % (Module, Function))
+    """ % (Module, Function, Module, Function))
     channel.send(ArgumentList)
     return channel.receive()
 
