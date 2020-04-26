@@ -6,6 +6,6 @@
 
 /usr/share/openvswitch/scripts/ovs-ctl start
 
-bash -c "python3 -m /root/CS-425-PROTOTYPE/gui.py"
+bash -c "python3 /root/CS-425-PROTOTYPE/gui.py"
 
 service openvswitch-switch stop
