@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     xterm \
  && rm -rf /var/lib/apt/lists/*
  
-RUN pip3 install atlastk setuptools
+RUN pip3 install atlastk setuptools matplotlib
 
 RUN pip3 install scapy
  
@@ -31,7 +31,8 @@ RUN apt update && export PYTHON=/usr/bin/python3 && \
     mininet/util/install.sh -a &&\
     export PYTHONPATH=$PYTHONPATH:/root/mininet
 
-RUN git clone https://gitlab.com/akihe/blab 
+RUN git clone https://gitlab.com/akihe/blab
+
 
 WORKDIR /root/blab
 
@@ -39,7 +40,8 @@ RUN make && make install
  
 WORKDIR /root
 
-RUN git clone https://gitlab.com/akihe/radamsa 
+RUN git clone https://gitlab.com/akihe/radamsa
+
 
 WORKDIR /root/radamsa
 
