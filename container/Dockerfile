@@ -58,13 +58,15 @@ RUN make && make install
 
 WORKDIR /root
 
+RUN git clone https://github.com/radare/radare2.git
+
+RUN echo "12345"
+
 RUN git clone https://github.com/ckrichardson/CS-425-PROTOTYPE
 
 WORKDIR /root/CS-425-PROTOTYPE/binaryAnalysis
 
 RUN pip install --no-index --find-links=wheelhouse -r requirements.txt
-
-RUN git clone https://github.com/radare/radare2.git
 
 RUN pip3 install execnet
 RUN pip3 install atlastk

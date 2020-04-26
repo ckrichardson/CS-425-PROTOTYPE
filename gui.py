@@ -46,7 +46,7 @@ for key, val in fuzzerCallbacks.items():
 for key, val in networkCallbacks.items():
     callbacks[key] = val
 
-for key, val in idattrCallbacks.items():
+for key, val in IDAttrCallbacks.items():
     callbacks[key] = val
 
 Atlas.launch(callbacks)
