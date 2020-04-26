@@ -30,7 +30,7 @@ def call_python_version(Version, Module, Function, ArgumentList):
             print("Abs import fail")
 
         try:
-            from ..%s import %s as the_function
+            from binaryAnalyis/%s import %s as the_function
         except:
             print("Relative import fail")
         channel.send(the_function(*channel.receive()))
