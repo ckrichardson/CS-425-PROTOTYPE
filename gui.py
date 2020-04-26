@@ -4,6 +4,7 @@
 import atlastk as Atlas
 from fuzzerGUI import generateFuzzerBody, fuzzerCallbacks
 from BMNetGenGUI import generateNetworkBody, networkCallbacks
+from binaryAnalysis.GUI import generateIDAttrBody, IDAttrCallbacks 
 
 # Justin commented below two lines out because he is adding his GUI
 #def generateNetworkBody():
@@ -11,8 +12,8 @@ from BMNetGenGUI import generateNetworkBody, networkCallbacks
 
 # networkCallbacks = {}
 
-def generateIDAttrBody():
-    return ""
+#def generateIDAttrBody():
+#    return ""
 
 idattrCallbacks = {}
 
