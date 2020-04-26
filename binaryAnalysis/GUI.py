@@ -1,6 +1,14 @@
 import atlastk as Atlas
 import execnet
-import log_integrity
+try:
+    import log_integrity
+except ImportError:
+    print("Abs import fail")
+
+try:
+    from . import log_integrity
+except ImportError:
+    print("Relative import fail")
 from time import sleep
 import smtplib
 import os

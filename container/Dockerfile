@@ -28,13 +28,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libgraphviz-dev \
     graphviz-dev \ 
     pkg-config \
-    execnet \
  && rm -rf /var/lib/apt/lists/*
  
 RUN pip3 install atlastk setuptools matplotlib
 
 RUN pip3 install scapy
- 
+
 RUN git clone https://github.com/mininet/mininet.git 
 
 RUN apt update && export PYTHON=/usr/bin/python3 && \
@@ -67,11 +66,11 @@ RUN pip install --no-index --find-links=wheelhouse -r requirements.txt
 
 RUN git clone https://github.com/radare/radare2.git
 
-WORKDIR /root/CS-425-PROTOTYPE/binaryAnalysis/radare2/sys
+RUN pip3 install execnet
+RUN pip3 install atlastk
 
-RUN pip install --no-index --find-links=wheelhouse -r requirements.txt
-RUN pip install execnet
-RUN pip install atlastk
+WORKDIR /root/CS-425-PROTOTYPE/binaryAnalysis/radare2/sys
+CMD [./install.sh]
 
 WORKDIR /root/CS-425-PROTOTYPE
 
