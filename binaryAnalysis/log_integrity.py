@@ -1,18 +1,20 @@
-import hashlib, os
+import hashlib
+import os
 
 """
 This function hashes all the files in a referenced dictory and then creates
 combo lists of the file and its hash.   It also outputs a final hash of the
 entire directory at the end.
 """
-def hash_dirs(path, verbose=False):
+def hash_dirs(path, verbose=True):
 
     md5hashDir = hashlib.md5()
     if not os.path.exists(path):
         return 0
 
+
+    output_file = open(path + "/integrity.hash", 'w+')
     for root, dirs, files in os.walk(path):
-        output_file = open(path + "/integrity.hash", 'w+')
         for element in files:
             if verbose:
                 print("Hashing ", element)
@@ -31,7 +33,7 @@ def hash_dirs(path, verbose=False):
             
             input_file.close()
         
-        output_file.close()
+    output_file.close()
 
     return md5hashDir.hexdigest()
 
@@ -87,7 +89,7 @@ if __name__ == "__main__":
     path = input("Please enter path")
     
     hash_dirs(path)
-    hash_check = check_hash_dirs(path, verbose=True)
+    hash_check = []#check_hash_dirs(path, verbose=True)
     print("HASH CHECK RESULT", hash_check)
 
     if len(hash_check):

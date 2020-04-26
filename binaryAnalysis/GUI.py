@@ -3,6 +3,7 @@ import execnet
 import log_integrity
 from time import sleep
 import smtplib
+import os
 from email.mime.text import MIMEText
 
 """
@@ -82,6 +83,7 @@ body = """
 # This is used to load the HTML body upon the user connecting
 def acConnect(dom):
     dom.setLayout("", body)
+    print(os.getcwd())
 
 # This runs the entire automation process for analyzing PLC's, any integrity checks, as well as 
 # graphical outputs.
@@ -97,6 +99,8 @@ def acStartAnalysis(dom):
 
     contents = None
 
+    print(integrity_1_bool, integrity_2_bool, integrity_3_bool)
+
     path = dom.getContent("filepath")
     if path==None:
         dom.setContent("status", "Please enter a file path.")
@@ -107,23 +111,25 @@ def acStartAnalysis(dom):
     if not graphics_1_bool and graphics_2_bool:
         dom.setContent("status", "Please select a graph option.") 
 
-    try:
-        result = call_python_version("2.7", "analysis", "binary_analysis", [path, True])
-    except:
-        dom.setContent("status", "Binary analysis failed.")
-        return
+    #try:
+    print("doing binary analysis")
+    result = call_python_version("2.7", "analysis", "binary_analysis", [path, True])
+    #except:
+    #    dom.setContent("status", "Binary analysis failed.")
+    #    return
 
-    if integrity_1_bool:
-
+    if integrity_1_bool == "true":
+        print(integrity_1_bool, "has triggered!")
+        input()
         gmail_user = "resiliencedonotreply@gmail.com"
         gmail_pass = "tubesock1"
 
         dest_addr = "clifford_richardson@nevada.unr.edu"
 
-        path = os.getcwd()
+        hash_path = os.getcwd()
 
-        hash_dirs(path)
-        hash_check = check_hash_dirs(path, verbose=True)
+        log_integrity.hash_dirs(has_path)
+        hash_check = log_integrity.check_hash_dirs(hash_path, verbose=True)
         print("HASH CHECK RESULT", hash_check)
 
         # If check_hash_dirs returns something, that means that a file is corrupt.
@@ -147,27 +153,25 @@ def acStartAnalysis(dom):
             server.sendmail(gmail_user, dest_addr, msg.as_string())
             server.quit()
 
-    if integrity_2_bool:
+    if integrity_2_bool == "true":
         gmail_user = "resiliencedonotreply@gmail.com"
         gmail_pass = "tubesock1"
         dest_addr = "clifford_richardson@nevada.unr.edu"
-        path = os.getcwd()
-        hash_dirs(path)
+        hash_path = os.getcwd()
+        log_integrity.hash_dirs(path)
 
     dom.setContent("status", "Loading...")
 
     fields = path.split("/")
     length_fields = len(fields)
     filename = fields[length_fields-1].split(".")[0]
-
-    with open(filename + ".analytics", "r") as inputfile:
+    results_dir = "/home/nope/Documents/project/CS-425-PROTOTYPE/binaryAnalysis/results/"
+    with open(results_dir+filename + "/" + filename + ".analytics", "r") as inputfile:
         analytics = inputfile.read()
-    
+   
+    print(analytics)
     dom.setContent("filepath", "")
     dom.setContent("status", analytics)
-    
-    print(integrity_1_bool)
-    print(path)
     
     print("Analysis complete, ready for new task...")
     

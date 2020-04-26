@@ -31,6 +31,7 @@ def binary_analysis(path, graph):
     totals = {}
 
     for fun in prg.Functions:
+        print('doing the loop')
         # Find subroutine signatures in assembly, then output calls
         for call in fun.calls:
             time.sleep(0.02)

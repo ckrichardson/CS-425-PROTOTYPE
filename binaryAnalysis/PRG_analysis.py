@@ -278,8 +278,12 @@ class Program():
                         jump = int(jump, 16)
                     jump = int(jump)
                     # Annotate disassembly
-                    lib_name = self.libs_dict[jump]
+                    try:
+                        lib_name = self.libs_dict[jump]
+                    except:
+                        print("jump not found")
                     func.disasm[index] += '                  ; call to {}'.format(lib_name)
+                    
                     if lib_name not in func.calls.keys():
                         func.calls[lib_name] = 1
                     else:
