@@ -29,10 +29,8 @@ def call_python_version(Version, Module, Function, ArgumentList):
         except ImportError:
             print("Abs import fail")
 
-        try:
-            from .analysis import binary_analysis as the_function
-        except:
-            print("Relative import fail")
+        from .analysis import binary_analysis as the_function
+        #print("Relative import fail")
         channel.send(the_function(*channel.receive()))
     """ % (Module, Function))
     channel.send(ArgumentList)
