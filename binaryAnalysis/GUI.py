@@ -183,7 +183,11 @@ def acStartAnalysis(dom):
     fields = path.split("/")
     length_fields = len(fields)
     filename = fields[length_fields-1].split(".")[0]
-    results_dir = "/home/nope/Documents/project/CS-425-PROTOTYPE/binaryAnalysis/results/"
+    results_dir = None
+    if __name__ == "__main__":
+        results_dir = "/home/nope/Documents/project/CS-425-PROTOTYPE/binaryAnalysis/results/"
+    else:
+        results_dir = "/root/CS-425-PROTOTYPE/binaryAnalysis/results"
     with open(results_dir+filename + "/" + filename + ".analytics", "r") as inputfile:
         analytics = inputfile.read()
    
