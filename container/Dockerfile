@@ -64,9 +64,11 @@ WORKDIR /root/CS-425-PROTOTYPE/binaryAnalysis
 
 RUN pip install --no-index --find-links=wheelhouse -r requirements.txt
 
-RUN git clone https://github.com/radare/radare2.git && cd radare2
+RUN git clone https://github.com/radare/radare2.git
 
-RUN ./sys/install.sh && cd ..
+WORKDIR /root/CS-425-PROTOTYPE/binaryAnalysis/radare2/sys
+
+RUN install.sh
 
 RUN pip install --no-index --find-links=wheelhouse -r requirements.txt
 RUN pip install execnet
