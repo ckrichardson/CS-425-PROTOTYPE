@@ -69,6 +69,8 @@ RUN git clone https://github.com/radare/radare2.git && cd radare2
 RUN ./sys/install.sh && cd ..
 
 RUN pip install --no-index --find-links=wheelhouse -r requirements.txt
+RUN pip install execnet
+RUN pip install atlastk
 
 WORKDIR /root/CS-425-PROTOTYPE
 
