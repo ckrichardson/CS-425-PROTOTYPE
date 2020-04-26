@@ -2,6 +2,7 @@ import os
 import sys
 import subprocess
 import time
+import random
 
 # fuzz_me is acting in place of OpenFlow at the miment for packet generation inegration
 import fuzz_me
@@ -14,6 +15,11 @@ fuzzer success.
 
 That whole thing needs to be initialized separately before EnsembleFuzzer
 """
+
+#radamsa and blab both support arbitrarily large positive integers, 
+#so set this to whatever you like
+#obvs this will affect reproduceability
+MAX_SEED_INT = 9223372036854775807
 
 #initialization functions for individual fuzzers
 #to add another fuzzer X create an init<X>(ensemble_fuzzer_obj) function
@@ -33,7 +39,7 @@ def initRadamsa(ensemble_fuzzer_obj):
         fuzz_val = subprocess.run("echo {} | radamsa -s {}".format(
             packet, fuzz_obj.seed), shell=True, stdout=subprocess.PIPE).stdout
         fuzz_me.process(fuzz_val)
-        return (fuzz_val, fuzz_me.verify_state())
+        return fuzz_me.verify_state()
 
     ensemble_fuzzer_obj.fuzzers.append(
         Fuzzer.fuzzer("radamsa", ensemble_fuzzer_obj.seed, fuzz))
@@ -142,7 +148,7 @@ def initBlab(ensemble_fuzzer_obj):
                                                           packet_grammar), shell=True, stdout=subprocess.PIPE).stdout
         packet = packet + action
         fuzz_me.process(packet)
-        return (packet, fuzz_me.verify_state())
+        return fuzz_me.verify_state()
 
     ensemble_fuzzer_obj.fuzzers.append(Fuzzer.fuzzer("blab", ensemble_fuzzer_obj.seed, fuzz))
 
@@ -166,6 +172,7 @@ class Fuzzer:
 
     def __init__(self, engines, seed):
         self.seed = seed
+        self.generator = random.Random(seed)
         self.fuzzers = []
         for e in engines:
             try:
@@ -173,23 +180,26 @@ class Fuzzer:
             except:
                 print("Invalid engine: " + e)
 
-    def UpdateSeed(self, val=None):  # should def update this to be a bit more interesting, just sayin'
+    def UpdateSeed(self, val=None): 
         if val is not None:
             self.seed = val
+            self.generator = random.Random(self.seed)
         else:
-            #hash, append all integers modulo max int?
-            self.seed = (4 * self.seed + 3) % 3030303
-            for f in self.fuzzers:
-                f.seed = self.seed
+            global MAX_SEED_INT
+            self.seed = self.generator.randint(0, MAX_SEED_INT)
+        for f in self.fuzzers:
+            f.seed = self.seed
 
     def Fuzz(self):
         states = {}
-        states["seed"] = self.seed
         for f in self.fuzzers:
             states[f.name] = f.fuzz_method(f)
         self.UpdateSeed()
         # report fuzzer success (to a log file preferably)
-        return states
+        for key, val in states:
+            if val is False:
+                return (self.seed, states)
+        return None
         
 
     def FuzzTimed(self, fuzz_time):  # fuzz_time is in seconds
