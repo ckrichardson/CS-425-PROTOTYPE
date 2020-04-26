@@ -28,6 +28,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libgraphviz-dev \
     graphviz-dev \ 
     pkg-config \
+    execnet \
  && rm -rf /var/lib/apt/lists/*
  
 RUN pip3 install atlastk setuptools matplotlib
@@ -67,8 +68,6 @@ RUN pip install --no-index --find-links=wheelhouse -r requirements.txt
 RUN git clone https://github.com/radare/radare2.git
 
 WORKDIR /root/CS-425-PROTOTYPE/binaryAnalysis/radare2/sys
-
-RUN install.sh
 
 RUN pip install --no-index --find-links=wheelhouse -r requirements.txt
 RUN pip install execnet
