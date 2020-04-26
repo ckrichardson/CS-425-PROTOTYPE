@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     python3 \
     python3-pip \
+    python-pip \
     git \
     curl \
     iproute2 \
@@ -19,6 +20,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     vim \
     x11-xserver-utils \
     xterm \
+    libcapstone3 \
+    python-dev \
+    libffi-dev \ 
+    build-essential \ 
+    graphviz \ 
+    libgraphviz-dev \
+    graphviz-dev \ 
+    pkg-config \
  && rm -rf /var/lib/apt/lists/*
  
 RUN pip3 install atlastk setuptools matplotlib
@@ -50,6 +59,16 @@ RUN make && make install
 WORKDIR /root
 
 RUN git clone https://github.com/ckrichardson/CS-425-PROTOTYPE
+
+WORKDIR /root/CS-425-PROTOTYPE/binaryAnalysis
+
+RUN pip install --no-index --find-links=wheelhouse -r requirements.txt
+
+RUN git clone https://github.com/radare/radare2.git && cd radare2
+
+RUN ./sys/install.sh && cd ..
+
+RUN pip install --no-index --find-links=wheelhouse -r requirements.txt
 
 WORKDIR /root/CS-425-PROTOTYPE
 
