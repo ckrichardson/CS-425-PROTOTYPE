@@ -1,5 +1,6 @@
 import atlastk as Atlas
 import execnet
+
 try:
     import log_integrity
 except ImportError:
@@ -7,8 +8,9 @@ except ImportError:
 
 try:
     from . import log_integrity
-except ImportError:
+except ModuleNotFoundError:
     print("Relative import fail")
+
 from time import sleep
 import smtplib
 import os
@@ -190,10 +192,16 @@ def acStartAnalysis(dom):
 def acEndAnalysis(dom):
     return
 
-IDAttrCallbacks = {
-        "": acConnect,
+IDAttrCallbacks= {
         "startAnalysis": acStartAnalysis,
         "endAnalysis": acConnect
         }
 
-Atlas.launch(IDAttrCallbacks)
+if __name__ == "__main__":
+    IDAttrCallbacks = {
+            "": acConnect,
+            "startAnalysis": acStartAnalysis,
+            "endAnalysis": acConnect
+            }
+
+    Atlas.launch(IDAttrCallbacks)
