@@ -33,10 +33,10 @@ def initializeConnection(ip_addr, dport):
     ip_addr_command = """
     ifconfig | \
     grep -A 1 eth0 | \
-    grep -oE "inet \([[:digit:]]{1,3}\\\\.\){3}[[:digit:]]{1,3} | \
-    grep -oE "\([[:digit:]]{1,3}\\\\.\){3}[[:digit:]]{1,3}        
+    grep -oE 'inet ([[:digit:]]{1,3}\\.){1,3}[[:digit:]]{1,3}' | \
+    grep -oE '([[:digit:]]{1,3}\\.){1,3}[[:digit:]]{1,3}'        
     """
-    src = subprocess.run(ip_addr_command, shell=True, stdout=subprocess.PIPE).stdout.decode('utf-8')
+    src = subprocess.run(ip_addr_command, shell=True, stdout=subprocess.PIPE).stdout.decode('utf-8')[0:-1]
     print("SRC_ip is {}".format(src));
     packet = IP(dst=ip_addr, src=src)/TCP(dport=dport)
     packet[TCP].flags = "S"

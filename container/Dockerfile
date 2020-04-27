@@ -70,7 +70,7 @@ CMD [./install.sh]
 
 WORKDIR /root
 
-RUN echo "Nonce"
+RUN echo "Nonce1"
 
 RUN git clone -b scapy-testing https://github.com/ckrichardson/CS-425-PROTOTYPE.git CS-425-PROTOTYPE
 
