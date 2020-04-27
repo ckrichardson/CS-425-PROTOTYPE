@@ -9,20 +9,15 @@
 ###############################################################################
 # Import Mininet tools
 ###############################################################################
-# allows for the definition of network objects
 from mininet.topo import Topo
-
-# allows for running CLI commands via API
 from mininet.net import Mininet
-
-# allows for node connection parameters to be printed
 from mininet.util import dumpNodeConnections
-
-# allows for CPU limits
 from mininet.node import CPULimitedHost
-
-# allows for cleanup of mininet
 from mininet.clean import Cleanup
+from mininet.nodelib import NAT
+from mininet.log import setLogLevel
+from mininet.cli import CLI
+from mininet.util import irange
 
 ###############################################################################
 # Import plotting tools
@@ -36,7 +31,7 @@ import re
 # defines the network topology
 class BMTopo(Topo):
 
-    # The topology is hard coded here
+    # the topology is hard coded here
     def build(self):
 
         # Add hosts
@@ -52,6 +47,45 @@ class BMTopo(Topo):
         self.addLink(h1, s0)
         self.addLink(h2, s0)
 
+# defines a NAT topology
+class BMNatTopo(Topo):
+
+    # the topology is described here
+    # it consists of numNATHosts
+    def build(self, numNATHosts = 2, **_kwargs):
+        # add external switch
+        externalSwitch = self.addSwitch('s0')
+        # add external host
+        externalHost = self.addHost('h0')
+        # link the external devices together
+        self.addLink(externalSwitch, externalHost)
+        
+        # create the private NAT networks
+        for numNATNets in irange(1, numNATHosts):
+            externalInterface = 'nat%d-eth0' % numNATNets
+            privateInterface = 'nat%d-eth1' % numNATNets
+            privateIP = '192.168.%d.1' % numNATNets
+            privateSubnet = '192.168.%d.0/24' % numNATNets
+            parameters = {'ip': '%s/24' % privateIP}
+        
+        # add NAT to topo
+        nat = self.addNode('nat%d' % numNATNets, cls = NAT,
+                           subnet = privateSubnet, 
+                           inetIntf = externalInterface, 
+                           localIntf = privateInterface)
+        nSwitch = self.addSwitch('s%d', numNATNets)
+        
+        # connect private and external nets
+        self.addLink(nat, externalSwitch, intfName1 = externalInterface)
+        self.addLink(nat, nSwitch, ilntfName1 = privateInterface, 
+                     params1 = parameters)
+        
+        # add host and connect to private switch
+        nHost = self.addHost('h%d' % numNATNets, 
+                            ip = '192.168.%d.100/24' % numNATNets,
+                            defaultRoute = 'via %s' % privateIP)
+        self.addLink(nHost, nSwitch)        
+        
 # generates a simpler topo
 def generateTopo():
     # generate the network nodes and start Mininet
@@ -75,7 +109,25 @@ def generateTopo():
     net.start()
     net.pingAll()
     net.stop()
+    
+def generateNATTopo():
+    # generates a NAT topo
+    topo = BMNatTopo()
+    net = Mininet(topo=topo)
 
+    # dump node connections
+    print("\n*** Dumping node connections\n")
+    dumpNodeConnections(net.hosts)
+
+    net.start()
+
+    # test connectivity
+    print("\n*** Ping test for all hosts\n")
+    net.pingAll()
+    
+    # stop network
+    net.stop()
+    
 # runs an iperf test between hosts in the topology
 def bandwidthTest():
     # create network topology
