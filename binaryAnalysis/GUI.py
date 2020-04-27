@@ -215,7 +215,7 @@ def acStartAnalysis(dom):
 
         text = MIMEText("This is your CFG from the job for " + filename + ".")
         msg.attach(text)
-        image = MIMEImage(img_data, name="graph_" + filename + ".svg")
+        image = MIMEImage(img_data, name="graph_" + filename + ".svg", _subtype="svg")
         msg.attach(image)
 
         server = smtplib.SMTP("smtp.gmail.com:587")
