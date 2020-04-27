@@ -32,6 +32,9 @@ matplotlib.use('Agg')
 # import regular expression library for list processing
 import re
 
+# import base64 to process the tput graph and reveal in Atlas
+import base64
+
 # defines the network topology
 class BMTopo(Topo):
 
@@ -164,6 +167,7 @@ def bandwidthTest():
     return perfList
 
 # plot the network
+# returns the graph encoded as base64 for frontend
 def plotNet():
     # get the data to plot   
     hostBandwidth = bandwidthTest()
@@ -197,7 +201,13 @@ def plotNet():
     plt.plot(hostBandwidthNumeralsFlat)
     plt.savefig('tput_graph.png')
 
-    
+    # convert PNG to base64
+    with open('tput_graph.png', 'rb') as image_file:
+        base64_image = base64.b64encode(image_file.read())
+    print(base64_image.decode('utf-8'))
+
+    return base64_image.decode('utf-8')
+            
 
     
     
