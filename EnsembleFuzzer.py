@@ -27,10 +27,10 @@ MAX_SEED_INT = 9223372036854775807
 #then, inside the fuzzer class, add the mapping <name>: init<X> to the engines dictionary
 
 #radamsa helper function to generate a standard TCP packet 
-def radamsa_host_packet():
+def radamsa_host_packet(seed):
     packet = fuzz_utils.initializeConnection(Fuzzer.TARGET, 430)
     packet_payload = subprocess.run("echo {} | radamsa -s {}".format(
-                                    Fuzzer.DEFAULT_PACKET_PAYLOAD, fuzz_obj.seed), 
+                                    Fuzzer.DEFAULT_PACKET_PAYLOAD, seed), 
                                     shell=True, stdout=subprocess.PIPE).stdout
     packet.add_payload(packet_payload)
     packet.show()
@@ -38,11 +38,11 @@ def radamsa_host_packet():
     return str(packet)
 
 #radamsa helper unction to generate a mangled openflow hello packet 
-def radamsa_switch_packet():
+def radamsa_switch_packet(seed):
     packet = fuzz_utils.initializeConnection(Fuzzer.TARGET, 6653)
     valid_openflow = fuzz_utils.openflowPacket().raw()
     packet_payload = subprocess.run("echo {} | radamsa -s {}".format(
-                                    valid_openflow, fuzz_obj.seed), 
+                                    valid_openflow, seed), 
                                     shell=True, stdout=subprocess.PIPE).stdout
     packet.add_payload(packet_payload)
     return str(packet)
@@ -53,9 +53,9 @@ def initRadamsa(ensemble_fuzzer_obj):
         # this may need to repeat for each type of openflow packet
         packet = None
         if Fuzzer.TARGET_TYPE == "machine":
-            packet = IP(radamsa_host_packet())
+            packet = IP(radamsa_host_packet(fuzz_obj.seed))
         else:
-            packet = IP(radamsa_switch_packet())
+            packet = IP(radamsa_switch_packet(fuzz_obj.seed))
 
         fuzz_utils.process(packet)
         return fuzz_utils.verify_state()
@@ -64,7 +64,7 @@ def initRadamsa(ensemble_fuzzer_obj):
         Fuzzer.fuzzer("radamsa", ensemble_fuzzer_obj.seed, fuzz))
 
 #blab helper function for generating
-def blab_host_packet():
+def blab_host_packet(seed):
     tcp_packet_grammar = "'output = P \
         P = sport dport seq ack doffset reserved flags window checksum urget_p options padding data \
         sport = byte byte \
@@ -84,14 +84,14 @@ def blab_host_packet():
         d = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 \
         byte = d d' \
         "
-    tcp_payload = subprocess.run("blab -s {} -e {}".format(fuzz_obj.seed,tcp_packet_grammar), 
+    tcp_payload = subprocess.run("blab -s {} -e {}".format(seed,tcp_packet_grammar), 
                                 shell=True, stdout=subprocess.PIPE).stdout
     tcp_payload = TCP(tcp_payload)
     packet = fuzz_utils.initializeConnection(Fuzzer.TARGET, 430)
     packet[TCP] = tcp_payload
     return str(packet)
 
-def blab_switch_packet():
+def blab_switch_packet(seed):
     action_grammars = [
         "'output = A\
         A = 0 0 0 8 port max_len\
@@ -173,7 +173,7 @@ def blab_switch_packet():
         byte = d d'\
         "
     ]
-    action = subprocess.run("blab -s {} -e {}".format(fuzz_obj.seed, action_grammars[fuzz_obj.seed % len(
+    action = subprocess.run("blab -s {} -e {}".format(seed, action_grammars[seed % len(
         action_grammars)]), shell=True, stdout=subprocess.PIPE).stdout
     packet_grammar = "'output = P\
         P = match cookie command idle_timeout hard_timeout priority buffer_id out_port flags\
@@ -189,7 +189,7 @@ def blab_switch_packet():
         d = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15\
         byte = d d'\
         "  # .format(str("\"".encode() + action[2:-1] + "\"".encode())[2:-1])
-    packet = subprocess.run("blab -s {} -e {}".format(fuzz_obj.seed,packet_grammar), 
+    packet = subprocess.run("blab -s {} -e {}".format(seed,packet_grammar), 
                             shell=True, stdout=subprocess.PIPE).stdout
     ofp_packet = packet + action
     packet = fuzz_utils.initializeConnection(Fuzzer.TARGET, 6653)/OFPAT(ofp_packet)
@@ -201,9 +201,9 @@ def initBlab(ensemble_fuzzer_obj):
     def fuzz(fuzz_obj):
         packet = None
         if Fuzzer.TARGET_TYPE == "switch":
-            packet = IP(blab_switch_packet())
+            packet = IP(blab_switch_packet(fuzz_obj.seed))
         else:
-            packet = IP(blab_host_packet())
+            packet = IP(blab_host_packet(fuzz_obj.seed))
 
         fuzz_utils.process(packet)
         return fuzz_utils.verify_state()
