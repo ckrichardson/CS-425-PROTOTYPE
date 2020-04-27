@@ -36,6 +36,12 @@ def verify_state():
 def gen_packet():
     return "A packet"
 
+def openflowPacket(seed):
+    return None
+
+def initializeConnection(ip_addr, dport):
+    return None
+
 
 """
 OpenFlow packet grammar

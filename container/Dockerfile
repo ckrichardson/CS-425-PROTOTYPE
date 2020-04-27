@@ -60,7 +60,7 @@ WORKDIR /root
 
 RUN git clone https://github.com/radare/radare2.git
 
-RUN echo "12345"
+RUN echo "1234"
 
 RUN git clone https://github.com/ckrichardson/CS-425-PROTOTYPE
 

@@ -3,18 +3,16 @@ import sys
 import subprocess
 import time
 import random
+from scapy.all import *
 
-# fuzz_me is acting in place of OpenFlow at the miment for packet generation inegration
-import fuzz_me
-"""
-fuzz_me is a placeholder for the module that will construct an openflow
-packet from the provided fuzz, send it to the target SDN device on the
-mininet network, then use ovs_ofctl to check if the state of the switch
-has changed. If the state has changed it will crash in order to trigger
-fuzzer success.
+# fuzz_utils interfaces with the mininet network and openflow vswitch
+import fuzz_utils
 
-That whole thing needs to be initialized separately before EnsembleFuzzer
-"""
+#target can be either machine or switch (tells fuzzers what type of packets to create)
+TARGET_TYPE = "machine"
+TARGET = ""
+
+DEFAULT_PACKET_PAYLOAD = "A valid packe! :D"
 
 #radamsa and blab both support arbitrarily large positive integers, 
 #so set this to whatever you like
@@ -35,11 +33,21 @@ MAX_SEED_INT = 9223372036854775807
 def initRadamsa(ensemble_fuzzer_obj):
     def fuzz(fuzz_obj):
         # this may need to repeat for each type of openflow packet
-        packet = fuzz_me.gen_packet()  # radamsa needs an input to mutate
-        fuzz_val = subprocess.run("echo {} | radamsa -s {}".format(
-            packet, fuzz_obj.seed), shell=True, stdout=subprocess.PIPE).stdout
-        fuzz_me.process(fuzz_val)
-        return fuzz_me.verify_state()
+        packet = None
+        packet_payload = None
+        if TARGET_TYPE == "machine":
+            packet = fuzz_utils.initializeConnection(TARGET, 430)
+            packet_payload = subprocess.run("echo {} | radamsa -s {}".format(
+                DEFAULT_PACKET_PAYLOAD, fuzz_obj.seed), shell=True, stdout=subprocess.PIPE).stdout
+        else:
+            packet = fuzz_utils.initializeConnection(TARGET, 430)
+            valid_openflow = fuzz_utils.openflowPacket(fuzz_obj.seed)
+            packet_payload = subprocess.run("echo {} | radamsa -s {}".format(
+                valid_openflow, fuzz_obj.seed), shell=True, stdout=subprocess.PIPE).stdout
+
+        packet.payload = packet_payload
+        fuzz_utils.process(packet)
+        return fuzz_utils.verify_state()
 
     ensemble_fuzzer_obj.fuzzers.append(
         Fuzzer.fuzzer("radamsa", ensemble_fuzzer_obj.seed, fuzz))
@@ -147,8 +155,8 @@ def initBlab(ensemble_fuzzer_obj):
         packet = subprocess.run("blab -s {} -e {}".format(fuzz_obj.seed,
                                                           packet_grammar), shell=True, stdout=subprocess.PIPE).stdout
         packet = packet + action
-        fuzz_me.process(packet)
-        return fuzz_me.verify_state()
+        fuzz_utils.process(packet)
+        return fuzz_utils.verify_state()
 
     ensemble_fuzzer_obj.fuzzers.append(Fuzzer.fuzzer("blab", ensemble_fuzzer_obj.seed, fuzz))
 
@@ -161,10 +169,10 @@ class Fuzzer:
 
     class fuzzer:
 
-        def __init__(self, name, seed, fuzz_method):
+        def __init__(self, name, seed, fuzz_utilsthod):
             self.name = name
             self.seed = seed
-            self.fuzz_method = fuzz_method
+            self.fuzz_utilsthod = fuzz_utilsthod
             # call provided initialize function
 
         def updateSeed(self, seed):
@@ -193,7 +201,7 @@ class Fuzzer:
     def Fuzz(self):
         states = {}
         for f in self.fuzzers:
-            states[f.name] = f.fuzz_method(f)
+            states[f.name] = f.fuzz_utilsthod(f)
         self.UpdateSeed()
         # report fuzzer success (to a log file preferably)
         for key, val in states:
