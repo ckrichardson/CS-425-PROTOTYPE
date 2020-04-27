@@ -4,6 +4,7 @@ USER root
 WORKDIR /root
 
 COPY requirements.txt .
+COPY wheelhouse .
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     sudo \
@@ -32,7 +33,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     pkg-config \
  && rm -rf /var/lib/apt/lists/*
  
-RUN pip3 install atlastk setuptools matplotlib exectools
+RUN pip3 install atlastk setuptools matplotlib execnet
 
 RUN pip3 install scapy
 
