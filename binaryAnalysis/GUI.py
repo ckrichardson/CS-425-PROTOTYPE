@@ -125,6 +125,8 @@ def acStartAnalysis(dom):
 
     graph_email = dom.getContent("graph_email")
 
+    print("Graph email", graph_email)
+
     contents = None
 
     print(integrity_1_bool, integrity_2_bool, integrity_3_bool)
@@ -203,6 +205,7 @@ def acStartAnalysis(dom):
     
     if graphics_1_bool == "true":
         try:
+            print("Sending email to ", graph_email)
             gmail_user = "resiliencedonotreply@gmail.com"
             gmail_pass = "tubesock1"
             img_data = open(results_dir + "/" + "graph_" + filename + ".svg", "r").read()
