@@ -44,66 +44,123 @@ def call_python_version(Version, Module, Function, ArgumentList):
 # It is without any sort of javascript - all dynamic page elements are handled through 
 # The backend using python
 def generateIDAttrBody():
-    body = """
-        <div align="center">
+    if __name__ != "__main__":
+        body = """
             <div align="center">
+                <div align="center">
+                    <div align="left" style="display: inline-block">
+                        <form>
+                            <label for="filepath">Enter File Path (ABS)</label><br>
+                            <input type="text" id="filepath" name="filepath" style="width:300px">
+                        </form>
+                        <br>
+                    </div>
+                </div>
+                <form>
                 <div align="left" style="display: inline-block">
+                    <label for="integrity">Perform Hashing?</label>
+                  <fieldset id="integrity">
+                        <input type="radio" id="integrity1" name="yes1" value="yes1">
+                        <label for="yes1">Yes, with integrity check
+                        <br>
+                        <input type="radio" id="integrity2" name="yes1" value="yes2">
+                        <label for="yes2">Yes, without integrity check
+                          <br>
+                        <input type="radio" id="integrity3" name="yes1" value="yes3">
+                        <label for="yes3">No
+                    <br>
+                    </fieldset>
+                </div>
+                <div>
+                  <br>
+                  <br>
                     <form>
-                        <label for="filepath">Enter File Path (ABS)</label><br>
-                        <input type="text" id="filepath" name="filepath" style="width:300px">
+                    </fieldset>
+                      <label> Would you like a graphical output? 
+                        <br>
+                                <input type="radio" id="graphics1" name="graph_radio_1" value="yes1">
+                        <label for="yes1">Yes
+                        <br>
+                        <input type="radio" id="graphics2" name="graph_radio_1" value="yes2">
+                        <label for="yes2">No
+                          <br>
+                    </form>
+                    <form>
+                        <label> Enter email to receive graph: <label>
+                        <br>
+                        <input type="text" id="graph_email">
                     </form>
                     <br>
                 </div>
-            </div>
-            <form>
-            <div align="left" style="display: inline-block">
-                <label for="integrity">Perform Hashing?</label>
-              <fieldset id="integrity">
-                    <input type="radio" id="integrity1" name="yes1" value="yes1">
-                    <label for="yes1">Yes, with integrity check
-                    <br>
-                    <input type="radio" id="integrity2" name="yes1" value="yes2">
-                    <label for="yes2">Yes, without integrity check
-                      <br>
-                    <input type="radio" id="integrity3" name="yes1" value="yes3">
-                    <label for="yes3">No
+                <button id="analyzeStartButton" data-xdh-onevent="startAnalysis" {}>
+                Begin
+                </button>
+                <button id="analyzeCancelButton" data-xdh-onevent="endAnalysis" {}>
+                    Cancel
+                </button>
                 <br>
-                </fieldset>
-            </div>
-            <div>
-              <br>
-              <br>
-                <form>
-                </fieldset>
-                  <label> Would you like a graphical output? 
-                    <br>
-                            <input type="radio" id="graphics1" name="graph_radio_1" value="yes1">
-                    <label for="yes1">Yes
-                    <br>
-                    <input type="radio" id="graphics2" name="graph_radio_1" value="yes2">
-                    <label for="yes2">No
-                      <br>
-                </form>
-                <form>
-                    <label> Enter email to receive graph: <label>
-                    <br>
-                    <input type="text" id="graph_email">
-
                 <br>
+                 <br>
+                        <label id="status"> STATUS: </label>
+                                <p id="analysisStatus"></p>
             </div>
-            <button id="analyzeStartButton" data-xdh-onevent="startAnalysis" {}>
-            Begin
-            </button>
-            <button id="analyzeCancelButton" data-xdh-onevent="endAnalysis" {}>
-                Cancel
-            </button>
-            <br>
-            <br>
-             <br>
-                    <label id="status"> STATUS: </label>
-                            <p id="analysisStatus"></p>
-        </div>
-    """
+        """
+    else: 
+        body = """
+            <div align="center">
+                <div align="center">
+                    <div align="left" style="display: inline-block">
+                        <form>
+                            <label for="filepath">Enter File Path (ABS)</label><br>
+                            <input type="text" id="filepath" name="filepath" style="width:300px">
+                        </form>
+                        <br>
+                    </div>
+                </div>
+                <form>
+                <div align="left" style="display: inline-block">
+                    <label for="integrity">Perform Hashing?</label>
+                  <fieldset id="integrity">
+                        <input type="radio" id="integrity1" name="yes1" value="yes1">
+                        <label for="yes1">Yes, with integrity check
+                        <br>
+                        <input type="radio" id="integrity2" name="yes1" value="yes2">
+                        <label for="yes2">Yes, without integrity check
+                          <br>
+                        <input type="radio" id="integrity3" name="yes1" value="yes3">
+                        <label for="yes3">No
+                    <br>
+                    </fieldset>
+                </div>
+                <div>
+                  <br>
+                  <br>
+                    <form>
+                    </fieldset>
+                      <label> Would you like a graphical output? 
+                        <br>
+                                <input type="radio" id="graphics1" name="graph_radio_1" value="yes1">
+                        <label for="yes1">Yes
+                        <br>
+                        <input type="radio" id="graphics2" name="graph_radio_1" value="yes2">
+                        <label for="yes2">No
+                          <br>
+                    </form>
+                    <br>
+                </div>
+                <button id="analyzeStartButton" data-xdh-onevent="startAnalysis" {}>
+                Begin
+                </button>
+                <button id="analyzeCancelButton" data-xdh-onevent="endAnalysis" {}>
+                    Cancel
+                </button>
+                <br>
+                <br>
+                 <br>
+                        <label id="status"> STATUS: </label>
+                                <p id="analysisStatus"></p>
+            </div>
+        """
     return body
 
 # This is used to load the HTML body upon the user connecting
