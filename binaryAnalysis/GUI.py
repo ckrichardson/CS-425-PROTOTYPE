@@ -176,7 +176,7 @@ def acStartAnalysis(dom):
         gmail_pass = "tubesock1"
         dest_addr = "clifford_richardson@nevada.unr.edu"
         hash_path = os.getcwd()
-        log_integrity.hash_dirs(path)
+        log_integrity.hash_dirs(hash_path)
 
     dom.setContent("status", "Loading...")
 
