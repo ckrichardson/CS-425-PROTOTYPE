@@ -86,7 +86,6 @@ def blab_host_packet(seed):
                                 shell=True, stdout=subprocess.PIPE).stdout
     tcp_payload = TCP(tcp_payload)
     packet = fuzz_utils.initializeConnection(Fuzzer.TARGET, 430)
-    packet[TCP] = tcp_payload
     _src = packet[IP].src
     _dst = packet[IP].dst
     packet = IP(src=_src, dst=_dst)/tcp_payload
