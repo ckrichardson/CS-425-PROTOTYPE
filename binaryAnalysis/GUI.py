@@ -222,7 +222,7 @@ def acStartAnalysis(dom):
         server.starttls()
         server.ehlo()
         server.login(gmail_user, gmail_pass)
-        server.sendmail(gmail_user, dest_addr, msg.as_string())
+        server.sendmail(gmail_user, graph_email, msg.as_string())
         server.quit()
         print("Email send failed")
 
