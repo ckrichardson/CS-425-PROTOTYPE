@@ -37,7 +37,9 @@ def initRadamsa(ensemble_fuzzer_obj):
         packet = None
         packet_payload = None
         if TARGET_TYPE == "machine":
+            print("pre-handshake")
             packet = fuzz_utils.initializeConnection(TARGET, 430)
+            print("post-handshake")
             packet_payload = subprocess.run("echo {} | radamsa -s {}".format(
                 DEFAULT_PACKET_PAYLOAD, fuzz_obj.seed), shell=True, stdout=subprocess.PIPE).stdout
         else:
@@ -48,6 +50,7 @@ def initRadamsa(ensemble_fuzzer_obj):
 
         packet.payload = packet_payload
         fuzz_utils.process(packet)
+        print("packet delivered")
         return fuzz_utils.verify_state()
 
     ensemble_fuzzer_obj.fuzzers.append(

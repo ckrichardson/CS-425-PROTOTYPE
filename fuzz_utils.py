@@ -17,6 +17,7 @@ PREV_STATE = ""
 def process(packet):
     send(packet)
     if DEBUG:
+        print("Displaying packet...")
         packet.display()
 
 def verify_state():
@@ -35,12 +36,14 @@ def initializeConnection(ip_addr, dport):
     grep -oE "inet \([[:digit:]]{1,3}\\\\.\){3}[[:digit:]]{1,3} | \
     grep -oE "\([[:digit:]]{1,3}\\\\.\){3}[[:digit:]]{1,3}        
     """
-    src = subprocess.run(ip_addr_command, shell=True, stdout=subprocess.PIPE).stdout
+    src = subprocess.run(ip_addr_command, shell=True, stdout=subprocess.PIPE).stdout.decode('utf-8')
+    print("SRC_ip is {}".format(src));
     packet = IP(dst=ip_addr, src=src)/TCP(dport=dport)
     packet[TCP].flags = "S"
     packet[TCP].seq = random.randint(0, 2**32)
     response = sr1(packet, timeout=0.125, verbose=0)
     if response is None:
+        print("returning emergency packet, as i should")
         return packet
 
     packet[TCP].flags = "A"
