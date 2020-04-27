@@ -1,4 +1,7 @@
-"""from scapy.all import *
+from scapy.all import *
+from scapy.contrib.openflow import _ofp_header
+from scapy.fields import ByteEnumField, IntEnumField, IntField, LongField, PacketField, ShortField, XShortField
+from scapy.layers.l2 import Ether
 from pox.core import core
 from mininet.topo import Topo
 from mininet.net import Mininet
@@ -6,54 +9,53 @@ from mininet.util import dumpNodeConnections
 from mininet.log import setLogLevel
 
 import subprocess
+import random
 
-switch_ip = ""
-last_flow_table = ""
+DEBUG = True
 
-#send packet data to switch
-def process(fuzz_val) :
-    print(fuzz_val)
+PREV_STATE = ""
 
-#ensure flow table remains unchanged
-def verify_state():
-    curr_flow = subprocess.check_output("ovs-ofctl dump-flows").std_out
-    ret = curr_flow == last_flow_table
-    last_flow_table = curr_flow
-    return ret
-
-#create an openflow packet
-def gen_packet():
-    packet = scapy.IP()/scapy.OpenFlow(ofp_type = "OFPT_FLOW_MOD")
-    return bytes(packet[OpenFlow].payload)
-"""
-
-def process(fuzz_val):
-    print(fuzz_val)
+def process(packet):
+    send(packet)
+    if DEBUG:
+        packet.display()
 
 def verify_state():
     return True
 
-def gen_packet():
-    return "A packet"
+#returns an OFPTHello packet
+def openflowPacket():
+    return IP()/TCP()/OFPTHello()
 
-def openflowPacket(seed):
-    return None
-
+#detect source ip then initiate TCP handshake with target
+#if an error occurs, return best possible packet
 def initializeConnection(ip_addr, dport):
-    return None
+    ip_addr_command = """
+    ifconfig | \
+    grep -A 1 eth0 | \
+    grep -oE "inet ([[:digit:]]{1,3}\\\\.){3}[[:digit:]]{1,3} | \
+    grep -oE "([[:digit:]]{1,3}\\\\.){3}[[:digit:]]{1,3}        
+    """
+    src = subprocess.run(ip_addr_command, shell=True, stdout=subprocess.PIPE).stdout
+    packet = TCP(dport=dport)/IP(dst=ip_addr, src=src)
+    packet[TCP].flags = "S"
+    packet[TCP].seq = random.randint(0, 2**32)
+    response = sr1(packet, timeout=0.125)
+    if response is None:
+        return packet
 
+    packet[TCP].flags = "A"
+    packet[TCP].ack = response[TCP].seq + 1
+    packet[TCP].seq = packet.seq + 1
+    response = sr1(packet, timeout=0.125)
+    if response is None:
+        packet[TCP].seq = packet[TCP].seq + 1
+        packet[TCP].flags = ""
+        return packet
 
-"""
-OpenFlow packet grammar
-p = match cookie command idle_timeout hard_timeout priority buffer_id out_port flags actions
-match = byte byte byte byte
-cookie = byte byte byte byte byte byte byte byte
-command = 0 0 | 0 1 | 0 2 | 0 3 | 0 4 | byte byte
-idle_timeout = byte
-hard_timeout = byte
-priority = byte
-buffer_id = byte byte byte btye
-out_port = byte byte
-flags = 0 1 | 0 2 | 0 3 | byte byte
-byte = [0-15][0-15]
-"""
+    packet[TCP].ack = response[TCP].seq + 1
+    packet[TCP].seq = packet[TCP].seq + 1
+    packet[TCP].flags = ""
+
+    return packet
+
