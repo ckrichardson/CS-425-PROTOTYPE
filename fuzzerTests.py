@@ -40,14 +40,26 @@ def test_reproduceable_fuzz():
 def test_openflow_packet_structure():
     try:
         from EnsembleFuzzer import radamsa_switch_packet
-        IP(radamsa_switch_packet)
+        IP(radamsa_switch_packet(0))
+    except:
+        assert False
+
+    try:
+        from EnsembleFuzzer import blab_switch_packet
+        IP(blab_switch_packet(0))
     except:
         assert False
 
 def test_tcp_packet_structure():
     try:
         from EnsembleFuzzer import radamsa_host_packet
-        IP(radamsa_host_packet)
+        IP(radamsa_host_packet(0))
+    except:
+        assert False
+
+    try:
+        from EnsembleFuzzer import blab_host_packet
+        IP(blab_host_packet(0))
     except:
         assert False
 
