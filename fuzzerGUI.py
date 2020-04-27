@@ -1,4 +1,4 @@
-from EnsembleFuzzer import *
+from EnsembleFuzzer import Fuzzer
 import threading
 import time
 
@@ -134,7 +134,7 @@ def fuzz_thread_func(dom, target, seed, fuzztime, fuzzers):
 def acStartFuzzer(dom):
     global targetSelection
     targetSelection = dom.getContent("ip")
-    EnsembleFuzzer.TARGET = targetSelection
+    Fuzzer.TARGET = targetSelection
     print("Fuzzing target: {}".format(targetSelection))
     global fuzzSeedText 
     fuzzSeedText = dom.getContent("seed")

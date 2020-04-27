@@ -9,12 +9,6 @@ from scapy.contrib.openflow import *
 # fuzz_utils interfaces with the mininet network and openflow vswitch
 import fuzz_utils
 
-#target can be either machine or switch (tells fuzzers what type of packets to create)
-TARGET_TYPE = "machine"
-TARGET = ""
-
-DEFAULT_PACKET_PAYLOAD = "A valid packe! :D"
-
 #radamsa and blab both support arbitrarily large positive integers, 
 #so set this to whatever you like
 #obvs this will affect reproduceability
@@ -36,12 +30,12 @@ def initRadamsa(ensemble_fuzzer_obj):
         # this may need to repeat for each type of openflow packet
         packet = None
         packet_payload = None
-        if TARGET_TYPE == "machine":
-            packet = fuzz_utils.initializeConnection(TARGET, 430)
+        if Fuzzer.TARGET_TYPE == "machine":
+            packet = fuzz_utils.initializeConnection(Fuzzer.TARGET, 430)
             packet_payload = subprocess.run("echo {} | radamsa -s {}".format(
-                DEFAULT_PACKET_PAYLOAD, fuzz_obj.seed), shell=True, stdout=subprocess.PIPE).stdout
+                Fuzzer.DEFAULT_PACKET_PAYLOAD, fuzz_obj.seed), shell=True, stdout=subprocess.PIPE).stdout
         else:
-            packet = fuzz_utils.initializeConnection(TARGET, 430)
+            packet = fuzz_utils.initializeConnection(Fuzzer.TARGET, 430)
             valid_openflow = fuzz_utils.openflowPacket(fuzz_obj.seed)
             packet_payload = subprocess.run("echo {} | radamsa -s {}".format(
                 valid_openflow, fuzz_obj.seed), shell=True, stdout=subprocess.PIPE).stdout
@@ -163,6 +157,12 @@ def initBlab(ensemble_fuzzer_obj):
     ensemble_fuzzer_obj.fuzzers.append(Fuzzer.fuzzer("blab", ensemble_fuzzer_obj.seed, fuzz))
 
 class Fuzzer:
+
+    #target can be either machine or switch (tells fuzzers what type of packets to create)
+    TARGET_TYPE = "machine"
+    TARGET = ""
+
+    DEFAULT_PACKET_PAYLOAD = "A valid packe! :D"
 
     engines = {
         "radamsa": initRadamsa,
