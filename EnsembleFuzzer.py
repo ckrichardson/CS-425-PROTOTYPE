@@ -33,7 +33,6 @@ def radamsa_host_packet(seed):
                                     Fuzzer.DEFAULT_PACKET_PAYLOAD, seed), 
                                     shell=True, stdout=subprocess.PIPE).stdout
     packet.add_payload(packet_payload)
-    print(str(packet))
     return str(packet)
 
 #radamsa helper unction to generate a mangled openflow hello packet 
@@ -65,7 +64,7 @@ def initRadamsa(ensemble_fuzzer_obj):
 #blab helper function for generating
 def blab_host_packet(seed):
     tcp_packet_grammar = "'output = P \
-        P = sport dport seq ack doffset reserved flags window checksum urget_p options padding data \
+        P = sport dport seq ack doffset reserved flags window checksum urgent_p options padding data \
         sport = byte byte \
         dport = byte byte \
         seq = byte byte byte byte \
