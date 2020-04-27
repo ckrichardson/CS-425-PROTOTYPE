@@ -22,10 +22,14 @@ from mininet.util import irange
 ###############################################################################
 # Import plotting tools
 ###############################################################################
-import matplotlib.pyplot as plt; plt.rcdefaults()
+import matplotlib
 import numpy as np
 import matplotlib.pyplot as plt
 
+# use a noninteractive backend for matplotlib
+matplotlib.use('Agg')
+
+# import regular expression library for list processing
 import re
 
 # defines the network topology
@@ -180,7 +184,7 @@ def plotNet():
     # convert the strings to int using list comprehension
     hostBandwidthNumeralsFlat = [float(f) for f in hostBandwidthNumeralsFlat]
 
-    # hosts to plot
+    # configure the bar graph
     plotHosts = ('Host 1', 'Host 2')
     y_pos = np.arange(len(plotHosts))
     
@@ -189,8 +193,9 @@ def plotNet():
     plt.ylabel('Average Tput in Gbits/sec')
     plt.title('SDN Host Bandwidth')
 
-    plt.show()
-
+    # save the bar graph
+    plt.plot(hostBandwidthNumeralsFlat)
+    plt.savefig('tput_graph.png')
 
     
 
