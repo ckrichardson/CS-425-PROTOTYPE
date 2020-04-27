@@ -73,7 +73,7 @@ class BMNatTopo(Topo):
                            subnet = privateSubnet, 
                            inetIntf = externalInterface, 
                            localIntf = privateInterface)
-        nSwitch = self.addSwitch('s%d', numNATNets)
+        nSwitch = self.addSwitch('s%d' % numNATNets)
         
         # connect private and external nets
         self.addLink(nat, externalSwitch, intfName1 = externalInterface)
