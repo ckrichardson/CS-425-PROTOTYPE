@@ -24,7 +24,7 @@ def verify_state():
 
 #returns an OFPTHello packet
 def openflowPacket():
-    return IP()/TCP()/OFPTHello()
+    return OFPTHello()
 
 #detect source ip then initiate TCP handshake with target
 #if an error occurs, return best possible packet

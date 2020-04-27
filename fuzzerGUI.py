@@ -54,7 +54,7 @@ def generateFuzzerBody():
             <div align="left" style="display: inline-block">
                 <form>
                     <label for="seed">Set Seed</label><br>
-                    <input type="text" id="seed" name="seed" value="{}" style="width:100px">
+                    <input type="integer" id="seed" name="seed" value="{}" style="width:100px">
                 </form>
                 <br>
             </div>

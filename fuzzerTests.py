@@ -1,5 +1,6 @@
 import pytest
 from EnsembleFuzzer import Fuzzer
+import fuzz_utils
 from scapy.all import *
 
 #Test reproduceability
@@ -37,10 +38,18 @@ def test_reproduceable_fuzz():
 
 #Test packet structure
 def test_openflow_packet_structure():
-    pass
+    try:
+        from EnsembleFuzzer import radamsa_switch_packet
+        IP(radamsa_switch_packet)
+    except:
+        assert False
 
 def test_tcp_packet_structure():
-    pass
+    try:
+        from EnsembleFuzzer import radamsa_host_packet
+        IP(radamsa_host_packet)
+    except:
+        assert False
 
 if __name__ == "__main__":
     test_reproduceable_fuzz()
