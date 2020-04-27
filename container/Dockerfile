@@ -56,18 +56,19 @@ WORKDIR /root/radamsa
 
 RUN make && make install
 
+RUN echo "123456789012"
+
 WORKDIR /root
-
-RUN git clone https://github.com/radare/radare2.git
-
-RUN echo "1234"
 
 RUN git clone https://github.com/ckrichardson/CS-425-PROTOTYPE
 
 WORKDIR /root/CS-425-PROTOTYPE/binaryAnalysis
 
-RUN pip install --no-index --find-links=wheelhouse -r requirements.txt
+RUN git clone https://github.com/radare/radare2.git
 
+RUN cd radare2 && ./sys/install.sh
+
+RUN pip install --no-index --find-links=wheelhouse -r requirements.txt
 RUN pip3 install execnet
 RUN pip3 install atlastk
 

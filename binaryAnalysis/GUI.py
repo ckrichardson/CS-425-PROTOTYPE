@@ -29,12 +29,10 @@ def call_python_version(Version, Module, Function, ArgumentList):
         except ImportError:
             print("Abs import fail")
 
-        try:
-            from binaryAnalyis/%s import %s as the_function
-        except:
-            print("Relative import fail")
+        from binaryAnalysis.analysis import binary_analysis as the_function
+        #print("Relative import fail")
         channel.send(the_function(*channel.receive()))
-    """ % (Module, Function, Module, Function))
+    """ % (Module, Function))
     channel.send(ArgumentList)
     return channel.receive()
 
@@ -185,7 +183,11 @@ def acStartAnalysis(dom):
     fields = path.split("/")
     length_fields = len(fields)
     filename = fields[length_fields-1].split(".")[0]
-    results_dir = "/home/nope/Documents/project/CS-425-PROTOTYPE/binaryAnalysis/results/"
+    results_dir = None
+    if __name__ == "__main__":
+        results_dir = "/home/nope/Documents/project/CS-425-PROTOTYPE/binaryAnalysis/results/"
+    else:
+        results_dir = "/root/CS-425-PROTOTYPE/binaryAnalysis/results/"
     with open(results_dir+filename + "/" + filename + ".analytics", "r") as inputfile:
         analytics = inputfile.read()
    
