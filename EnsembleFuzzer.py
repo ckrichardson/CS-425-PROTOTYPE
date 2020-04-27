@@ -33,7 +33,8 @@ def radamsa_host_packet():
                                     Fuzzer.DEFAULT_PACKET_PAYLOAD, fuzz_obj.seed), 
                                     shell=True, stdout=subprocess.PIPE).stdout
     packet.add_payload(packet_payload)
-    print(str(packet))
+    packet.show()
+    print(packet.Raw())
     return str(packet)
 
 #radamsa helper unction to generate a mangled openflow hello packet 
