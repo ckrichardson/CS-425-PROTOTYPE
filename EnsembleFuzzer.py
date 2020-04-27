@@ -33,8 +33,7 @@ def radamsa_host_packet(seed):
                                     Fuzzer.DEFAULT_PACKET_PAYLOAD, seed), 
                                     shell=True, stdout=subprocess.PIPE).stdout
     packet.add_payload(packet_payload)
-    packet.show()
-    print(packet.Raw())
+    print(str(packet))
     return str(packet)
 
 #radamsa helper unction to generate a mangled openflow hello packet 
@@ -225,10 +224,10 @@ class Fuzzer:
 
     class fuzzer:
 
-        def __init__(self, name, seed, fuzz_utilsthod):
+        def __init__(self, name, seed, fuzz_method):
             self.name = name
             self.seed = seed
-            self.fuzz_utilsthod = fuzz_utilsthod
+            self.fuzz_method = fuzz_method
             # call provided initialize function
 
         def updateSeed(self, seed):
@@ -252,19 +251,19 @@ class Fuzzer:
             global MAX_SEED_INT
             self.seed = self.generator.randint(0, MAX_SEED_INT)
         for f in self.fuzzers:
-            f.seed = self.seed
+            f.updateSeed(self.seed)
 
     def Fuzz(self):
         states = {}
         for f in self.fuzzers:
-            states[f.name] = f.fuzz_utilsthod(f)
+            states[f.name] = f.fuzz_method(f)
         self.UpdateSeed()
         # report fuzzer success (to a log file preferably)
         with open("fuzzer_log_" + date.today().strftime("%d%m%Y") + ".txt", "a+") as log_file:
             log_file.write(Fuzzer.TARGET)
             log_file.write(Fuzzer.TARGET_TYPE)
             log_file.write(states)
-        for key, val in states:
+        for key, val in states.items():
             if val is False:
                 return (self.seed, states)
         return None
