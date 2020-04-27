@@ -207,7 +207,7 @@ def acStartAnalysis(dom):
         print("Sending email to ", graph_email)
         gmail_user = "resiliencedonotreply@gmail.com"
         gmail_pass = "tubesock1"
-        img_data = open(results_dir + "/" + "graph_" + filename + ".svg", "r").read()
+        img_data = open(results_dir + filename + "/" + "graph_" + filename + ".svg", "r").read()
         msg = MIMEMultipart()
         msg["Subject"] = "Your " + filename + "CFG"
         msg["From"] = gmail_user
