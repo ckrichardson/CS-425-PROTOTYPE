@@ -15,6 +15,9 @@ from time import sleep
 import smtplib
 import os
 from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
+from email.mime.multipart import MIMEMultipart
+
 
 """
 This is a way of calling Python2 methods from Python3 using the execnet module.
@@ -81,6 +84,11 @@ def generateIDAttrBody():
                     <label for="yes2">No
                       <br>
                 </form>
+                <form>
+                    <label> Enter email to receive graph: <label>
+                    <br>
+                    <input type="text" id="graph_email">
+
                 <br>
             </div>
             <button id="analyzeStartButton" data-xdh-onevent="startAnalysis" {}>
@@ -114,6 +122,8 @@ def acStartAnalysis(dom):
     # Graphical output radio button bools
     graphics_1_bool = dom.getContent("graphics1")
     graphics_2_bool = dom.getContent("graphics2")
+
+    graph_email = dom.getContent("graph_email")
 
     contents = None
 
@@ -190,6 +200,32 @@ def acStartAnalysis(dom):
         results_dir = "/root/CS-425-PROTOTYPE/binaryAnalysis/results/"
     with open(results_dir+filename + "/" + filename + ".analytics", "r") as inputfile:
         analytics = inputfile.read()
+    
+    if graphics_1_bool == "true":
+        try:
+            gmail_user = "resiliencedonotreply@gmail.com"
+            gmail_pass = "tubesock1"
+            img_data = open(results_dir + "/" + "graph_" + filename + ".svg", "r").read()
+            msg = MIMEMultipart()
+            msg["Subject"] = "Your " + filename + "CFG"
+            msg["From"] = gmail_user
+            msg["To"] = graph_email
+
+            text = MIMEText("This is your CFG from the job for " + filename + ".")
+            msg.attach(text)
+            image = MIMEImage(img_data, name="graph_" + filename + ".svg")
+            msg.attach(image)
+
+            server = smtplib.SMTP("smtp.gmail.com:587")
+            server.starttls()
+            server.ehlo()
+            server.login(gmail_user, gmail_pass)
+            server.sendmail(gmail_user, dest_addr, msg.as_string())
+            server.quit()
+        except:
+            print("Email send failed")
+
+
    
     print(analytics)
     dom.setContent("filepath", "")
