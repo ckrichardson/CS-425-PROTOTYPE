@@ -4,7 +4,7 @@ USER root
 WORKDIR /root
 
 COPY requirements.txt .
-COPY wheelhouse .
+COPY wheelhouse/* ./wheelhouse/
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     sudo \
@@ -37,7 +37,7 @@ RUN pip3 install atlastk setuptools matplotlib execnet
 
 RUN pip3 install scapy
 
-RUN pip install --no-index --find-links=wheelhouse -r requirements.txt
+RUN pip install --no-index --find-links=./wheelhouse -r requirements.txt
 
 RUN git clone https://github.com/mininet/mininet.git 
 
