@@ -204,29 +204,27 @@ def acStartAnalysis(dom):
         analytics = inputfile.read()
     
     if graphics_1_bool == "true":
-        try:
-            print("Sending email to ", graph_email)
-            gmail_user = "resiliencedonotreply@gmail.com"
-            gmail_pass = "tubesock1"
-            img_data = open(results_dir + "/" + "graph_" + filename + ".svg", "r").read()
-            msg = MIMEMultipart()
-            msg["Subject"] = "Your " + filename + "CFG"
-            msg["From"] = gmail_user
-            msg["To"] = graph_email
+        print("Sending email to ", graph_email)
+        gmail_user = "resiliencedonotreply@gmail.com"
+        gmail_pass = "tubesock1"
+        img_data = open(results_dir + "/" + "graph_" + filename + ".svg", "r").read()
+        msg = MIMEMultipart()
+        msg["Subject"] = "Your " + filename + "CFG"
+        msg["From"] = gmail_user
+        msg["To"] = graph_email
 
-            text = MIMEText("This is your CFG from the job for " + filename + ".")
-            msg.attach(text)
-            image = MIMEImage(img_data, name="graph_" + filename + ".svg")
-            msg.attach(image)
+        text = MIMEText("This is your CFG from the job for " + filename + ".")
+        msg.attach(text)
+        image = MIMEImage(img_data, name="graph_" + filename + ".svg")
+        msg.attach(image)
 
-            server = smtplib.SMTP("smtp.gmail.com:587")
-            server.starttls()
-            server.ehlo()
-            server.login(gmail_user, gmail_pass)
-            server.sendmail(gmail_user, dest_addr, msg.as_string())
-            server.quit()
-        except:
-            print("Email send failed")
+        server = smtplib.SMTP("smtp.gmail.com:587")
+        server.starttls()
+        server.ehlo()
+        server.login(gmail_user, gmail_pass)
+        server.sendmail(gmail_user, dest_addr, msg.as_string())
+        server.quit()
+        print("Email send failed")
 
 
    
