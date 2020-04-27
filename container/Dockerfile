@@ -56,7 +56,7 @@ WORKDIR /root/radamsa
 
 RUN make && make install
 
-RUN echo "123456789012"
+RUN echo "1234567890123"
 
 WORKDIR /root
 

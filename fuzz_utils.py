@@ -32,21 +32,21 @@ def initializeConnection(ip_addr, dport):
     ip_addr_command = """
     ifconfig | \
     grep -A 1 eth0 | \
-    grep -oE "inet ([[:digit:]]{1,3}\\\\.){3}[[:digit:]]{1,3} | \
-    grep -oE "([[:digit:]]{1,3}\\\\.){3}[[:digit:]]{1,3}        
+    grep -oE "inet \([[:digit:]]{1,3}\\\\.\){3}[[:digit:]]{1,3} | \
+    grep -oE "\([[:digit:]]{1,3}\\\\.\){3}[[:digit:]]{1,3}        
     """
     src = subprocess.run(ip_addr_command, shell=True, stdout=subprocess.PIPE).stdout
     packet = TCP(dport=dport)/IP(dst=ip_addr, src=src)
     packet[TCP].flags = "S"
     packet[TCP].seq = random.randint(0, 2**32)
-    response = sr1(packet, timeout=0.125)
+    response = sr1(packet, timeout=0.125, verbose=0)
     if response is None:
         return packet
 
     packet[TCP].flags = "A"
     packet[TCP].ack = response[TCP].seq + 1
     packet[TCP].seq = packet.seq + 1
-    response = sr1(packet, timeout=0.125)
+    response = sr1(packet, timeout=0.125, verbose=0)
     if response is None:
         packet[TCP].seq = packet[TCP].seq + 1
         packet[TCP].flags = ""
