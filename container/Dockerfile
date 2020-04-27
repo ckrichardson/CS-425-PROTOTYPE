@@ -68,6 +68,8 @@ RUN cd radare2 && ./sys/install.sh
 WORKDIR /root/radare2/sys
 CMD [./install.sh]
 
+WORKDIR /root
+
 RUN echo "Nonce"
 
 RUN git clone -b scapy-testing https://github.com/ckrichardson/CS-425-PROTOTYPE.git CS-425-PROTOTYPE
