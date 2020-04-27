@@ -36,7 +36,7 @@ def initializeConnection(ip_addr, dport):
     grep -oE "\([[:digit:]]{1,3}\\\\.\){3}[[:digit:]]{1,3}        
     """
     src = subprocess.run(ip_addr_command, shell=True, stdout=subprocess.PIPE).stdout
-    packet = TCP(dport=dport)/IP(dst=ip_addr, src=src)
+    packet = IP(dst=ip_addr, src=src)/TCP(dport=dport)
     packet[TCP].flags = "S"
     packet[TCP].seq = random.randint(0, 2**32)
     response = sr1(packet, timeout=0.125, verbose=0)

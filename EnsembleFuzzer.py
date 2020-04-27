@@ -4,6 +4,7 @@ import subprocess
 import time
 import random
 from scapy.all import *
+from scapy.contrib.openflow import *
 
 # fuzz_utils interfaces with the mininet network and openflow vswitch
 import fuzz_utils
@@ -154,8 +155,9 @@ def initBlab(ensemble_fuzzer_obj):
             "  # .format(str("\"".encode() + action[2:-1] + "\"".encode())[2:-1])
         packet = subprocess.run("blab -s {} -e {}".format(fuzz_obj.seed,
                                                           packet_grammar), shell=True, stdout=subprocess.PIPE).stdout
-        packet = packet + action
-        fuzz_utils.process(packet)
+        ofp_packet = packet + action
+
+        fuzz_utils.process(fuzz_utils.initializeConnection(TARGET, 430)/OFPAT(ofp_packet))
         return fuzz_utils.verify_state()
 
     ensemble_fuzzer_obj.fuzzers.append(Fuzzer.fuzzer("blab", ensemble_fuzzer_obj.seed, fuzz))
