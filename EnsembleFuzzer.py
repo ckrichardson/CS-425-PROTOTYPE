@@ -33,7 +33,7 @@ def radamsa_host_packet():
                                     Fuzzer.DEFAULT_PACKET_PAYLOAD, fuzz_obj.seed), 
                                     shell=True, stdout=subprocess.PIPE).stdout
     packet.add_payload(packet_payload)
-    return bytes(packet)
+    return str(packet)
 
 #radamsa helper unction to generate a mangled openflow hello packet 
 def radamsa_switch_packet():
@@ -43,7 +43,7 @@ def radamsa_switch_packet():
                                     valid_openflow, fuzz_obj.seed), 
                                     shell=True, stdout=subprocess.PIPE).stdout
     packet.add_payload(packet_payload)
-    return bytes(packet)
+    return str(packet)
 
 #radamsa initialization function
 def initRadamsa(ensemble_fuzzer_obj):
@@ -87,7 +87,7 @@ def blab_host_packet():
     tcp_payload = TCP(tcp_payload)
     packet = fuzz_utils.initializeConnection(Fuzzer.TARGET, 430)
     packet[TCP] = tcp_payload
-    return bytes(packet)
+    return str(packet)
 
 def blab_switch_packet():
     action_grammars = [
@@ -191,7 +191,7 @@ def blab_switch_packet():
                             shell=True, stdout=subprocess.PIPE).stdout
     ofp_packet = packet + action
     packet = fuzz_utils.initializeConnection(Fuzzer.TARGET, 6653)/OFPAT(ofp_packet)
-    return bytes(packet)
+    return str(packet)
 
 
 #blab initialization function
