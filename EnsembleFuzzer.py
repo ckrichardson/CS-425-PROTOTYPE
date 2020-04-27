@@ -48,7 +48,7 @@ def initRadamsa(ensemble_fuzzer_obj):
             packet_payload = subprocess.run("echo {} | radamsa -s {}".format(
                 valid_openflow, fuzz_obj.seed), shell=True, stdout=subprocess.PIPE).stdout
 
-        packet.payload = packet_payload
+        packet.add_payload(packet_payload)
         fuzz_utils.process(packet)
         print("packet delivered")
         return fuzz_utils.verify_state()

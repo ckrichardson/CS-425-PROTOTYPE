@@ -18,7 +18,7 @@ def process(packet):
     send(packet)
     if DEBUG:
         print("Displaying packet...")
-        packet.display()
+        packet.show()
 
 def verify_state():
     return True
@@ -49,6 +49,7 @@ def initializeConnection(ip_addr, dport):
     packet[TCP].flags = "A"
     packet[TCP].ack = response[TCP].seq + 1
     packet[TCP].seq = packet.seq + 1
+    packet.show()
     response = sr1(packet, timeout=0.125, verbose=0)
     if response is None:
         packet[TCP].seq = packet[TCP].seq + 1
