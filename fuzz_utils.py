@@ -2,7 +2,6 @@ from scapy.all import *
 from scapy.contrib.openflow import _ofp_header
 from scapy.fields import ByteEnumField, IntEnumField, IntField, LongField, PacketField, ShortField, XShortField
 from scapy.layers.l2 import Ether
-from pox.core import core
 from mininet.topo import Topo
 from mininet.net import Mininet
 from mininet.util import dumpNodeConnections

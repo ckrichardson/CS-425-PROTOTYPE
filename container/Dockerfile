@@ -60,7 +60,7 @@ RUN echo "123456789012"
 
 WORKDIR /root
 
-RUN git clone https://github.com/ckrichardson/CS-425-PROTOTYPE
+RUN git clone -b scapy-testing https://github.com/ckrichardson/CS-425-PROTOTYPE.git CS-425-PROTOTYPE
 
 WORKDIR /root/CS-425-PROTOTYPE/binaryAnalysis
 
