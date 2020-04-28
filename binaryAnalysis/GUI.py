@@ -1,6 +1,6 @@
 import atlastk as Atlas
 import execnet
-
+import find_network_sigs
 try:
     import log_integrity
 except ImportError:
@@ -279,8 +279,12 @@ def acStartAnalysis(dom):
         results_dir = "/home/nope/Documents/project/CS-425-PROTOTYPE/binaryAnalysis/results/"
     else:
         results_dir = "/root/CS-425-PROTOTYPE/binaryAnalysis/results/"
-    with open(results_dir+filename + "/" + filename + ".analytics", "r") as inputfile:
+    analytics_path = results_dir + filename + "/" + filename + ".analytics", "r"
+    with open(analytics_path, "r") as inputfile:
         analytics = inputfile.read()
+
+    syscalls = find_syscalls(analytics_path)
+    net_syscalls = find_network_syscalls(path)
     
     if graphics_1_bool == "true":
         if __name__ != "__main__":
@@ -309,8 +313,23 @@ def acStartAnalysis(dom):
 
    
     print(analytics)
+
+    output_things = """
+    Your binary made a total of {0} system calls:\n
+    """.format(syscalls)
+
+    for element in syscalls:
+        output_things += element.strip() + "\n"
+    
+    output_things += """
+    Of those system calls {1} were network related:
+    """.format(len(net_syscalls))
+    
+    for element in net_syscalls:
+        output_things += element.strip() + "\n"
+
     dom.setContent("filepath", "")
-    dom.setContent("status", analytics)
+    dom.setContent("status", output_things)
     
     print("Analysis complete, ready for new task...")
     
