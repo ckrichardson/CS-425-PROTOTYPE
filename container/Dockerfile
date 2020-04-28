@@ -70,7 +70,7 @@ CMD [./install.sh]
 
 WORKDIR /root
 
-RUN echo "syn"
+RUN echo "synack"
 
 RUN git clone https://github.com/ckrichardson/CS-425-PROTOTYPE.git
 

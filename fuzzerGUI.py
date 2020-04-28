@@ -85,6 +85,14 @@ def generateFuzzerBody():
         <br>
         <p id="fuzzStatus">{}</p>
     </div>
+    <script language="javascript">
+    window.onload = function(e) {
+        while (true) {
+            wait(250);
+            document.getElementById("UPDATE_BUTTON").click();
+        }
+    }
+    </script>
     """.format(targetSelection, target_options, fuzzSeedText, 
                 engine_options, fuzzTimeText, startEnabled, 
                 cancelEnabled, fuzzingStatus)

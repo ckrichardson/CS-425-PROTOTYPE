@@ -22,6 +22,7 @@ main_page = """
     Main Tools
     <button data-xdh-onevent="loadNetwork">Network Analysis</button><button data-xdh-onevent="loadFuzzer">Fuzzer</button><button data-xdh-onevent="loadIDAttr">IDAttr</button><br><br>
     {}
+    <button id="UPDATE_BUTTON" data-xdh-onevent="update" hidden>update</button>
 </div>"""
 
 def acNetwork(dom):
@@ -33,11 +34,15 @@ def acFuzzer(dom):
 def acIDAttr(dom):
     dom.setLayout("", main_page.format(generateIDAttrBody()))
 
+def acUPDATE(dom):
+    pass
+
 callbacks = {
   "": acNetwork,  # Default to network
   "loadNetwork": acNetwork,
   "loadFuzzer": acFuzzer,
   "loadIDAttr": acIDAttr,
+  "update": acUPDATE,
 }
 
 for key, val in fuzzerCallbacks.items():
