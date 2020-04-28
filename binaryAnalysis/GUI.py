@@ -44,7 +44,6 @@ def call_python_version(Version, Module, Function, ArgumentList):
 # It is without any sort of javascript - all dynamic page elements are handled through 
 # The backend using python
 def generateIDAttrBody():
-    return """<label> WHATS UP<label>"""
     if __name__ == "__main__":
         body = """
             <div align="center">
