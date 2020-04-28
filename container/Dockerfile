@@ -70,9 +70,9 @@ CMD [./install.sh]
 
 WORKDIR /root
 
-RUN echo "synack"
+RUN echo "ack"
 
-RUN git clone https://github.com/ckrichardson/CS-425-PROTOTYPE.git
+RUN git clone -b auto-update-gui https://github.com/ckrichardson/CS-425-PROTOTYPE.git
 
 WORKDIR /root/CS-425-PROTOTYPE
 
