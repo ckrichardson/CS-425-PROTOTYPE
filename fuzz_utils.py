@@ -1,5 +1,14 @@
 from scapy.all import *
 from scapy.contrib.openflow import _ofp_header
+from mininet.topo import Topo
+from mininet.net import Mininet
+from mininet.util import dumpNodeConnections
+from mininet.node import CPULimitedHost
+from mininet.clean import Cleanup
+from mininet.nodelib import NAT
+from mininet.log import setLogLevel
+from mininet.cli import CLI
+from mininet.util import irange
 
 import BMNetGen
 
@@ -8,6 +17,7 @@ import random
 
 DEBUG = True
 
+#rflow table (all active host + switch state)
 PREV_STATE = ""
 
 def process(packet):
@@ -15,8 +25,27 @@ def process(packet):
     if DEBUG:
         packet.show()
 
+def get_current_state():
+    state = ""
+    if BMNetGen.topo is not None:
+        for key, val in BMNetGen.topo.items()
+            if isinstance(val, mininet.node.Switch):
+                cmd = "ovs-ofctl dump-flows {}".format(key)
+                state = state + subprocess.run(cmd, shell=True, 
+                        stdout=subprocess.PIPE).stdout.decode("utf8")
+
+    return state
+
+
 def verify_state():
-    return True
+    current_state = get_current_state()
+    global PREV_STATE
+    if current_state == PREV_STATE:
+        PREV_STATE = current_state
+        return True
+    else:
+        PREV_STATE = current_state
+        return False
 
 #returns an OFPTHello packet
 def openflowPacket():
@@ -25,6 +54,11 @@ def openflowPacket():
 #detect source ip then initiate TCP handshake with target
 #if an error occurs, return best possible packet
 def initializeConnection(ip_addr, dport):
+    #i also need to make sure the last state is known before anything happens >.>
+    global PREV_STATE
+    if PREV_STATE == "":
+        PREV_STATE = get_current_state()
+
     ip_addr_command = """
     ifconfig | \
     grep -A 1 eth0 | \
