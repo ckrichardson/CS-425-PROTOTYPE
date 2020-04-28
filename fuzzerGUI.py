@@ -139,6 +139,7 @@ def fuzz_thread_func(dom, target, seed, fuzztime, fuzzers):
     enableStart = True
 
 def acStartFuzzer(dom):
+    global fuzz_thread
     if fuzz_thread is not None:
         return
     global targetSelection
@@ -175,7 +176,6 @@ def acStartFuzzer(dom):
     for engine in Fuzzer.engines.keys():
         if dom.getContent(engine) == "true":
             selectedFuzzers.append(engine)
-    global fuzz_thread
     fuzz_thread = threading.Thread(target=fuzz_thread_func, args=(dom, targetSelection, seed, fuzztime, selectedFuzzers))
     fuzz_thread.start()
 

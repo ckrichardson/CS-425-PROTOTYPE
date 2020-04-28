@@ -70,7 +70,7 @@ CMD [./install.sh]
 
 WORKDIR /root
 
-RUN echo "UwU"
+RUN echo "beepboop"
 
 RUN git clone https://github.com/ckrichardson/CS-425-PROTOTYPE.git
 
