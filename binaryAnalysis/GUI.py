@@ -43,8 +43,8 @@ def call_python_version(Version, Module, Function, ArgumentList):
 # This is the HTML body of the page that will be hosted thru Atlas.
 # It is without any sort of javascript - all dynamic page elements are handled through 
 # The backend using python
-def generateIDAttrBody(main=False):
-    if not main:
+def generateIDAttrBody():
+    if __name__ != "__main__":
         body = """
             <div align="center">
                 <div align="center">
@@ -105,6 +105,7 @@ def generateIDAttrBody(main=False):
                                 <p id="analysisStatus"></p>
             </div>
         """
+
     else: 
         body = """
             <div align="center">
@@ -161,7 +162,7 @@ def generateIDAttrBody(main=False):
                                 <p id="analysisStatus"></p>
             </div>
         """
-    return body
+        return body
 
 # This is used to load the HTML body upon the user connecting
 def acConnect(dom):
