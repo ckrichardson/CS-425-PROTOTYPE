@@ -22,6 +22,10 @@ def generateNetworkBody():
             Generate network
         </button>
         </button>
+        <button id="networkStopButton" data-xdh-onevent="networkStop" {}>
+            Stop network
+        </button>
+        </button>
         <button id="emailButton" data-xdh-onevent="emailNetGraph" {}>
             Email graph
         </button>
@@ -37,6 +41,9 @@ def generateNetworkBody():
     <br>
     """
     return body
+    
+def acNetworkStop(dom):
+    pass
     
 def acNetworkStart(dom):    
     BMNetGen.generateTopo()
@@ -92,4 +99,5 @@ def acSendGraphEmail(dom):
 networkCallbacks = {
     "networkStart": acNetworkStart,
     "emailNetGraph": acSendGraphEmail,
+    "networkStop": acNetworkStop,
 }
