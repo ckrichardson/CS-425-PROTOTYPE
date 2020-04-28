@@ -165,10 +165,26 @@ def generateIDAttrBody():
         """
         return body
 
+def integrity_btn_status(integrity_1, integrity_2, integrity_3):
+    if integrity_1 == "false" and integrity_2 == "false" and integrity_3 == "false"
+        return False
+    return True
+
+def graphics_btn_status(graphics_1, graphics_2):
+    if graphics_1 == "false" and graphics_2 == "false":
+        return False
+    return True
+
+def file_path_good(path)
+    return os.path.isfile(path)
+
 # This is used to load the HTML body upon the user connecting
 def acConnect(dom):
-    dom.setLayout("", generateIDAttrBody())
-    print(os.getcwd())
+    try:
+        dom.setLayout("", generateIDAttrBody())
+        print(os.getcwd())
+    except:
+        return False
 
 # This runs the entire automation process for analyzing PLC's, any integrity checks, as well as 
 # graphical outputs.
@@ -194,22 +210,26 @@ def acStartAnalysis(dom):
     if path==None:
         dom.setContent("status", "Please enter a file path.")
 
-    if not integrity_1_bool and integrity_2_bool and integrity_3_bool:
+    integrity_status = integrity_btn_status(integrity_1_bool, integrity_2_bool, integrity_3_bool)
+    if not integrity_status:
         dom.setContent("status", "Please select a hashing option.")
 
-    if not graphics_1_bool and graphics_2_bool:
+    graphics_status = graphics_btn_status(graphics_1_bool, graphics_2_bool)
+    if not graphics_status:
         dom.setContent("status", "Please select a graph option.") 
+    
+    if not file_path_good(path):
+        dom.setContent("status", "Path provided is not a file")
 
-    #try:
-    print("doing binary analysis")
-    result = call_python_version("2.7", "analysis", "binary_analysis", [path, True])
-    #except:
-    #    dom.setContent("status", "Binary analysis failed.")
-    #    return
+    try:
+        print("doing binary analysis")
+        result = call_python_version("2.7", "analysis", "binary_analysis", [path, True])
+    except:
+        dom.setContent("status", "Binary analysis failed.")
+        return
 
     if integrity_1_bool == "true":
-        print(integrity_1_bool, "has triggered!")
-        input()
+        print("Hashing and integrity check has triggered!")
         gmail_user = "resiliencedonotreply@gmail.com"
         gmail_pass = "tubesock1"
 
