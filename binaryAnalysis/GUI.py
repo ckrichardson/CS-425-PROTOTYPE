@@ -292,8 +292,8 @@ def acStartAnalysis(dom):
     with open(analytics_path, "r") as inputfile:
         analytics = inputfile.read()
 
-    syscalls = find_syscalls(analytics_path)
-    net_syscalls = find_network_syscalls(path)
+    syscalls = find_network_sigs.find_syscalls(analytics_path)
+    net_syscalls = find_network_sigs.find_network_syscalls(path)
     
     if graphics_1_bool == "true":
         if __name__ != "__main__":
