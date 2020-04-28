@@ -166,7 +166,7 @@ def generateIDAttrBody():
         return body
 
 def integrity_btn_status(integrity_1, integrity_2, integrity_3):
-    if integrity_1 == "false" and integrity_2 == "false" and integrity_3 == "false"
+    if integrity_1 == "false" and integrity_2 == "false" and integrity_3 == "false":
         return False
     return True
 
@@ -175,7 +175,7 @@ def graphics_btn_status(graphics_1, graphics_2):
         return False
     return True
 
-def file_path_good(path)
+def file_path_good(path):
     return os.path.isfile(path)
 
 # This is used to load the HTML body upon the user connecting
