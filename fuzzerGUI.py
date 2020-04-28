@@ -17,7 +17,7 @@ fuzzSeedText = "0"
 def generateFuzzerBody():
     if BMNetGen.topo is not None:
         for node in BMNetGen.topo.keys():
-            print("{}: {}".format(node, BMNetGen.topo[node].getIP()))
+            print("{}: {}".format(node, BMNetGen.topo[node].IP()))
     topo = ["127.0.0.1", "196.168.4.15", "10.0.0.1"]
     target_options = ""
     for ip in topo:
