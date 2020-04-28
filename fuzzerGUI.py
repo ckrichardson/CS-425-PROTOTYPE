@@ -54,7 +54,7 @@ def generateFuzzerBody():
             <div align="left" style="display: inline-block">
                 <form>
                     <label for="seed">Set Seed</label><br>
-                    <input type="text" id="seed" name="seed" value="{}" style="width:100px">
+                    <input type="integer" id="seed" name="seed" value="{}" style="width:100px">
                 </form>
                 <br>
             </div>
@@ -134,6 +134,7 @@ def fuzz_thread_func(dom, target, seed, fuzztime, fuzzers):
 def acStartFuzzer(dom):
     global targetSelection
     targetSelection = dom.getContent("ip")
+    Fuzzer.TARGET = targetSelection
     print("Fuzzing target: {}".format(targetSelection))
     global fuzzSeedText 
     fuzzSeedText = dom.getContent("seed")

@@ -105,6 +105,8 @@ def generateIDAttrBody():
                                 <p id="analysisStatus"></p>
             </div>
         """
+        return body
+
     else: 
         body = """
             <div align="center">
@@ -161,7 +163,7 @@ def generateIDAttrBody():
                                 <p id="analysisStatus"></p>
             </div>
         """
-    return body
+        return body
 
 # This is used to load the HTML body upon the user connecting
 def acConnect(dom):
