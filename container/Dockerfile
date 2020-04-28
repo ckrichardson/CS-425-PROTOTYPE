@@ -3,6 +3,9 @@ FROM ubuntu:18.04
 USER root
 WORKDIR /root
 
+COPY requirements.txt .
+COPY wheelhouse/* ./wheelhouse/
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     sudo \
     build-essential \
@@ -30,9 +33,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     pkg-config \
  && rm -rf /var/lib/apt/lists/*
  
-RUN pip3 install atlastk setuptools matplotlib
+RUN pip3 install atlastk setuptools matplotlib execnet
 
 RUN pip3 install scapy
+
+RUN pip install --no-index --find-links=./wheelhouse -r requirements.txt
 
 RUN git clone https://github.com/mininet/mininet.git 
 
@@ -42,7 +47,6 @@ RUN apt update && export PYTHON=/usr/bin/python3 && \
 
 RUN git clone https://gitlab.com/akihe/blab
 
-
 WORKDIR /root/blab
 
 RUN make && make install
@@ -51,29 +55,24 @@ WORKDIR /root
 
 RUN git clone https://gitlab.com/akihe/radamsa
 
-
 WORKDIR /root/radamsa
 
 RUN make && make install
 
-RUN echo "123456789012"
-
 WORKDIR /root
-
-RUN git clone https://github.com/ckrichardson/CS-425-PROTOTYPE
-
-WORKDIR /root/CS-425-PROTOTYPE/binaryAnalysis
 
 RUN git clone https://github.com/radare/radare2.git
 
 RUN cd radare2 && ./sys/install.sh
 
-RUN pip install --no-index --find-links=wheelhouse -r requirements.txt
-RUN pip3 install execnet
-RUN pip3 install atlastk
-
-WORKDIR /root/CS-425-PROTOTYPE/binaryAnalysis/radare2/sys
+WORKDIR /root/radare2/sys
 CMD [./install.sh]
+
+WORKDIR /root
+
+RUN echo "Nonce1236986"
+
+RUN git clone https://github.com/ckrichardson/CS-425-PROTOTYPE.git
 
 WORKDIR /root/CS-425-PROTOTYPE
 
@@ -84,4 +83,3 @@ RUN chmod +x /ENTRYPOINT.sh
 ENTRYPOINT ["/ENTRYPOINT.sh"]
 
 EXPOSE 6633 6653 6640
-
