@@ -90,6 +90,7 @@ def generateFuzzerBody():
         while (true) {{
             wait(250);
             document.getElementById("UPDATE_BUTTON").click();
+            alert("I click!");
         }}
     }}
     </script>
