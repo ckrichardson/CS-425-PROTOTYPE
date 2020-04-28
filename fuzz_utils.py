@@ -16,7 +16,7 @@ import BMNetGen
 import subprocess
 import random
 
-DEBUG = True
+DEBUG = False
 
 #rflow table (all active host + switch state)
 PREV_STATE = ""
@@ -42,7 +42,6 @@ def verify_state():
     current_state = get_current_state()
     global PREV_STATE
     if current_state == PREV_STATE:
-        PREV_STATE = current_state
         return True
     else:
         PREV_STATE = current_state
