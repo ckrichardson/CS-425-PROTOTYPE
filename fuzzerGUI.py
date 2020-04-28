@@ -85,8 +85,7 @@ def generateFuzzerBody():
         <br>
         <p id="fuzzStatus">{}</p>
     </div>
-    <script language="javascript">
-    <-- one of these functions has got to fire, right? -->
+    <script type="text/javascript" language="javascript">
     function updater() {{
         alert("I fired!");
         while (true) {{

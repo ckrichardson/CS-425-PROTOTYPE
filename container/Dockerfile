@@ -70,7 +70,7 @@ CMD [./install.sh]
 
 WORKDIR /root
 
-RUN echo "finacklenackle"
+RUN echo "pompernickle"
 
 RUN git clone -b auto-update-gui https://github.com/ckrichardson/CS-425-PROTOTYPE.git
 
