@@ -4,6 +4,7 @@ from mininet.topo import Topo
 from mininet.net import Mininet
 from mininet.util import dumpNodeConnections
 from mininet.node import CPULimitedHost
+from mininet.node import Switch
 from mininet.clean import Cleanup
 from mininet.nodelib import NAT
 from mininet.log import setLogLevel
@@ -27,10 +28,9 @@ def process(packet):
 
 def get_current_state():
     state = ""
-    return state
     if BMNetGen.topo is not None:
         for key, val in BMNetGen.topo.items():
-            if isinstance(val, mininet.node.Switch):
+            if isinstance(val, Switch):
                 cmd = "ovs-ofctl dump-flows {}".format(key)
                 state = state + subprocess.run(cmd, shell=True, 
                         stdout=subprocess.PIPE).stdout.decode("utf8")
@@ -39,7 +39,6 @@ def get_current_state():
 
 
 def verify_state():
-    return True
     current_state = get_current_state()
     global PREV_STATE
     if current_state == PREV_STATE:
