@@ -262,9 +262,12 @@ class Fuzzer:
         self.UpdateSeed()
         # report fuzzer success (to a log file preferably)
         with open("fuzzer_logs/fuzzer_log_" + date.today().strftime("%d%m%Y") + ".txt", "a+") as log_file:
-            log_file.write(Fuzzer.TARGET)
-            log_file.write(Fuzzer.TARGET_TYPE)
-            log_file.write(states)
+            log_file.write("Target: " + Fuzzer.TARGET + "\n")
+            log_file.write("Target type: " + Fuzzer.TARGET_TYPE + "\n")
+            log_file.write("Seed: " + str(self.seed) + "\n")
+            for key, val in states.items():
+                log_file.write("{}: {}\n".format(key, "state changed" if val is False else "state unchanged"))
+            log_file.write("\n")
         for key, val in states.items():
             if val is False:
                 return (self.seed, states)

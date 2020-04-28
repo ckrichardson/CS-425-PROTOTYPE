@@ -44,7 +44,7 @@ def acShowGraph(dom):
 networkCallbacks = {
     "networkStart": acNetworkStart,
     "networkBench": acNetworkBench,
-    "showGraphButton": acShowGraph,
+    "showGraph": acShowGraph,
 }
 
 

@@ -70,6 +70,8 @@ CMD [./install.sh]
 
 WORKDIR /root
 
+RUN echo ">.>"
+
 RUN git clone https://github.com/ckrichardson/CS-425-PROTOTYPE.git
 
 WORKDIR /root/CS-425-PROTOTYPE

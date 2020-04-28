@@ -117,7 +117,9 @@ def generateTopo():
 
     net.start()
     net.pingAll()
-    net.stop()
+    global topo
+    topo = net
+    # net.stop()
     
 def generateNATTopo():
     
