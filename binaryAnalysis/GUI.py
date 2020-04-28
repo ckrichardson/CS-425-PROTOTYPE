@@ -105,6 +105,7 @@ def generateIDAttrBody():
                                 <p id="analysisStatus"></p>
             </div>
         """
+        return body
 
     else: 
         body = """
