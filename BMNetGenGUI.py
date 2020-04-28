@@ -91,19 +91,5 @@ def acSendGraphEmail(dom):
 
 networkCallbacks = {
     "networkStart": acNetworkStart,
-<<<<<<< HEAD
     "emailNetGraph": acSendGraphEmail,
-=======
-    "networkBench": acNetworkBench,
-    "showGraph": acShowGraph,
->>>>>>> c360aeb0f8c29eef1a34d9aefa0ec2ef07c4a971
 }
-
-
-
-
-
-
-
-
-
