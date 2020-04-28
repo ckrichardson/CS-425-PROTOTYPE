@@ -78,7 +78,8 @@ def initializeConnection(ip_addr, dport):
     packet[TCP].flags = "A"
     packet[TCP].ack = response[TCP].seq + 1
     packet[TCP].seq = packet.seq + 1
-    packet.show()
+    if DEBUG:
+        packet.show()
     response = sr1(packet, timeout=0.125, verbose=0)
     if response is None:
         packet[TCP].seq = packet[TCP].seq + 1

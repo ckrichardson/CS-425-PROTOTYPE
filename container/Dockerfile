@@ -70,7 +70,7 @@ CMD [./install.sh]
 
 WORKDIR /root
 
-RUN echo "wait... uh... that was a lie, i swear i'm not a robot"
+RUN echo "syn"
 
 RUN git clone https://github.com/ckrichardson/CS-425-PROTOTYPE.git
 
