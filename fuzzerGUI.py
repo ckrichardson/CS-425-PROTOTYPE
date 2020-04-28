@@ -87,26 +87,19 @@ def generateFuzzerBody():
     </div>
     <script language="javascript">
     <-- one of these functions has got to fire, right? -->
-    window.onload = function(e) {{
+    function updater() {{
+        alert("I fired!");
         while (true) {{
             wait(250);
-            alert("window.onload")
             document.getElementById("UPDATE_BUTTON").click();
         }}
     }}
-    window.document.onload = function(e) {{
-        while (true) {{
-            wait(250);
-            alert("window.document.onload")
-            document.getElementById("UPDATE_BUTTON").click();
-        }}
-    }}
-    document.onload = function(e) {{
-        while (true) {{
-            wait(250);
-            alert("document.onload")
-            document.getElementById("UPDATE_BUTTON").click();
-        }}
+    if (window.attachEvent){{
+        window.attachEvent('onload', updater);
+    }} else if (window.addEventListener){{
+        window.addEventListener('load', updater, false);
+    }} else {{
+        document.addEventListener('load', updater, false);
     }}
     </script>
     """.format(targetSelection, target_options, fuzzSeedText, 
