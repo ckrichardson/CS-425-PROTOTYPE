@@ -43,7 +43,7 @@ def generateNetworkBody():
     return body
     
 def acNetworkStop(dom):
-    pass
+    BMNetGen.stopTopo()
     
 def acNetworkStart(dom):    
     BMNetGen.generateTopo()
