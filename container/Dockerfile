@@ -70,7 +70,7 @@ CMD [./install.sh]
 
 WORKDIR /root
 
-RUN echo "boopbeep"
+RUN echo "am robot beepbeep"
 
 RUN git clone https://github.com/ckrichardson/CS-425-PROTOTYPE.git
 

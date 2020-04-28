@@ -124,13 +124,13 @@ def fuzz_thread_func(dom, target, seed, fuzztime, fuzzers):
             if success != None:
                 seed_out, states = success
                 print(str(seed_out) + ": " + str(states))
-                successful_seeds = successful_seeds + "\n" + str(seed_out)
-                fuzzingStatus = "Fuzzing target: {}".format(target + successful_seeds)
+                successful_seeds = successful_seeds + "<br>" + str(seed_out)
+                fuzzingStatus = "Fuzzing target: {}<br>".format(target + successful_seeds)
                 dom.setContent("fuzzStatus", fuzzingStatus)
         except:
             continue
-    fuzzingStatus = "Finished fuzzing {}".format(target + successful_seeds)
-    print(fuzzingStatus)
+    fuzzingStatus = "Finished fuzzing {}<br>".format(target + successful_seeds)
+    print(fuzzingStatus.replace("<br>", "\n"))
     dom.setContent("fuzzStatus", fuzzingStatus)
     dom.disableElement("fuzzCancelButton")
     dom.enableElement("fuzzStartButton")
