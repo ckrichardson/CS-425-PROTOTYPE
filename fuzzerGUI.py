@@ -19,7 +19,7 @@ def generateFuzzerBody():
     if BMNetGen.topo is not None:
         for node, val in BMNetGen.topo.items():
             if val.IP() != "127.0.0.1":
-                target_options = target_options + "\n<option value=\"{}\">{}</option>".format(val.IP, node + ": " + val.IP())
+                target_options = target_options + "\n<option value=\"{}\">{}</option>".format(val.IP(), node + ": " + val.IP())
         target_options = target_options + "\n<option value=\"{}\">{}</option>".format("127.0.0.1", "switch")
 
     engine_options = ""
@@ -120,9 +120,10 @@ def fuzz_thread_func(dom, target, seed, fuzztime, fuzzers):
         if keep_fuzzing == False:
             break
         try:
-            seed_out, states = fuzzer.Fuzz()
-            print(str(seed_out) + ": " + str(states))
-            if seed_out != None:
+            success = fuzzer.Fuzz()
+            if success != None:
+                seed_out, states = success
+                print(str(seed_out) + ": " + str(states))
                 successful_seeds = successful_seeds + "\n" + str(seed_out)
                 fuzzingStatus = "Fuzzing target: {}".format(target + successful_seeds)
                 dom.setContent("fuzzStatus", fuzzingStatus)
