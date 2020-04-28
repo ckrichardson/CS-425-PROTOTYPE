@@ -1,6 +1,15 @@
 import atlastk as Atlas
 import execnet
-import find_network_sigs
+try:
+    import find_network_sigs
+except ImportError:
+    print("Abs import fail")
+
+try:
+    from .import find_network_sigs
+except ModuleNotFoundError:
+    print("Relative import fail")
+
 try:
     import log_integrity
 except ImportError:
