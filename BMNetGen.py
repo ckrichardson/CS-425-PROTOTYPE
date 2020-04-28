@@ -123,7 +123,7 @@ def generateTopo():
     topo = net
 
 def stopTopo():
-    Mininet.stop()
+    Mininet.stop(self)
 
 def generateNATTopo():
     

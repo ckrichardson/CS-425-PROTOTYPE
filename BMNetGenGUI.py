@@ -19,15 +19,11 @@ def generateNetworkBody():
     body = """
     <br>
         <button id="networkStartButton" data-xdh-onevent="networkStart" {}>
-            Generate network
-        </button>
-        </button>
-        <button id="networkStopButton" data-xdh-onevent="networkStop" {}>
-            Stop network
+            Fuzzer network
         </button>
         </button>
         <button id="emailButton" data-xdh-onevent="emailNetGraph" {}>
-            Email graph
+            Generate graph
         </button>
         </button>
         <form>
