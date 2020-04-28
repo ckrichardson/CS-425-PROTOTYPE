@@ -86,11 +86,23 @@ def generateFuzzerBody():
         <p id="fuzzStatus">{}</p>
     </div>
     <script language="javascript">
+    <-- one of these functions has got to fire, right? -->
     window.onload = function(e) {{
         while (true) {{
             wait(250);
             document.getElementById("UPDATE_BUTTON").click();
-            alert("I click!");
+        }}
+    }}
+    window.document.onload = function(e) {{
+        while (true) {{
+            wait(250);
+            document.getElementById("UPDATE_BUTTON").click();
+        }}
+    }}
+    document.onload = function(e) {{
+        while (true) {{
+            wait(250);
+            document.getElementById("UPDATE_BUTTON").click();
         }}
     }}
     </script>
