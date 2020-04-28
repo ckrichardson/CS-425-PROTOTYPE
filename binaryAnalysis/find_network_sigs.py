@@ -31,7 +31,7 @@ def find_network_syscalls(path):
             for element in fields:
                 if "Sys" in element and element not in list_of_sys:
                     list_of_sys.append(element)
-    return
+    return list_of_sys
 
 if __name__ == "__main__":
     file_dir = os.path.dirname(os.path.realpath(__file__))
