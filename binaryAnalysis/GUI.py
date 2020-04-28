@@ -288,7 +288,7 @@ def acStartAnalysis(dom):
         results_dir = "/home/nope/Documents/project/CS-425-PROTOTYPE/binaryAnalysis/results/"
     else:
         results_dir = "/root/CS-425-PROTOTYPE/binaryAnalysis/results/"
-    analytics_path = results_dir + filename + "/" + filename + ".analytics", "r"
+    analytics_path = results_dir + filename + "/" + filename + ".analytics"
     with open(analytics_path, "r") as inputfile:
         analytics = inputfile.read()
 
