@@ -1,5 +1,5 @@
 from EnsembleFuzzer import Fuzzer
-from BMNetGen import Topo
+from BMNetGen import topo
 import threading
 import time
 
@@ -15,6 +15,10 @@ fuzzTimeText = "60"
 fuzzSeedText = "0"
 
 def generateFuzzerBody():
+    if topo is not None:
+        for key, val in topo.items():
+            print("Key: {}".format(key))
+            print("Val: {}".format(val))
     topo = ["127.0.0.1", "196.168.4.15", "10.0.0.1"]
     target_options = ""
     for ip in topo:

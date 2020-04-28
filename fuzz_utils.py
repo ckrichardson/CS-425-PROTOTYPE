@@ -1,7 +1,7 @@
 from scapy.all import *
 from scapy.contrib.openflow import _ofp_header
 
-from BMNetGen import Topo
+from BMNetGen import topo
 
 import subprocess
 import random
