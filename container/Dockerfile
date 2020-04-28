@@ -70,9 +70,9 @@ CMD [./install.sh]
 
 WORKDIR /root
 
-RUN echo "Nonce1234567890098765"
+RUN echo "Nonce1236986"
 
-RUN git clone -b scapy-testing https://github.com/ckrichardson/CS-425-PROTOTYPE.git CS-425-PROTOTYPE
+RUN git clone https://github.com/ckrichardson/CS-425-PROTOTYPE.git
 
 WORKDIR /root/CS-425-PROTOTYPE
 
