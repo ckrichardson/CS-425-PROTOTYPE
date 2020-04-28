@@ -121,8 +121,10 @@ def generateTopo():
     net.pingAll()
     global topo
     topo = net
-    # net.stop()
-    
+
+def stopTopo():
+    Mininet.stop(self)
+
 def generateNATTopo():
     
     global topo
