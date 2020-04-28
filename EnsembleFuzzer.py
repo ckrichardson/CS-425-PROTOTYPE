@@ -261,7 +261,7 @@ class Fuzzer:
             states[f.name] = f.fuzz_method(f)
         self.UpdateSeed()
         # report fuzzer success (to a log file preferably)
-        with open("fuzzer_log_" + date.today().strftime("%d%m%Y") + ".txt", "a+") as log_file:
+        with open("fuzzer_logs/fuzzer_log_" + date.today().strftime("%d%m%Y") + ".txt", "a+") as log_file:
             log_file.write(Fuzzer.TARGET)
             log_file.write(Fuzzer.TARGET_TYPE)
             log_file.write(states)

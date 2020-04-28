@@ -1,4 +1,5 @@
 from EnsembleFuzzer import Fuzzer
+from BMNetGen import Topo
 import threading
 import time
 
