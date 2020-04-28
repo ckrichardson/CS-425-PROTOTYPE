@@ -293,7 +293,7 @@ def acStartAnalysis(dom):
         analytics = inputfile.read()
 
     syscalls = find_network_sigs.find_syscalls(analytics_path)
-    net_syscalls = find_network_sigs.find_network_syscalls(path)
+    net_syscalls = find_network_sigs.find_network_syscalls(analytics_path)
     
     if graphics_1_bool == "true":
         if __name__ != "__main__":
@@ -325,17 +325,19 @@ def acStartAnalysis(dom):
 
     output_things = """
     Your binary made a total of {0} system calls:\n
-    """.format(syscalls)
+    <br> 
+    """.format(len(syscalls))
 
     for element in syscalls:
-        output_things += element.strip() + "\n"
+        output_things += "<br> " + "\n"  + element.strip()
     
     output_things += """
-    Of those system calls {0} were network related:
+    Of those system calls {0} were network related:\n
+    <br>
     """.format(len(net_syscalls))
     
     for element in net_syscalls:
-        output_things += element.strip() + "\n"
+        output_things += "<br> " + "\n" + element.strip()
 
     dom.setContent("filepath", "")
     dom.setContent("status", output_things)
