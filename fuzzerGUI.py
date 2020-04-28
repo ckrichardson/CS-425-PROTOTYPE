@@ -86,7 +86,7 @@ def generateFuzzerBody():
         <p id="fuzzStatus">{}</p>
     </div>
     <script type="text/javascript" language="javascript">
-    function updater() {{
+    var auto_updater = function() {{
         alert("I fired!");
         while (true) {{
             wait(250);
@@ -94,11 +94,11 @@ def generateFuzzerBody():
         }}
     }}
     if (window.attachEvent){{
-        window.attachEvent('onload', updater);
+        window.attachEvent('onload', auto_updater);
     }} else if (window.addEventListener){{
-        window.addEventListener('load', updater, false);
+        window.addEventListener('load', auto_updater, false);
     }} else {{
-        document.addEventListener('load', updater, false);
+        document.addEventListener('load', auto_updater, false);
     }}
     </script>
     """.format(targetSelection, target_options, fuzzSeedText, 
