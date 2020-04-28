@@ -28,7 +28,7 @@ MAX_SEED_INT = 9223372036854775807
 
 #radamsa helper function to generate a standard TCP packet 
 def radamsa_host_packet(seed):
-    packet = fuzz_utils.initializeConnection(Fuzzer.TARGET, 430)
+    packet = fuzz_utils.initializeConnection(Fuzzer.TARGET, 443)
     packet_payload = subprocess.run("echo {} | radamsa -s {}".format(
                                     Fuzzer.DEFAULT_PACKET_PAYLOAD, seed), 
                                     shell=True, stdout=subprocess.PIPE).stdout
@@ -85,7 +85,7 @@ def blab_host_packet(seed):
     tcp_payload = subprocess.run("blab -s {} -e {}".format(seed,tcp_packet_grammar), 
                                 shell=True, stdout=subprocess.PIPE).stdout
     tcp_payload = TCP(tcp_payload)
-    packet = fuzz_utils.initializeConnection(Fuzzer.TARGET, 430)
+    packet = fuzz_utils.initializeConnection(Fuzzer.TARGET, 443)
     _src = packet[IP].src
     _dst = packet[IP].dst
     packet = IP(src=_src, dst=Fuzzer.TARGET)/tcp_payload
