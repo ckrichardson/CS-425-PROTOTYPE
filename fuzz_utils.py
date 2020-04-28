@@ -28,7 +28,7 @@ def process(packet):
 def get_current_state():
     state = ""
     if BMNetGen.topo is not None:
-        for key, val in BMNetGen.topo.items()
+        for key, val in BMNetGen.topo.items():
             if isinstance(val, mininet.node.Switch):
                 cmd = "ovs-ofctl dump-flows {}".format(key)
                 state = state + subprocess.run(cmd, shell=True, 
