@@ -143,7 +143,7 @@ def acStartFuzzer(dom):
     if targetSelection == "":
         print("Invalid selection")
         dom.setContent("fuzzStatus", "Please select a target from the drop down menu.\nBe sure to generate a network first!")
-        break
+        return
     Fuzzer.TARGET = targetSelection
     if Fuzzer.TARGET == "127.0.0.1":
         Fuzzer.TARGET_TYPE = "switch"
