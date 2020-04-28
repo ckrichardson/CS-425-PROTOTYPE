@@ -27,6 +27,7 @@ def process(packet):
 
 def get_current_state():
     state = ""
+    return state
     if BMNetGen.topo is not None:
         for key, val in BMNetGen.topo.items():
             if isinstance(val, mininet.node.Switch):
@@ -38,6 +39,7 @@ def get_current_state():
 
 
 def verify_state():
+    return True
     current_state = get_current_state()
     global PREV_STATE
     if current_state == PREV_STATE:

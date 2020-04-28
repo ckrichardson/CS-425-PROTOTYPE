@@ -7,7 +7,7 @@ enableCancel = False
 enableStart = True
 
 fuzzingStatus = ""
-targetSelection = "N/A"
+targetSelection = "Please Select"
 selectedFuzzers = []
 for fuzz in Fuzzer.engines.keys():
     selectedFuzzers.append(fuzz)
@@ -57,7 +57,7 @@ def generateFuzzerBody():
             <div align="left" style="display: inline-block">
                 <form>
                     <label for="seed">Set Seed</label><br>
-                    <input type="number" step="1" id="seed" name="seed" value="{}" style="width:100px">
+                    <input type="number" step="1" min="0" id="seed" name="seed" value="{}" style="width:100px">
                 </form>
                 <br>
             </div>
@@ -72,7 +72,7 @@ def generateFuzzerBody():
         <div>
             <form>
                 <label for="time">Set fuzzing time constraint</label><br>
-                <input type="number" step="0.001" id="time" name="time" value="{}" style="width:100px">
+                <input type="number" step="0.001" min="0" id="time" name="time" value="{}" style="width:100px">
             </form>
             <br>
         </div>
@@ -139,6 +139,8 @@ def fuzz_thread_func(dom, target, seed, fuzztime, fuzzers):
     enableStart = True
 
 def acStartFuzzer(dom):
+    if fuzz_thread is not None:
+        return
     global targetSelection
     targetSelection = dom.getContent("ip")
     if targetSelection == "":
@@ -156,13 +158,16 @@ def acStartFuzzer(dom):
     if fuzzSeedText == "":
         fuzzSeedText = "0"
     dom.setContent("seed", fuzzSeedText)
-    seed = int(fuzzSeedText, 10)
+    seed = abs(int(fuzzSeedText, 10))
     global fuzzTimeText
     fuzzTimeText = dom.getContent("time")
     if fuzzTimeText == "":
         fuzztime = 60 * 60 * 24 * 5 #five days should be indefinite enough
     else:
-        fuzztime = float(fuzzTimeText)
+        try:
+            fuzztime = abs(float(fuzzTimeText))
+        except:
+            fuzztime = 60 * 60 * 24 * 5 #why u gotta break it?
     fuzzTimeText = str(fuzztime)
     dom.setContent("time", fuzzTimeText)
     global selectedFuzzers
