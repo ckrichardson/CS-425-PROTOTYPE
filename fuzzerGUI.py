@@ -90,18 +90,21 @@ def generateFuzzerBody():
     window.onload = function(e) {{
         while (true) {{
             wait(250);
+            alert("window.onload")
             document.getElementById("UPDATE_BUTTON").click();
         }}
     }}
     window.document.onload = function(e) {{
         while (true) {{
             wait(250);
+            alert("window.document.onload")
             document.getElementById("UPDATE_BUTTON").click();
         }}
     }}
     document.onload = function(e) {{
         while (true) {{
             wait(250);
+            alert("document.onload")
             document.getElementById("UPDATE_BUTTON").click();
         }}
     }}
