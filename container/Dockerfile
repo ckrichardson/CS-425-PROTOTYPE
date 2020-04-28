@@ -70,7 +70,7 @@ CMD [./install.sh]
 
 WORKDIR /root
 
-RUN echo "Nonce1236986"
+RUN echo "syn"
 
 RUN git clone https://github.com/ckrichardson/CS-425-PROTOTYPE.git
 
@@ -83,4 +83,3 @@ RUN chmod +x /ENTRYPOINT.sh
 ENTRYPOINT ["/ENTRYPOINT.sh"]
 
 EXPOSE 6633 6653 6640
-

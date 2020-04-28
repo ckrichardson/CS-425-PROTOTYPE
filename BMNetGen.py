@@ -35,9 +35,11 @@ import re
 # import base64 to process the tput graph and reveal in Atlas
 import base64
 
+topo = None
+
 # defines the network topology
 class BMTopo(Topo):
-
+    
     # the topology is hard coded here
     def build(self):
 
@@ -102,8 +104,10 @@ def generateTopo():
     # create network nodes
     c0 = net.addController()
     h0 = net.addHost('h0')
+    h0 = net.get('h0')
     s0 = net.addSwitch('s0')
     h1 = net.addHost('h1')
+    h1 = net.get('h1')
 
     # create network node links
     net.addLink(h0, s0)
@@ -115,9 +119,16 @@ def generateTopo():
 
     net.start()
     net.pingAll()
-    net.stop()
-    
+    global topo
+    topo = net
+
+def stopTopo():
+    Mininet.stop(self)
+
 def generateNATTopo():
+    
+    global topo
+
     # generates a NAT topo
     topo = BMNatTopo()
     net = Mininet(topo=topo)
@@ -137,6 +148,8 @@ def generateNATTopo():
     
 # runs an iperf test between hosts in the topology
 def bandwidthTest():
+
+    global topo
     # create network topology
     topo = BMTopo()
     

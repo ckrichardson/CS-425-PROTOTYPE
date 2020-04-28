@@ -28,7 +28,7 @@ MAX_SEED_INT = 9223372036854775807
 
 #radamsa helper function to generate a standard TCP packet 
 def radamsa_host_packet(seed):
-    packet = fuzz_utils.initializeConnection(Fuzzer.TARGET, 430)
+    packet = fuzz_utils.initializeConnection(Fuzzer.TARGET, 443)
     packet_payload = subprocess.run("echo {} | radamsa -s {}".format(
                                     Fuzzer.DEFAULT_PACKET_PAYLOAD, seed), 
                                     shell=True, stdout=subprocess.PIPE).stdout
@@ -85,7 +85,7 @@ def blab_host_packet(seed):
     tcp_payload = subprocess.run("blab -s {} -e {}".format(seed,tcp_packet_grammar), 
                                 shell=True, stdout=subprocess.PIPE).stdout
     tcp_payload = TCP(tcp_payload)
-    packet = fuzz_utils.initializeConnection(Fuzzer.TARGET, 430)
+    packet = fuzz_utils.initializeConnection(Fuzzer.TARGET, 443)
     _src = packet[IP].src
     _dst = packet[IP].dst
     packet = IP(src=_src, dst=Fuzzer.TARGET)/tcp_payload
@@ -261,10 +261,13 @@ class Fuzzer:
             states[f.name] = f.fuzz_method(f)
         self.UpdateSeed()
         # report fuzzer success (to a log file preferably)
-        with open("fuzzer_log_" + date.today().strftime("%d%m%Y") + ".txt", "a+") as log_file:
-            log_file.write(Fuzzer.TARGET)
-            log_file.write(Fuzzer.TARGET_TYPE)
-            log_file.write(states)
+        with open("fuzzer_logs/fuzzer_log_" + date.today().strftime("%d%m%Y") + ".txt", "a+") as log_file:
+            log_file.write("Target: " + Fuzzer.TARGET + "\n")
+            log_file.write("Target type: " + Fuzzer.TARGET_TYPE + "\n")
+            log_file.write("Seed: " + str(self.seed) + "\n")
+            for key, val in states.items():
+                log_file.write("{}: {}\n".format(key, "state changed" if val is False else "state unchanged"))
+            log_file.write("\n")
         for key, val in states.items():
             if val is False:
                 return (self.seed, states)
