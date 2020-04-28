@@ -38,9 +38,6 @@ def generateNetworkBody():
     """
     return body
     
-def acNetworkStop(dom):
-    BMNetGen.stopTopo()
-    
 def acNetworkStart(dom):    
     BMNetGen.generateTopo()
     dom.disableElement("networkStartButton")
@@ -95,5 +92,4 @@ def acSendGraphEmail(dom):
 networkCallbacks = {
     "networkStart": acNetworkStart,
     "emailNetGraph": acSendGraphEmail,
-    "networkStop": acNetworkStop,
 }
