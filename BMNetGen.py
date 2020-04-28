@@ -104,8 +104,10 @@ def generateTopo():
     # create network nodes
     c0 = net.addController()
     h0 = net.addHost('h0')
+    h0 = net.get('h0')
     s0 = net.addSwitch('s0')
     h1 = net.addHost('h1')
+    h1 = net.get('h1')
 
     # create network node links
     net.addLink(h0, s0)

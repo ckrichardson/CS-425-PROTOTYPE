@@ -7,7 +7,7 @@ enableCancel = False
 enableStart = True
 
 fuzzingStatus = ""
-targetSelection = ""
+targetSelection = "N/A"
 selectedFuzzers = []
 for fuzz in Fuzzer.engines.keys():
     selectedFuzzers.append(fuzz)
@@ -15,13 +15,12 @@ fuzzTimeText = "60"
 fuzzSeedText = "0"
 
 def generateFuzzerBody():
-    if BMNetGen.topo is not None:
-        for node in BMNetGen.topo.keys():
-            print("{}: {}".format(node, BMNetGen.topo[node].IP()))
-    topo = ["127.0.0.1", "196.168.4.15", "10.0.0.1"]
     target_options = ""
-    for ip in topo:
-        target_options = target_options + "\n<option value=\"{}\">{}</option>".format(ip, ip)
+    if BMNetGen.topo is not None:
+        for node, val in BMNetGen.topo.items():
+            if val.IP() != "127.0.0.1":
+                target_options = target_options + "\n<option value=\"{}\">{}</option>".format(val.IP, node + ": " + val.IP())
+        target_options = target_options + "\n<option value=\"{}\">{}</option>".format("127.0.0.1", "switch")
 
     engine_options = ""
     for fuzz in Fuzzer.engines.keys():
@@ -58,7 +57,7 @@ def generateFuzzerBody():
             <div align="left" style="display: inline-block">
                 <form>
                     <label for="seed">Set Seed</label><br>
-                    <input type="integer" id="seed" name="seed" value="{}" style="width:100px">
+                    <input type="number" step="1" id="seed" name="seed" value="{}" style="width:100px">
                 </form>
                 <br>
             </div>
@@ -73,7 +72,7 @@ def generateFuzzerBody():
         <div>
             <form>
                 <label for="time">Set fuzzing time constraint</label><br>
-                <input type="text" id="time" name="time" value="{}" style="width:100px">
+                <input type="number" step="0.001" id="time" name="time" value="{}" style="width:100px">
             </form>
             <br>
         </div>
@@ -86,7 +85,9 @@ def generateFuzzerBody():
         <br>
         <p id="fuzzStatus">{}</p>
     </div>
-    """.format(targetSelection, target_options, fuzzSeedText, engine_options, fuzzTimeText, startEnabled, cancelEnabled, fuzzingStatus)
+    """.format(targetSelection, target_options, fuzzSeedText, 
+                engine_options, fuzzTimeText, startEnabled, 
+                cancelEnabled, fuzzingStatus)
     return body
 
 fuzz_thread = None
@@ -128,6 +129,7 @@ def fuzz_thread_func(dom, target, seed, fuzztime, fuzzers):
         except:
             continue
     fuzzingStatus = "Finished fuzzing {}".format(target + successful_seeds)
+    print(fuzzingStatus)
     dom.setContent("fuzzStatus", fuzzingStatus)
     dom.disableElement("fuzzCancelButton")
     dom.enableElement("fuzzStartButton")
@@ -138,7 +140,15 @@ def fuzz_thread_func(dom, target, seed, fuzztime, fuzzers):
 def acStartFuzzer(dom):
     global targetSelection
     targetSelection = dom.getContent("ip")
+    if targetSelection == "":
+        print("Invalid selection")
+        dom.setContent("fuzzStatus", "Please select a target from the drop down menu.\nBe sure to generate a network first!")
+        break
     Fuzzer.TARGET = targetSelection
+    if Fuzzer.TARGET == "127.0.0.1":
+        Fuzzer.TARGET_TYPE = "switch"
+    else:
+        Fuzzer.TARGET_TYPE = "machine"
     print("Fuzzing target: {}".format(targetSelection))
     global fuzzSeedText 
     fuzzSeedText = dom.getContent("seed")
