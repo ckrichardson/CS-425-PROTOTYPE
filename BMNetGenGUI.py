@@ -48,8 +48,10 @@ def acSendGraphEmail(dom):
     dom.disableElement("acSendGraphEmail")
 
     BMNetGen.plotNet()
+    print("*** Tput graph successfully saved")
     
     tput_email = dom.getContent("tput_email")
+    print("*** Email captured")
     
     subject = "SDN Topology Throughput Graph"
     body = "The attached image presents the result of the throughput test."
@@ -92,6 +94,7 @@ def acSendGraphEmail(dom):
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
         server.login(sender_email, password)
         server.sendmail(sender_email, tput_email, text)
+    print("*** Email sent")
 
 networkCallbacks = {
     "networkStart": acNetworkStart,
