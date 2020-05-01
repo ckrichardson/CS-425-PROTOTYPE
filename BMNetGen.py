@@ -180,10 +180,10 @@ def bandwidthTest():
     return perfList
 
 # plot the network
-# returns the graph encoded as base64 for frontend
 def plotNet():
     # get the data to plot   
     hostBandwidth = bandwidthTest()
+    print("*** Bandwidth test successful")
 
     # process hostBandwidth to extract numerical values only
     # strips the unit from each list element
@@ -200,6 +200,7 @@ def plotNet():
     # hostBandwidthNumeralsFlat is a list of strings
     # convert the strings to int using list comprehension
     hostBandwidthNumeralsFlat = [float(f) for f in hostBandwidthNumeralsFlat]
+    print("*** List conversion successful")
 
     # configure the bar graph
     plotHosts = ('Host 1', 'Host 2')
