@@ -51,7 +51,7 @@ def acSendGraphEmail(dom):
     print("*** Tput graph successfully saved")
     
     tput_email = dom.getContent("tput_email")
-    print("*** Email captured")
+    print("*** Email address captured")
     
     subject = "SDN Topology Throughput Graph"
     body = "The attached image presents the result of the throughput test."
@@ -62,7 +62,7 @@ def acSendGraphEmail(dom):
     # create and set headers
     message = MIMEMultipart()
     message["From"] = sender_email
-    message["To"] = tput_email
+    message["To"] = receiver_email
     message["Subject"] = subject
 
     # add body to email
