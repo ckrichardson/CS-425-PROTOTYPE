@@ -217,7 +217,7 @@ def plotNet():
     # convert PNG to base64
     with open('tput_graph.png', 'rb') as image_file:
         base64_image = base64.b64encode(image_file.read())
-    print(base64_image.decode('utf-8'))            
+#    print(base64_image.decode('utf-8'))            
 
     
     
