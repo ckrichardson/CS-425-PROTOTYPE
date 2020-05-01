@@ -28,7 +28,7 @@ def generateNetworkBody():
         </button>
         <form>
             <br>
-            <label> Enter email to receive throughput graph: <label>
+            <label> Enter email and click "Generate graph": <label>
             <br>
             <input type="text" id="tput_email_field">
         </form>
@@ -44,9 +44,13 @@ def acNetworkStart(dom):
     dom.disableElement("tput_email_field")
 
 
-    BMNetGen.generateTopo()
+    try:
+        BMNetGen.generateTopo()
+        dom.alert("Network is up. Click the Fuzzer button to begin testing.")
 
-    dom.alert("Network is up. Click the Fuzzer button to begin testing.")
+    except:
+        dom.alert("Error. The network may still be running. Terminate terminal \
+            and relaunch.")
 
 def acSendGraphEmail(dom):
     dom.disableElement("emailButton")
@@ -105,7 +109,7 @@ def acSendGraphEmail(dom):
         print("*** Email sent")
         dom.alert("Email sent!")
     except:
-        dom.alert("Error: Email not sent! Please the spelling.")
+        dom.alert("Error: Email not sent! Please check the spelling.")
         dom.enableElement("emailButton")
         dom.enableElement("tput_email_field")
 
