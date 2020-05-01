@@ -40,12 +40,12 @@ def generateNetworkBody():
     
 def acNetworkStart(dom):    
     dom.disableElement("networkStartButton")
-    dom.disableElement("acSendGraphEmail")
+    dom.disableElement("emailButton")
 
     BMNetGen.generateTopo()
     
 def acSendGraphEmail(dom):
-    dom.disableElement("acSendGraphEmail")
+    dom.disableElement("emailButton")
 
     BMNetGen.plotNet()
     print("*** Tput graph successfully saved")
