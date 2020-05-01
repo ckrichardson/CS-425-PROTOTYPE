@@ -39,11 +39,14 @@ def generateNetworkBody():
     return body
     
 def acNetworkStart(dom):    
-    BMNetGen.generateTopo()
     dom.disableElement("networkStartButton")
+
+    BMNetGen.generateTopo()
     
 def acSendGraphEmail(dom):
-    base64ImageResult = BMNetGen.plotNet()
+    dom.disableElement("acSendGraphEmail")
+
+    BMNetGen.plotNet()
     
     tput_email = dom.getContent("tput_email")
     
