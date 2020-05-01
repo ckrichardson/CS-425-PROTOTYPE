@@ -95,13 +95,17 @@ def acSendGraphEmail(dom):
     text = message.as_string()
     print("*** Tput graph attached")
 
-    # log in to server and send email
-    context = ssl.create_default_context()
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
-        server.login(sender_email, password)
-        server.sendmail(sender_email, tput_email, text)
-    print("*** Email sent")
-    alert("Email sent!")
+
+    try:
+        # log in to server and send email
+        context = ssl.create_default_context()
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
+            server.login(sender_email, password)
+            server.sendmail(sender_email, tput_email, text)
+        print("*** Email sent")
+        alert("Email sent!")
+    except:
+        alert("Error: Email not sent! Please check the spelling.")
 
 networkCallbacks = {
     "networkStart": acNetworkStart,
