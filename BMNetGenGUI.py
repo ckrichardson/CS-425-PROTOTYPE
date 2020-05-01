@@ -50,8 +50,8 @@ def acSendGraphEmail(dom):
     BMNetGen.plotNet()
     print("*** Tput graph successfully saved")
     
-    tput_email = dom.getContent("tput_email")
-    print("*** Email address captured")
+#    tput_email = dom.getContent("tput_email")
+#    print("*** Email address captured")
     
     subject = "SDN Topology Throughput Graph"
     body = "The attached image presents the result of the throughput test."
@@ -88,6 +88,7 @@ def acSendGraphEmail(dom):
     # add attachment to message 
     message.attach(part)
     text = message.as_string()
+    print("Tput graph attached")
 
     # log in to server and send email
     context = ssl.create_default_context()
