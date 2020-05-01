@@ -106,6 +106,8 @@ def acSendGraphEmail(dom):
         dom.alert("Email sent!")
     except:
         dom.alert("Error: Email not sent! Please the spelling.")
+        dom.enableElement("emailButton")
+        dom.enableElement("tput_email_field")
 
 networkCallbacks = {
     "networkStart": acNetworkStart,
