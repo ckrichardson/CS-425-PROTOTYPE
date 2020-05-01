@@ -46,7 +46,7 @@ def acNetworkStart(dom):
 
     BMNetGen.generateTopo()
 
-    alet("Network is up. Click the Fuzzer button to begin testing.")
+    dom.alert("Network is up. Click the Fuzzer button to begin testing.")
 
 def acSendGraphEmail(dom):
     dom.disableElement("emailButton")
@@ -103,9 +103,9 @@ def acSendGraphEmail(dom):
             server.login(sender_email, password)
             server.sendmail(sender_email, tput_email, text)
         print("*** Email sent")
-        alert("Email sent!")
+        dom.alert("Email sent!")
     except:
-        alert("Error: Email not sent! Please check the spelling.")
+        dom.alert("Error: Email not sent! Please the spelling.")
 
 networkCallbacks = {
     "networkStart": acNetworkStart,
