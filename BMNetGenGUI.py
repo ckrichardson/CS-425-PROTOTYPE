@@ -40,6 +40,7 @@ def generateNetworkBody():
     
 def acNetworkStart(dom):    
     dom.disableElement("networkStartButton")
+    dom.disableElement("acSendGraphEmail")
 
     BMNetGen.generateTopo()
     
