@@ -45,7 +45,9 @@ def acNetworkStart(dom):
 
 
     BMNetGen.generateTopo()
-    
+
+    alet("Network is up. Click the Fuzzer button to begin testing.")
+
 def acSendGraphEmail(dom):
     dom.disableElement("emailButton")
     dom.disableElement("tput_email_field")
@@ -99,6 +101,7 @@ def acSendGraphEmail(dom):
         server.login(sender_email, password)
         server.sendmail(sender_email, tput_email, text)
     print("*** Email sent")
+    alert("Email sent!")
 
 networkCallbacks = {
     "networkStart": acNetworkStart,
