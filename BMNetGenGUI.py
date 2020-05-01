@@ -30,7 +30,7 @@ def generateNetworkBody():
             <br>
             <label> Enter email to receive throughput graph: <label>
             <br>
-            <input type="text" id="tput_email">
+            <input type="text" id="tput_email_field">
         </form>
             <br>
         
@@ -50,8 +50,8 @@ def acSendGraphEmail(dom):
     BMNetGen.plotNet()
     print("*** Tput graph successfully saved")
     
-#    tput_email = dom.getContent("tput_email")
-#    print("*** Email address captured")
+    tput_email = dom.getContent("tput_email_field")
+    print("*** Email address captured")
     
     subject = "SDN Topology Throughput Graph"
     body = "The attached image presents the result of the throughput test."
@@ -62,7 +62,7 @@ def acSendGraphEmail(dom):
     # create and set headers
     message = MIMEMultipart()
     message["From"] = sender_email
-    message["To"] = receiver_email
+    message["To"] = tput_email
     message["Subject"] = subject
 
     # add body to email
@@ -88,13 +88,13 @@ def acSendGraphEmail(dom):
     # add attachment to message 
     message.attach(part)
     text = message.as_string()
-    print("Tput graph attached")
+    print("*** Tput graph attached")
 
     # log in to server and send email
     context = ssl.create_default_context()
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
         server.login(sender_email, password)
-        server.sendmail(sender_email, receiver_email, text)
+        server.sendmail(sender_email, tput_email, text)
     print("*** Email sent")
 
 networkCallbacks = {
