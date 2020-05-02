@@ -18,14 +18,15 @@ from email.mime.text import MIMEText
 def generateNetworkBody():
     body = """
     <br>
-        <button id="networkStartButton" data-xdh-onevent="networkStart" {}>
-            Fuzzer network
-        </button>
-        </button>
         <button id="emailButton" data-xdh-onevent="emailNetGraph" {}>
             Generate graph
         </button>
         </button>
+        <button id="networkStartButton" data-xdh-onevent="networkStart" {}>
+            Fuzzer network
+        </button>
+        </button>
+        
         <form>
             <br>
             <label> Enter email and click "Generate graph": <label>
@@ -49,8 +50,8 @@ def acNetworkStart(dom):
         dom.alert("Network is up. Click the Fuzzer button to begin testing.")
 
     except:
-        dom.alert("Error. The network may still be running. Terminate terminal \
-            and relaunch.")
+        dom.alert("Error: The network is running. Please terminate terminal\
+                  and relaunch")
 
 def acSendGraphEmail(dom):
     dom.disableElement("emailButton")
