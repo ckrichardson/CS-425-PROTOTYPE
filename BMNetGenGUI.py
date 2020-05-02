@@ -113,7 +113,7 @@ def acSendGraphEmail(dom):
             dom.enableElement("emailButton")
             dom.enableElement("tput_email_field")
     except:
-        print("Error: The network is running. Please terminate terminal and relaunch.")
+        dom.alert("Error: The network is running. Please terminate terminal and relaunch.")
 
 networkCallbacks = {
     "networkStart": acNetworkStart,
