@@ -50,15 +50,17 @@ def acNetworkStart(dom):
         dom.alert("Network is up. Click the Fuzzer button to begin testing.")
 
     except:
-        dom.alert("Error: The network is running. Please terminate terminal\
-                  and relaunch")
-
+        dom.alert("Error: The network is running. Please terminate terminal and relaunch.")
+        
 def acSendGraphEmail(dom):
     dom.disableElement("emailButton")
     dom.disableElement("tput_email_field")
 
-    BMNetGen.plotNet()
-    print("*** Tput graph successfully saved")
+    try:
+        BMNetGen.plotNet()
+        print("*** Tput graph successfully saved")
+    except:
+        dom.alert("Error: The network is running. Please terminate terminal and relaunch.")
     
     tput_email = dom.getContent("tput_email_field")
     print("*** Email address captured")
