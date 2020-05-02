@@ -44,7 +44,6 @@ def acNetworkStart(dom):
     dom.disableElement("emailButton")
     dom.disableElement("tput_email_field")
 
-
     try:
         BMNetGen.generateTopo()
         dom.alert("Network is up. Click the Fuzzer button to begin testing.")
@@ -59,62 +58,62 @@ def acSendGraphEmail(dom):
     try:
         BMNetGen.plotNet()
         print("*** Tput graph successfully saved")
-    except:
-        dom.alert("Error: The network is running. Please terminate terminal and relaunch.")
+   
+        tput_email = dom.getContent("tput_email_field")
+        print("*** Email address captured")
     
-    tput_email = dom.getContent("tput_email_field")
-    print("*** Email address captured")
-    
-    subject = "SDN Topology Throughput Graph"
-    body = "The attached image presents the result of the throughput test."
-    sender_email = "resiliencedonotreply+bmnet@gmail.com"
-    receiver_email = "jhaghighi@nevada.unr.edu"
-    password = "tubesock1"
+        subject = "SDN Topology Throughput Graph"
+        body = "The attached image presents the result of the throughput test."
+        sender_email = "resiliencedonotreply+bmnet@gmail.com"
+        receiver_email = "jhaghighi@nevada.unr.edu"
+        password = "tubesock1"
 
-    # create and set headers
-    message = MIMEMultipart()
-    message["From"] = sender_email
-    message["To"] = tput_email
-    message["Subject"] = subject
+        # create and set headers
+        message = MIMEMultipart()
+        message["From"] = sender_email
+        message["To"] = tput_email
+        message["Subject"] = subject
 
-    # add body to email
-    message.attach(MIMEText(body, "plain"))
+        # add body to email
+        message.attach(MIMEText(body, "plain"))
 
-    filename = "tput_graph.png" # located in /root/CS-425-PROTOTYPE
+        filename = "tput_graph.png" # located in /root/CS-425-PROTOTYPE
 
-    # open PDF file in binary mode
-    with open(filename, "rb") as attachment:
-        # bytestream
-        part = MIMEBase("application", "octet-stream")
-        part.set_payload(attachment.read())
+        # open PDF file in binary mode
+        with open(filename, "rb") as attachment:
+            # bytestream
+            part = MIMEBase("application", "octet-stream")
+            part.set_payload(attachment.read())
 
-    # encode file to send by email    
-    encoders.encode_base64(part)
+        # encode file to send by email    
+        encoders.encode_base64(part)
 
-    # add header to attachment
-    part.add_header(
-                    "Content-Disposition",
-                    f"attachment; filename= {filename}",
-                    )
+        # add header to attachment
+        part.add_header(
+                        "Content-Disposition",
+                        f"attachment; filename= {filename}",
+                        )
 
-    # add attachment to message 
-    message.attach(part)
-    text = message.as_string()
-    print("*** Tput graph attached")
+        # add attachment to message 
+        message.attach(part)
+        text = message.as_string()
+        print("*** Tput graph attached")
 
 
-    try:
-        # log in to server and send email
-        context = ssl.create_default_context()
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
-            server.login(sender_email, password)
-            server.sendmail(sender_email, tput_email, text)
-        print("*** Email sent")
-        dom.alert("Email sent!")
+        try:
+            # log in to server and send email
+            context = ssl.create_default_context()
+            with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
+                server.login(sender_email, password)
+                server.sendmail(sender_email, tput_email, text)
+            print("*** Email sent")
+            dom.alert("Email sent!")
+        except:
+            dom.alert("Error: Email not sent! Please check the spelling.")
+            dom.enableElement("emailButton")
+            dom.enableElement("tput_email_field")
     except:
-        dom.alert("Error: Email not sent! Please check the spelling.")
-        dom.enableElement("emailButton")
-        dom.enableElement("tput_email_field")
+        print("Error: The network is running. Please terminate terminal and relaunch.")
 
 networkCallbacks = {
     "networkStart": acNetworkStart,
