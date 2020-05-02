@@ -23,7 +23,7 @@ def generateNetworkBody():
         </button>
         </button>
         <button id="networkStartButton" data-xdh-onevent="networkStart" {}>
-            Fuzzer network
+            Fuzz network
         </button>
         </button>
         
