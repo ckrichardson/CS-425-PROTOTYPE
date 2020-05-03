@@ -331,7 +331,7 @@ def acStartAnalysis(dom):
     for element in syscalls:
         output_things += "<br> " + "\n"  + element.strip()
     
-    output_things += """<br> \n
+    output_things += """<br> \n <br> \n <br> \n
     Of those system calls {0} were network related:\n
     <br>
     """.format(len(net_syscalls))
