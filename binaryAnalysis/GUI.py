@@ -6,7 +6,7 @@ except ImportError:
     print("Abs import fail")
 
 try:
-    from .import find_network_sigs
+    from . import find_network_sigs
 except ModuleNotFoundError:
     print("Relative import fail")
 

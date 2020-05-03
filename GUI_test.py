@@ -1,5 +1,8 @@
 import pytest
-from GUI import *
+from binaryAnalysis.GUI import *
+import atlastk
+from binaryAnalysis.find_network_sigs import *
+from unittest.mock import patch
 
 def pytest_report_header(config):
     """ 
@@ -71,3 +74,14 @@ def test_path_one(mock_file_path_good):
     assert file_path_good("/root/CS-425-PROTOTYPE/binaryAnalysis/100.PRG") == True
     assert file_path_good("/rot/CS-425-PROTOTYPE/binaryAnalysis/100.PRG") == False
 
+def test_acConnect():
+    """
+    Testing acConnect
+    """ 
+    assert acConnect("blah") == False
+
+def test_acEndAnalysis():
+    """
+    Testing acEndAnalysis
+    """
+    assert acEndAnalysis("blah") == None
