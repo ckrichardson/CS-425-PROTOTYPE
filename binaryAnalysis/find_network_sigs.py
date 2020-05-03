@@ -26,10 +26,10 @@ def find_network_syscalls(path):
     list_of_sys = []
 
     with open(path,"r") as inputfile:
-            for line in inputfile:
-                fields =  line.split(" ")
+        for line in inputfile:
+            fields =  line.split(" ")
             for element in fields:
-                if "SysSock" in element and element not in list_of_sys:
+                if "Sock" in element and element not in list_of_sys:
                     list_of_sys.append(element)
     return list_of_sys
 
